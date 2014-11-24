@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'paperclip'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'bower-rails'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 
