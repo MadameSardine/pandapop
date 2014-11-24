@@ -11,6 +11,7 @@ gem 'paperclip'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'yourub', '~> 1.1.0'
 
 
 group :test, :development do
@@ -23,8 +24,3 @@ group :test, :development do
   gem 'poltergeist'
   gem 'selenium-webdriver'
 end
-
-
-
-
-

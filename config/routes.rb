@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'tracks#index'
 
+  get 'videos/index'
+  post 'videos/index'
+  get 'videos/:id' => 'videos#details', as: :details
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
