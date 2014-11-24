@@ -2,7 +2,6 @@
 <ul>
   <% @tracks.each do |track| %>
   <li><%= link_to track.title, track_path(track) %> 
-    <%= form_for []%>
   </li>
   <% end %>
 </ul>

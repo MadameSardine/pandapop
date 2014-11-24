@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124175502) do
+ActiveRecord::Schema.define(version: 20141124183708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,13 +21,15 @@ ActiveRecord::Schema.define(version: 20141124175502) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "track_id"
   end
 
+  add_index "playlists", ["track_id"], name: "index_playlists_on_track_id", using: :btree
   add_index "playlists", ["user_id"], name: "index_playlists_on_user_id", using: :btree
 
   create_table "playlists_tracks", id: false, force: true do |t|
-    t.integer "track_id",    null: false
     t.integer "playlist_id", null: false
+    t.integer "track_id",    null: false
   end
 
   create_table "tracks", force: true do |t|
@@ -37,7 +39,10 @@ ActiveRecord::Schema.define(version: 20141124175502) do
     t.integer  "plays"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "playlist_id"
   end
+
+  add_index "tracks", ["playlist_id"], name: "index_tracks_on_playlist_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

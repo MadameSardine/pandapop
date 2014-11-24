@@ -52,14 +52,6 @@ describe 'tracks dashboard' do
       expect(page).to have_link 'Play track'
     end
 
-    it 'user can add a track to a playlist from the track page' do
-      visit '/'
-      select "Taylor Swift Jamz", from: "Playlists"
-      click_link 'Add to playlist'
-      expect(current_path).to eq user_playlist_path(@panda, @taylorjamz)
-      expect(page).to have_content "Shake it off"
-    end
-
   end
 
 end
