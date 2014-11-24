@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :test, :development do
   gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'warden'
