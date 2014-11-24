@@ -1,12 +1,16 @@
 <h1>Top tracks</h1>
+<ul>
+  <% @tracks.each do |track| %>
+  <li><%= link_to track.title, track_path(track) %> 
+    <%= form_for []%>
+  </li>
+  <% end %>
+</ul>
 
 <% if current_user %>
 
-<section class='track-box'>
-  <h1>Playlists</h1>
-</section>
 
-<section class='track-box'>
+<section class='follower-box'>
   <h1>Followers</h1>
 </section>
 

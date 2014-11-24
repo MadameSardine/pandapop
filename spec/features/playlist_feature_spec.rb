@@ -50,6 +50,9 @@ describe 'playlist management' do
         expect(current_path).to eq user_playlist_path(@panda, @taylorjamz)
       end
 
+      it 'a user can add a track to a playlist from the playlist page' do 
+      end
+
     end
 
   end

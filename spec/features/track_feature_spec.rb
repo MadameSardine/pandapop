@@ -32,6 +32,8 @@ describe 'tracks dashboard' do
     before do
       @panda = User.create(email: 'panda123@test.com', username: 'panda123', first_name: 'panda', last_name: 'pop', password: 'pandapop123', password_confirmation: 'pandapop123')
       login_as @panda
+      @shakeitoff = Track.create(title: 'Shake it off', youtube_url: "www.youtube.com/taylor", duration: "4.00", plays: "4")
+      @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
     end
 
     it 'user can see followers and playlists' do
@@ -48,6 +50,14 @@ describe 'tracks dashboard' do
     it 'user can see a link to play a track' do 
       visit '/'
       expect(page).to have_link 'Play track'
+    end
+
+    it 'user can add a track to a playlist from the track page' do
+      visit '/'
+      select "Taylor Swift Jamz", from: "Playlists"
+      click_link 'Add to playlist'
+      expect(current_path).to eq user_playlist_path(@panda, @taylorjamz)
+      expect(page).to have_content "Shake it off"
     end
 
   end
