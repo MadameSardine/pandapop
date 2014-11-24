@@ -4,6 +4,12 @@ require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
+require 'database_cleaner'
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+
+include Warden::Test::Helpers
+Warden.test_mode!
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -26,6 +32,33 @@ require 'capybara/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+
+  config.include Capybara::DSL
+  config.include Devise::TestHelpers, :type => :requests
+  config.include Warden::Test::Helpers, :type => :requests
+
+  config.use_transactional_fixtures = false
+
+  config.before(:suite) do
+    DatabaseCleaner.clean_with :truncation
+  end
+
+   config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+   config.before(:each, :js => true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before :each do
+    DatabaseCleaner.start
+  end
+
+  config.after :each do
+    DatabaseCleaner.clean
+    Warden.test_reset!
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

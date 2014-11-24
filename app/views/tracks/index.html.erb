@@ -1,1 +1,20 @@
 <h1>Top tracks</h1>
+
+<% if current_user %>
+
+<section class='track-box'>
+  <h1>Playlists</h1>
+</section>
+
+<section class='track-box'>
+  <h1>Followers</h1>
+  <a href='#'>New playlist</a>
+</section>
+
+<% else %>
+
+<section class='track-box'>
+There are the top tracks yaaaayyyyy
+</section>
+
+<% end %>
