@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'tracks homepage' do
+describe 'tracks dashboard' do
 
   context 'User not logged in' do
 
@@ -18,6 +18,11 @@ describe 'tracks homepage' do
       visit '/'
       expect(page).to have_css('.track-box')
       expect(page).to have_content('Top tracks')
+    end
+
+    it 'user can see a link to play a track' do 
+      visit '/'
+      expect(page).to have_link 'Play track'
     end
 
   end
@@ -38,6 +43,11 @@ describe 'tracks homepage' do
     it 'user can see a link to create a playlist' do
       visit '/'
       expect(page).to have_link 'New playlist'
+    end
+
+    it 'user can see a link to play a track' do 
+      visit '/'
+      expect(page).to have_link 'Play track'
     end
 
   end

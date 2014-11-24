@@ -8,7 +8,18 @@
 
 <section class='track-box'>
   <h1>Followers</h1>
-  <a href='#'>New playlist</a>
+</section>
+
+<section class='playlists-box'>
+  <h1>Playlists</h1>
+  <%= link_to 'New playlist', new_user_playlist_path(current_user) %>
+  <article class='playlists'>
+    <ul>
+      <% current_user.playlists.each do |playlist| %>
+      <li><%= link_to playlist.name, user_playlist_path(current_user, playlist) %></li>
+      <% end %>
+    </ul>
+  </article>
 </section>
 
 <% else %>
@@ -18,3 +29,5 @@ There are the top tracks yaaaayyyyy
 </section>
 
 <% end %>
+
+<a href='#'>Play track</a>
