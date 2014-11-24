@@ -54,8 +54,8 @@ describe 'playlist management' do
       it 'a user can add a track to a playlist from the track page' do 
         visit '/'
         click_link 'Shake it off'
-        # select "Taylor Swift Jamz", from: '#dropdown'
-        find('#addtoplaylist').find(:xpath, '#dropdown').click
+        select('Taylor Swift Jamz', from: 'playlist')
+        # find('#addtoplaylist').find(:xpath, 'Taylor Swift Jamz').select
         click_button "Update Track"
         expect(page).to have_content "Track added to playlist"
       end

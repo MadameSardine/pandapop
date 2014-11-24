@@ -2,7 +2,8 @@
 
 <p>Add to playlist</p>
 
-<%= form_for @track, :html => {id: "addtoplaylist"} do |f| %>
-  <%= f.collection_select :playlist_id, Playlist.all, :id, :name, :html => {id: "dropdown"} %>
+<%= form_for @track, :html => { id: :addtoplaylist } do |f| %>
+  <%= f.label :playlist, :html => { id: :playlist } %>
+  <%= f.collection_select :playlist_id, Playlist.all, :id, :name %> 
   <%= f.submit %>
 <% end %>
