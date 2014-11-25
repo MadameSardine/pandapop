@@ -17,5 +17,25 @@ describe 'youtube searches' do
     it 'a user sees only three results', js: true do
       expect(page).to have_selector('.embedVideo', count: 3)
     end
+
+    it 'a user should see a video title', js: true do
+      expect(page).to have_selector('.title')
+    end
+
+    it 'a user should see a video duration', js: true do
+      expect(page).to have_selector('.duration')
+    end
+
+    it 'a user should see a video view count', js: true do
+      expect(page).to have_selector('.viewCount')
+    end
+
+    it 'a user should see a video like count', js: true do
+      expect(page).to have_selector('.likeCount')
+    end
+
+    it 'a user should see a video', js: true do
+      expect(page).to have_selector('.embedVideo')
+    end
   end
 end
