@@ -14,9 +14,11 @@ jQuery(document).ready(function ($) {
 
     $.getJSON(url + "&q=" + q + "&type=" + type +"&key=" + api_key, function (json) {
 
-      var count = 0;
+      if (json.items.length === 0) {
+        $('#results').text('No video found')
+      }
 
-      if (json.items) {
+      else {
 
         var items = json.items;
         var html = "";
@@ -47,13 +49,9 @@ jQuery(document).ready(function ($) {
               $('#results').append(template(context));
 
             })
-
         });
       }
 
-      if (count === 0) {
-        $('#results').text("No videos found");
-      }
     });
   });
 });
