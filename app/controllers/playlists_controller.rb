@@ -12,7 +12,7 @@ class PlaylistsController < ApplicationController
     @playlist = @user.playlists.new(playlist_params)
     @playlist.user = current_user
     @playlist.save
-    redirect_to tracks_path
+    redirect_to root_path
   end
 
   def playlist_params

@@ -1,0 +1,17 @@
+<section id="results">
+</section>
+<% if current_user %>
+<%= current_user.username %>
+	<section class='playlists-box'>
+	  <h1>Playlists</h1>
+	  <%= link_to 'Create playlist', new_user_playlist_path(current_user) %>
+	  <article class='playlists'>
+	    <ul>
+	      <% current_user.playlists.each do |playlist| %>
+	      <li><%= link_to playlist.name, user_playlist_path(current_user, playlist) %></li>
+	      <% end %>
+	    </ul>
+	  </article>
+	</section>
+<% else %>
+<% end %>

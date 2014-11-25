@@ -45,7 +45,6 @@ describe 'playlist management' do
     context 'playlist viewing, editing, deleting' do 
 
       before do 
-        @shakeitoff = Track.create(title: 'Shake it off', youtube_url: "www.youtube.com/taylor", duration: "4.00", plays: "4")
         @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
       end
 
@@ -56,15 +55,16 @@ describe 'playlist management' do
         expect(current_path).to eq user_playlist_path(@panda, @taylorjamz)
       end
 
-      # it 'a user can add a track to a playlist from the track page' do 
-      #   visit '/'
-      #   click_link 'Shake it off'
-      #   # select('Taylor Swift Jamz', from: 'addtoplaylist')
-      #   # find('#addtoplaylist').find(:xpath, 'Taylor Swift Jamz').select
-      #   fill_in 'Playlist', with: @taylorjamz
-      #   click_button "Update Track"
-      #   expect(page).to have_content "Track added to playlist"
-      # end
+      xit 'a user can add a track to a playlist from the track page' do 
+        visit '/'
+        click_link 'Shake it off'
+        # select('Taylor Swift Jamz', from: 'addtoplaylist')
+        # find('#addtoplaylist').find(:xpath, 'Taylor Swift Jamz').select
+        fill_in 'Playlist', with: @taylorjamz
+        click_button "Update Track"
+        expect(page).to have_content "Track added to playlist"
+      end
+
 
     end
 
