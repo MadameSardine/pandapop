@@ -4,6 +4,10 @@ class TracksController < ApplicationController
     @tracks = Track.all
   end
 
+  def show
+    @track = Track.find(params[:id])
+  end
+
   def update
   	@track = Track.find(params[:id])
   	@track.update(track_params)
@@ -11,14 +15,14 @@ class TracksController < ApplicationController
   	flash[:notice] = "Track added to playlist"
   end
 
-
-  def show
-  	@track = Track.find(params[:id])
+  def new 
+    @track = Track.new
   end
 
-  private
+  protected
 
   def track_params
-  	params.require(:track).permit(:title, :youtube_url, :duration, :plays, :playlist_id)
+  	params.require(:track).permit(:title, :youtube_url, :duration, :plays, :playlist)
   end
+
 end

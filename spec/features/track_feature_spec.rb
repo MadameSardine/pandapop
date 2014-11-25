@@ -42,14 +42,31 @@ describe 'tracks dashboard' do
       expect(page).to have_content 'Playlists'
     end
 
-    it 'user can see a link to create a playlist' do
-      visit '/'
-      expect(page).to have_link 'New playlist'
-    end
-
     it 'user can see a link to play a track' do 
       visit '/'
       expect(page).to have_link 'Play track'
+    end
+
+    context 'adding a new track' do 
+
+      it 'a user can see a link to submit a new track' do 
+        visit '/'
+        expect(page).to have_link 'Upload new track'
+      end
+
+      it 'a user can click a link and submit a new track' do 
+        visit '/'
+        click_link 'Upload new track'
+        expect(current_path).to eq new_track_path
+        fill_in 'Title', with: 'Yesterday'
+        fill_in 'Youtube Url', with: 'https://www.youtube.com/watch?v=GXHvnMZRGNQ'
+        fill_in 'Duration', with: '2:13'
+        fill_in 'Plays', with: 0
+        click_button 'Create New Track'
+        expect(current_path).to eq tracks_path
+        expect(page).to have_content 'Yesterday'
+      end
+
     end
 
   end

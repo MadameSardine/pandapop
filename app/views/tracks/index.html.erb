@@ -15,7 +15,7 @@
 
 <section class='playlists-box'>
   <h1>Playlists</h1>
-  <%= link_to 'New playlist', new_user_playlist_path(current_user) %>
+  <%= link_to 'Create playlist', new_user_playlist_path(current_user) %>
   <article class='playlists'>
     <ul>
       <% current_user.playlists.each do |playlist| %>
@@ -23,6 +23,10 @@
       <% end %>
     </ul>
   </article>
+</section>
+
+<section class='track-box'>
+  <%= link_to 'Upload new track', new_track_path %>
 </section>
 
 <% else %>
