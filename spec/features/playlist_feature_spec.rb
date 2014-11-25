@@ -67,12 +67,20 @@ describe 'playlist management' do
 
       it 'a user can select a playlist to add the track to', js: true do
         visit '/'
-        p Capybara.current_driver
         fill_in 'search-content', with: "Beyonce"
         click_button "search"
         click_link 'Add to playlist'
         expect(page).to have_content 'Add to Taylor Swift Jamz'
         expect(page).to have_content 'Add to Best of Beyonce'
+      end
+
+      it 'a user can add a track to Best of Beyonce', js: true do
+        visit '/'
+        fill_in 'search-content', with: "Beyonce"
+        click_button "search"
+        click_link 'Add to playlist'
+        click_link 'Add to Best of Beyonce'
+        expect(page).to have_content('Track successfully added to playlist')
       end
 
 

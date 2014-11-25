@@ -7,7 +7,7 @@
 	  <ul>
 	    <% current_user.playlists.each do |playlist| %>
 	    <li>
-	    	<a href='#' id="add-to-<%=playlist.name%>">Add to <%=playlist.name%></a>
+	    	<a href='#' id="add-to-<%=playlist.name%>"><%= link_to 'Add to <%=playlist.name%>', edit_user_playlist_path(current_user, playlist)</a>
 	    </li>
 	    <% end %>
 	  </ul>
