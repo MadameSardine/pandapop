@@ -3,6 +3,13 @@
 
 jQuery(document).ready(function ($) {
 
+  $('#results').on('click', '.queue', function(event){
+    event.preventDefault();
+    console.log(event)
+    console.log($(this).data('id'))
+    $('#tracks-queue').append('<li class="queue-title">' + '<a href="http://youtube.com/watch/' + $(this).data('id') + '">' + $(this).data('title') + '</a></li>')
+  });
+
   $('#search-button').on('click',function () {
     $('#results').empty();
 
@@ -44,10 +51,12 @@ jQuery(document).ready(function ($) {
                 duration: duration,
                 video: video,
                 viewCount: viewCount,
-                likeCount: likeCount
+                likeCount: likeCount,
+                id: id
               };
 
               $('#results').append(template(context));
+
 
             })
         });
@@ -55,5 +64,11 @@ jQuery(document).ready(function ($) {
 
     });
   });
-});
 
+  // $('.track-id').on('click', function(event){
+  //   event.preventDefault();
+  //
+  // });
+
+
+});

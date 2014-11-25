@@ -1,44 +1,46 @@
-<h1>Top tracks</h1>
-<ul>
-  <% @tracks.each do |track| %>
-  <li><%= link_to track.title, track_path(track) %> 
-  </li>
+<section ng-app="youtube-search">
+  <h1>Top tracks</h1>
+  <ul>
+    <% @tracks.each do |track| %>
+    <li><%= link_to track.title, track_path(track) %>
+    </li>
+    <% end %>
+  </ul>
+
+  <section id="results">
+
+  </section>
+
+  <% if current_user %>
+
+
+  <section class='follower-box'>
+    <h1>Followers</h1>
+  </section>
+
+  <section class='playlists-box'>
+    <h1>Playlists</h1>
+    <%= link_to 'Create playlist', new_user_playlist_path(current_user) %>
+    <article class='playlists'>
+      <ul>
+        <% current_user.playlists.each do |playlist| %>
+        <li><%= link_to playlist.name, user_playlist_path(current_user, playlist) %></li>
+        <% end %>
+      </ul>
+    </article>
+  </section>
+
+  <section class='track-box'>
+    <%= link_to 'Upload new track', new_track_path %>
+  </section>
+
+  <% else %>
+
+  <section class='track-box'>
+  There are the top tracks yaaaayyyyy
+  </section>
+
   <% end %>
-</ul>
 
-<section id="results">
-
+  <a href='#'>Play track</a>
 </section>
-
-<% if current_user %>
-
-
-<section class='follower-box'>
-  <h1>Followers</h1>
-</section>
-
-<section class='playlists-box'>
-  <h1>Playlists</h1>
-  <%= link_to 'Create playlist', new_user_playlist_path(current_user) %>
-  <article class='playlists'>
-    <ul>
-      <% current_user.playlists.each do |playlist| %>
-      <li><%= link_to playlist.name, user_playlist_path(current_user, playlist) %></li>
-      <% end %>
-    </ul>
-  </article>
-</section>
-
-<section class='track-box'>
-  <%= link_to 'Upload new track', new_track_path %>
-</section>
-
-<% else %>
-
-<section class='track-box'>
-There are the top tracks yaaaayyyyy
-</section>
-
-<% end %>
-
-<a href='#'>Play track</a>

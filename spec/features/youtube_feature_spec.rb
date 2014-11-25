@@ -37,5 +37,6 @@ describe 'youtube searches' do
     it 'a user should see a video', js: true do
       expect(page).to have_selector('.embedVideo')
     end
+
   end
 end
