@@ -3,34 +3,14 @@
 
 jQuery(document).ready(function ($) {
 
-  $('#top-bar-search').keyup(function () {
+  $('#search-button').on('click',function () {
 
-    // the search term
-    var q = $('#top-bar-search').val().trim();
-
-    // container to display search results
-    var $results = $('#results');
-
-    // YouTube Data API base URL (JSON response)
-    // var url = "http://gdata.youtube.com/feeds/api/videos/?v=2&alt=jsonc&callback=?"
+    var q = $('#top-bar-search').val().trim() + " karaoke";
 
     var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3"
 
     var api_key = "AIzaSyDX1TrCX_GkuuCFBaQHvVDRc24Rq3HL-Sk"
     var type = "video"
-
-
-    // // set paid-content as false to hide movie rentals
-    // url = url + '&paid-content=false';
-
-    // // set duration as long to filter partial uploads
-    // url = url + '&duration=any';
-
-    // // order search results by view count
-    // url = url + '&orderby=viewCount';
-
-    // // we can request a maximum of 50 search results in a batch
-    // url = url + '&max-results=50';
 
     $.getJSON(url + "&q=" + q + "&type=" + type +"&key=" + api_key, function (json) {
 
@@ -42,37 +22,37 @@ jQuery(document).ready(function ($) {
         var html = "";
 
         items.forEach(function (item) {
-          console.log('item:', item)
 
+          var id = item.id.videoId
+          var title = item.snippet.title
+          var content = "contentDetails,statistics"
+          var video = '<iframe width="640" height="390" src="http://youtube.com/embed/' + item.id.videoId + '"/>'
 
-          // Check the duration of the video,
-          // full-length movies are generally longer than 1 hour
-          var duration = Math.round((item.duration) / (60 * 60));
+          $.getJSON("https://www.googleapis.com/youtube/v3/videos?id=" + id + "&key=" + api_key + "&part=" + content, function(json){
 
-          // Filter out videos that aren't in the Music category
+              var duration = (json.items[0].contentDetails.duration).replace("PT","").replace("H",":").replace("M",":").replace("S","")
+              var viewCount = json.items[0].statistics.viewCount;
+              var likeCount = json.items[0].statistics.likeCount;
 
-            // Include the YouTube Watch URL youtu.be
-            html += '<p><a href="http://youtu.be/' + item.id.videoId + '">';
+              var source = $('#trackTemplate').html();
+              var template = Handlebars.compile(source);
+              var context = {
+                title: title,
+                duration: duration,
+                video: video,
+                viewCount: viewCount,
+                likeCount: likeCount
+              };
 
-            // Add the default video thumbnail (default quality)
-            // html += '<img src="http://i.ytimg.com/vi/' + item.id + '/default.jpg">';
+              $('#results').append(template(context));
 
-            // Add the embed video
-            html += '<iframe width="640" height="390" src="http://youtube.com/embed/' + item.id.videoId + '"/>'
-
-            // Add the video title and the duration
-            html += '<h2>' + item.snippet.title + ' ' + '</h2></a></p>';
-            count++;
+            })
 
         });
       }
 
-      // Did YouTube return any search results?
       if (count === 0) {
-        $results.html("No videos found");
-      } else {
-        // Display the YouTube search results
-        $results.html(html);
+        $('#results').text("No videos found");
       }
     });
   });
