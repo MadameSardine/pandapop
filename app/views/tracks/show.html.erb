@@ -1,0 +1,9 @@
+<h2><%= @track.title %></h2>
+
+<p>Add to playlist</p>
+
+<%= form_for @track do |f| %>
+  <%= f.label :playlist_track %>
+  <%= f.text_field :playlist_track %> 
+  <%= f.submit %>
+<% end %>
