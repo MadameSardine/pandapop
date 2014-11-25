@@ -17,5 +17,17 @@
 
 <%= yield %>
 
+
+<template id="trackTemplate">
+  <header>
+    <h1 class="title">{{title}}</h1>
+    <h3 class="duration">{{duration}}</h3>
+  </header>
+    <article class="embedVideo">{{{video}}}</article>
+    <ul>
+      <li class="viewCount">{{viewCount}} views</li>
+      <li class="likeCount">{{likeCount}} likes</li>
+    </ul>
+</template>
 </body>
 </html>
