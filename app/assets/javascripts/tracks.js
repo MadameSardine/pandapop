@@ -5,7 +5,6 @@ jQuery(document).ready(function ($) {
 
   $('#results').on('click', '.queue', function(event){
     event.preventDefault();
-    console.log(event)
     console.log($(this).data('id'))
     $('#tracks-queue').append('<li class="queue-title">' + '<a href="http://youtube.com/watch/' + $(this).data('id') + '">' + $(this).data('title') + '</a></li>')
   });
@@ -22,6 +21,7 @@ jQuery(document).ready(function ($) {
 
     $.getJSON(url + "&q=" + q + "&type=" + type +"&key=" + api_key, function (json) {
 
+      console.log(this);
       if (json.items.length === 0) {
         $('#results').text('No video found')
       }
@@ -64,11 +64,5 @@ jQuery(document).ready(function ($) {
 
     });
   });
-
-  // $('.track-id').on('click', function(event){
-  //   event.preventDefault();
-  //
-  // });
-
 
 });
