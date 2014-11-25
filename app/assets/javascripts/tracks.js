@@ -4,6 +4,7 @@
 jQuery(document).ready(function ($) {
 
   $('#search-button').on('click',function () {
+    $('#results').empty();
 
     var q = $('#top-bar-search').val().trim() + " karaoke";
 
