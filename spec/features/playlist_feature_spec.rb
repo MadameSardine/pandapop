@@ -46,6 +46,7 @@ describe 'playlist management' do
 
       before do 
         @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
+        @beyonce = Playlist.create(user: @panda, name: "Best of Beyonce")
       end
 
       it 'a user can view tracks added to a playlist' do 
@@ -55,14 +56,23 @@ describe 'playlist management' do
         expect(current_path).to eq user_playlist_path(@panda, @taylorjamz)
       end
 
-      xit 'a user can add a track to a playlist from the track page' do 
+      it 'a user can add a track to a playlist from the home page', js: true do 
         visit '/'
-        click_link 'Shake it off'
-        # select('Taylor Swift Jamz', from: 'addtoplaylist')
-        # find('#addtoplaylist').find(:xpath, 'Taylor Swift Jamz').select
-        fill_in 'Playlist', with: @taylorjamz
-        click_button "Update Track"
-        expect(page).to have_content "Track added to playlist"
+        fill_in 'search-content', with: "Beyonce"
+        click_button "search"
+        expect(page).to have_link 'Add to playlist'
+        expect(page).not_to have_content 'Add to Taylor Swift Jamz'
+        expect(page).not_to have_content 'Add to Best of Beyonce'
+      end
+
+      it 'a user can select a playlist to add the track to', js: true do
+        visit '/'
+        p Capybara.current_driver
+        fill_in 'search-content', with: "Beyonce"
+        click_button "search"
+        click_link 'Add to playlist'
+        expect(page).to have_content 'Add to Taylor Swift Jamz'
+        expect(page).to have_content 'Add to Best of Beyonce'
       end
 
 

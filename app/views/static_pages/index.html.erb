@@ -1,7 +1,17 @@
 <section id="results">
 </section>
-<% if current_user %>
-<%= current_user.username %>
+
+<% if user_signed_in? %>
+  <a href="#" id="add-to-playlist-link">Add to playlist</a>
+	<section id="playlist-list">
+	  <ul>
+	    <% current_user.playlists.each do |playlist| %>
+	    <li>
+	    	<a href='#' id="add-to-<%=playlist.name%>">Add to <%=playlist.name%></a>
+	    </li>
+	    <% end %>
+	  </ul>
+	</section>
 	<section class='playlists-box'>
 	  <h1>Playlists</h1>
 	  <%= link_to 'Create playlist', new_user_playlist_path(current_user) %>

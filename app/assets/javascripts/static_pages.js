@@ -3,12 +3,18 @@
 
 jQuery(document).ready(function ($) {
 
+  $('#playlist-list').hide();
+
+  $("#add-to-playlist-link").on('click', function(){
+   $('#playlist-list').show();
+  });
+
   $('#search-button').on('click',function () {
     $('#results').empty();
 
     var q = $('#top-bar-search').val().trim() + " karaoke";
 
-    var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3"
+    var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1"
 
     var api_key = "AIzaSyDX1TrCX_GkuuCFBaQHvVDRc24Rq3HL-Sk"
     var type = "video"
@@ -51,8 +57,13 @@ jQuery(document).ready(function ($) {
 
             })
         });
-      }
 
+      }
     });
+
+  
   });
+
+
+
 });
