@@ -1,6 +1,7 @@
 class TracksController < ApplicationController
 
-  def create
+  def new
+    render params
 
   end
 

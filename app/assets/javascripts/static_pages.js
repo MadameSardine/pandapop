@@ -19,7 +19,6 @@ jQuery(document).ready(function ($) {
 
   $("#results").on('click', '.add-to-playlist-link' , function(event){
     event.preventDefault();
-    alert('yeah')
    $('#playlist-list').show();
   });
 
