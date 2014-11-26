@@ -21,6 +21,9 @@
 
 <%= yield %>
 
+<section id='tracks-queue'>
+Hello I am temporary
+</section>
 
 <template id="trackTemplate">
   <header>
@@ -32,8 +35,11 @@
       <li class="viewCount">{{viewCount}} views</li>
       <li class="likeCount">{{likeCount}} likes</li>
       <li class="videoId">{{videoId}}</li>
+      <li><a href='#' class='queue' data-id='{{id}}' data-title='{{title}}'>add to queue</a></li>
     </ul>
 
 </template>
+
+
 </body>
 </html>
