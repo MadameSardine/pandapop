@@ -5,6 +5,35 @@ jQuery(document).ready(function ($) {
 
   $('#playlist-list').hide();
 
+  $('#results').on('click', '.queue', function(event){
+    event.preventDefault();
+    $('#tracks-queue').append('<li class="queue-title">' + '<a href="http://youtube.com/watch/' + $(this).data('id') + '">' + $(this).data('title') + '</a></li>')
+  });
+
+  $('#results').on('click', '.search-link-thumbnail', function(event){
+    event.preventDefault();
+
+    var viewCount = $(this).find('.viewCount').text();
+    console.log(this)
+    console.log('this is the viewcount:', viewCount);
+
+    // $.ajax({
+    //   type: 'POST',
+    //   url: '/player',
+    //   data: {
+    //     title:,
+    //     artist_name:,
+    //     album_name:,
+    //     duration:,
+    //     view_count:,
+    //     like_count:,
+    //     video_id:,
+    //     video_url:, 
+    //   }
+    // })
+
+  });
+
   $("#add-to-playlist-link").on('click', function(){
    $('#playlist-list').show();
   });
@@ -14,16 +43,18 @@ jQuery(document).ready(function ($) {
 
     var q = $('#top-bar-search').val().trim() + " karaoke";
 
-    var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1"
+    var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4"
 
     var api_key = "AIzaSyDX1TrCX_GkuuCFBaQHvVDRc24Rq3HL-Sk"
     var type = "video"
 
     $.getJSON(url + "&q=" + q + "&type=" + type +"&key=" + api_key, function (json) {
 
+      console.log(json)
       if (json.items.length === 0) {
         $('#results').text('No video found')
       }
+
 
       else {
 
@@ -36,6 +67,7 @@ jQuery(document).ready(function ($) {
           var title = item.snippet.title
           var content = "contentDetails,statistics"
           var video = '<iframe width="640" height="390" src="http://youtube.com/embed/' + item.id.videoId + '"/>'
+          var thumbnail = '<img src="' + item.snippet.thumbnails.medium.url + '">'
 
           $.getJSON("https://www.googleapis.com/youtube/v3/videos?id=" + id + "&key=" + api_key + "&part=" + content, function(json){
 
@@ -51,7 +83,8 @@ jQuery(document).ready(function ($) {
                 video: video,
                 viewCount: viewCount,
                 likeCount: likeCount,
-                videoId: id
+                videoId: id,
+                thumbnail: thumbnail
               };
 
               $('#results').append(template(context));
@@ -59,13 +92,9 @@ jQuery(document).ready(function ($) {
 
             })
         });
-
       }
     });
 
-
   });
-
-
 
 });
