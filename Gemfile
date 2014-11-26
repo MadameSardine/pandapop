@@ -12,6 +12,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'bower-rails'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'json'
 
 
 group :test, :development do
@@ -24,8 +25,3 @@ group :test, :development do
   gem 'poltergeist'
   gem 'selenium-webdriver'
 end
-
-
-
-
-

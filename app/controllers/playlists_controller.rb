@@ -8,8 +8,7 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @playlist = @user.playlists.new(playlist_params)
+    @playlist = Playlist.new(playlist_params)
     @playlist.user = current_user
     @playlist.save
     redirect_to root_path
@@ -19,7 +18,7 @@ class PlaylistsController < ApplicationController
     params.require(:playlist).permit(:name)
   end
 
-  def show 
+  def show
   end
 
   def edit
