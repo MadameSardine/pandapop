@@ -26,7 +26,6 @@ Hello I am temporary
 </section>
 
 <template id="trackTemplate">
-
   <article class="track-box">
     <header>
       <h1 class="title">{{title}}</h1>
@@ -38,9 +37,14 @@ Hello I am temporary
         <li><span class="viewCount">{{viewCount}}</span> views</li>
         <li><span class="likeCount">{{likeCount}}</span> likes</li>
         <li class="videoId">{{videoId}}</li>
-        <li><a href='#' class='queue' data-id='{{id}}' data-title='{{title}}'>add to queue</a></li>
       </ul>
-    </article>
+  </article>
+      <ul>
+        <li><a href='#' class='queue' data-id='{{id}}' data-title='{{title}}'>add to queue</a></li>
+        <% if user_signed_in? %>
+          <li> <a href="#" class="add-to-playlist-link">Add to playlist</a></li>
+        <% end %>
+      </ul>
 </template>
 
 

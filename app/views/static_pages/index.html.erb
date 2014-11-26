@@ -2,16 +2,13 @@
 </section>
 
 <% if user_signed_in? %>
-  <a href="#" id="add-to-playlist-link">Add to playlist</a>
 	<section id="playlist-list">
 	  <ul>
 	    <% current_user.playlists.each do |playlist| %>
-
 	    <li>
         <input type="checkbox" class="playlist-checkbox" name="<%= playlist.name %>"/>
         Add to <%= playlist.name %>
 	    </li>
-
 	    <% end %>
       <li>
         <input type="checkbox" class="playlist-checkbox" name="create_new_playlist_checkbox"/>
@@ -36,5 +33,5 @@
 	</section>
 <% else %>
 
-image of pandas doing karaoke go here 
+image of pandas doing karaoke go here
 <% end %>

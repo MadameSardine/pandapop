@@ -69,12 +69,14 @@ describe 'playlist management' do
         visit '/'
         fill_in 'search-content', with: "Beyonce"
         click_button "search"
-        click_link 'Add to playlist'
+        within '#results' do
+          find('.add-to-playlist-link', match: :first).click
+        end
         expect(page).to have_content 'Add to Taylor Swift Jamz'
         expect(page).to have_content 'Add to Best of Beyonce'
       end
 
-      xit 'a user can add a track to Best of Beyonce', js: true do
+      it 'a user can add a track to Best of Beyonce', js: true do
         visit '/'
         fill_in 'search-content', with: "Beyonce"
         click_button "search"

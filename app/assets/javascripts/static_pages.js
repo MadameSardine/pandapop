@@ -17,7 +17,9 @@ jQuery(document).ready(function ($) {
     window.location = '/player?videoId=' + videoId;
   });
 
-  $("#add-to-playlist-link").on('click', function(){
+  $("#results").on('click', '.add-to-playlist-link' , function(event){
+    event.preventDefault();
+    alert('yeah')
    $('#playlist-list').show();
   });
 
