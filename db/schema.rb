@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125123008) do
+ActiveRecord::Schema.define(version: 20141126112156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,15 +27,16 @@ ActiveRecord::Schema.define(version: 20141125123008) do
 
   create_table "tracks", force: true do |t|
     t.string   "title"
-    t.string   "youtube_url"
+    t.string   "artist_name"
+    t.string   "album_name"
     t.string   "duration"
-    t.integer  "plays"
+    t.integer  "view_count"
+    t.integer  "like_count"
+    t.string   "video_id"
+    t.string   "video_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "playlist_id"
   end
-
-  add_index "tracks", ["playlist_id"], name: "index_tracks_on_playlist_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

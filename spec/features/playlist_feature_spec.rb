@@ -13,7 +13,7 @@ describe 'playlist management' do
     fill_in 'Password confirmation', with: 'pandapop123'
     click_button 'Sign up'
   end
-  
+
   context 'User is not logged in' do
     it 'should not see a link to create a playlist' do
       visit '/'
@@ -42,21 +42,21 @@ describe 'playlist management' do
       expect(page).to have_link "Taylor Swift Jamz"
     end
 
-    context 'playlist viewing, editing, deleting' do 
+    context 'playlist viewing, editing, deleting' do
 
-      before do 
+      before do
         @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
         @beyonce = Playlist.create(user: @panda, name: "Best of Beyonce")
       end
 
-      it 'a user can view tracks added to a playlist' do 
+      it 'a user can view tracks added to a playlist' do
         visit '/'
         expect(page).to have_content 'Taylor Swift Jamz'
         click_link 'Taylor Swift Jamz'
         expect(current_path).to eq user_playlist_path(@panda, @taylorjamz)
       end
 
-      it 'a user can add a track to a playlist from the home page', js: true do 
+      it 'a user can see a link to add to playlist from the home page', js: true do 
         visit '/'
         fill_in 'search-content', with: "Beyonce"
         click_button "search"

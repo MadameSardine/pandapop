@@ -6,10 +6,20 @@
 	<section id="playlist-list">
 	  <ul>
 	    <% current_user.playlists.each do |playlist| %>
+
 	    <li>
-	    	<a href='#' id="add-to-<%=playlist.name%>"><%= link_to 'Add to <%=playlist.name%>', edit_user_playlist_path(current_user, playlist)</a>
+        <input type="checkbox" class="playlist-checkbox" name="<%= playlist.name %>"/>
+        Add to <%= playlist.name %>
 	    </li>
+
 	    <% end %>
+      <li>
+        <input type="checkbox" class="playlist-checkbox" name="create_new_playlist_checkbox"/>
+        <input type="text" class="playlist-input" name="new_playlist_name" placeholder="Create new playlist"/>
+      </li>
+      <li>
+        <input type="submit" class="playlist-submit" value="Add track to playlist(s)"/>
+      </li>
 	  </ul>
 	</section>
 	<section class='playlists-box'>
