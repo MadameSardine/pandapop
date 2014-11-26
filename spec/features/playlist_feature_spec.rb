@@ -36,7 +36,7 @@ describe 'playlist management' do
     it 'should be able to create a playlist with a name' do
       visit '/'
       click_link 'Create playlist'
-      expect(current_path).to eq new_user_playlist_path(@panda)
+      expect(current_path).to eq new_playlist_path
       fill_in "Name", with: "Taylor Swift Jamz"
       click_button "Create playlist"
       expect(page).to have_link "Taylor Swift Jamz"
@@ -53,10 +53,10 @@ describe 'playlist management' do
         visit '/'
         expect(page).to have_content 'Taylor Swift Jamz'
         click_link 'Taylor Swift Jamz'
-        expect(current_path).to eq user_playlist_path(@panda, @taylorjamz)
+        expect(current_path).to eq playlist_path(@taylorjamz)
       end
 
-      it 'a user can see a link to add to playlist from the home page', js: true do 
+      it 'a user can see a link to add to playlist from the home page', js: true do
         visit '/'
         fill_in 'search-content', with: "Beyonce"
         click_button "search"
@@ -79,10 +79,10 @@ describe 'playlist management' do
         fill_in 'search-content', with: "Beyonce"
         click_button "search"
         click_link 'Add to playlist'
-        click_link 'Add to Best of Beyonce'
+        find(:css, ".playlist-checkbox[name='Best of Beyonce']").set(true)
+        click_button "Add track to playlist(s)"
         expect(page).to have_content('Track successfully added to playlist')
       end
-
 
     end
 

@@ -50,10 +50,12 @@ jQuery(document).ready(function ($) {
                 duration: duration,
                 video: video,
                 viewCount: viewCount,
-                likeCount: likeCount
+                likeCount: likeCount,
+                videoId: id
               };
 
               $('#results').append(template(context));
+              console.log(JSON.stringify(json));
 
             })
         });
@@ -61,7 +63,7 @@ jQuery(document).ready(function ($) {
       }
     });
 
-  
+
   });
 
 

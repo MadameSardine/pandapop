@@ -18,17 +18,18 @@
         <input type="text" class="playlist-input" name="new_playlist_name" placeholder="Create new playlist"/>
       </li>
       <li>
+        <%= link_to 'Add track to playlist(s)', new_track_path %>
         <input type="submit" class="playlist-submit" value="Add track to playlist(s)"/>
       </li>
 	  </ul>
 	</section>
 	<section class='playlists-box'>
 	  <h1>Playlists</h1>
-	  <%= link_to 'Create playlist', new_user_playlist_path(current_user) %>
+	  <%= link_to 'Create playlist', new_playlist_path %>
 	  <article class='playlists'>
 	    <ul>
 	      <% current_user.playlists.each do |playlist| %>
-	      <li><%= link_to playlist.name, user_playlist_path(current_user, playlist) %></li>
+	      <li><%= link_to playlist.name, playlist_path(playlist) %></li>
 	      <% end %>
 	    </ul>
 	  </article>
