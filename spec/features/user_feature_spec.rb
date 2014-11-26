@@ -31,7 +31,27 @@ describe 'User' do
       expect(page).to have_content 'Welcome!'
     end
 
+    it 'should not see a sign out link' do
+      expect(page).not_to have_link 'Sign out'
+    end
+
   end
+
+  context 'User is logged in' do
+
+    it 'should see a sign out link' do
+      sign_up_as_panda
+      expect(page).to have_link 'Sign out'
+    end
+
+    it 'should not see a sign in or sign up link' do
+      sign_up_as_panda
+      expect(page).not_to have_link 'Sign in'
+      expect(page).not_to have_link 'Sign up'
+    end
+
+  end
+
 
 
 
