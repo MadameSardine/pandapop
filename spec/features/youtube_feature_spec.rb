@@ -14,8 +14,8 @@ describe 'youtube searches' do
       expect(page).to have_content 'Taylor Swift'
     end
 
-    it 'a user sees only three results', js: true do
-      expect(page).to have_selector('.embedVideo', count: 3)
+    it 'a user sees only four results (and 1 for the template)', js: true do
+      expect(page).to have_selector('.track-box', count: 5)
     end
 
     it 'a user should see a video title', js: true do
@@ -35,7 +35,7 @@ describe 'youtube searches' do
     end
 
     it 'a user should see a video', js: true do
-      expect(page).to have_selector('.embedVideo')
+      expect(page).to have_selector('.track-box')
     end
 
   end

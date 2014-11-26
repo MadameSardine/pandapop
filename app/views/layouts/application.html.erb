@@ -26,19 +26,21 @@ Hello I am temporary
 </section>
 
 <template id="trackTemplate">
-  <header>
-    <h1 class="title">{{title}}</h1>
-    <h3 class="duration">{{duration}}</h3>
-  </header>
-    <a href="/player" class="search-link-thumbnail"><article class="thumbnail">{{{thumbnail}}}</article></a>
-    <!-- <article class="embedVideo">{{{video}}}</article> -->
-    <ul>
-      <li><span class="viewCount">{{viewCount}}</span> views</li>
-      <li><span class="likeCount">{{likeCount}}</span> likes</li>
-      <li class="videoId">{{videoId}}</li>
-      <li><a href='#' class='queue' data-id='{{id}}' data-title='{{title}}'>add to queue</a></li>
-    </ul>
 
+  <article class="track-box">
+    <header>
+      <h1 class="title">{{title}}</h1>
+      <h3 class="duration">{{duration}}</h3>
+    </header>
+      <article class="thumbnail">{{{thumbnail}}}</article>
+      <!-- <article class="embedVideo">{{{video}}}</article> -->
+      <ul>
+        <li><span class="viewCount">{{viewCount}}</span> views</li>
+        <li><span class="likeCount">{{likeCount}}</span> likes</li>
+        <li class="videoId">{{videoId}}</li>
+        <li><a href='#' class='queue' data-id='{{id}}' data-title='{{title}}'>add to queue</a></li>
+      </ul>
+    </article>
 </template>
 
 

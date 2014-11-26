@@ -6,6 +6,8 @@ class StaticPagesController < ApplicationController
 	end
 
   def player
+    puts params[:videoId]
+    @url = 'http://youtube.com/embed/' + params[:videoId]
   end
 
 end

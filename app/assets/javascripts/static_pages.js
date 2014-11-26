@@ -10,28 +10,11 @@ jQuery(document).ready(function ($) {
     $('#tracks-queue').append('<li class="queue-title">' + '<a href="http://youtube.com/watch/' + $(this).data('id') + '">' + $(this).data('title') + '</a></li>')
   });
 
-  $('#results').on('click', '.search-link-thumbnail', function(event){
+  $('#results').on('click', '.track-box', function(event){
     event.preventDefault();
-
-    var viewCount = $(this).find('.viewCount').text();
-    console.log(this)
-    console.log('this is the viewcount:', viewCount);
-
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/player',
-    //   data: {
-    //     title:,
-    //     artist_name:,
-    //     album_name:,
-    //     duration:,
-    //     view_count:,
-    //     like_count:,
-    //     video_id:,
-    //     video_url:, 
-    //   }
-    // })
-
+    var $this = $(this);
+    var videoId = $this.find('.videoId').text();
+    window.location = '/player?videoId=' + videoId;
   });
 
   $("#add-to-playlist-link").on('click', function(){
@@ -88,7 +71,6 @@ jQuery(document).ready(function ($) {
               };
 
               $('#results').append(template(context));
-              console.log(JSON.stringify(json));
 
             })
         });
