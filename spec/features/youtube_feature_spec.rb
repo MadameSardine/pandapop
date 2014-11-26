@@ -34,8 +34,16 @@ describe 'youtube searches' do
       expect(page).to have_selector('.likeCount')
     end
 
-    it 'a user should see a video', js: true do
-      expect(page).to have_selector('.track-box')
+    it 'a user should see a thumbnail', js: true do
+      expect(page).to have_selector('.thumbnail')
+    end
+
+    it 'a user should click on a thumbnail and see a video on the player page', js: true do
+      within "#results" do
+        find('.track-box', match: :first).click
+      end
+      expect(current_path).to eq '/player'
+      expect(page).to have_selector('#player-iframe')
     end
 
   end
