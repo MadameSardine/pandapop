@@ -7,46 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to 'Sign up', new_user_registration_path %>
-  <%= link_to 'Sign in', new_user_session_path %>
-<% end %>
+  <%= render "layouts/header" %>
+  <%= form_tag root_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :'search-content' %>
+      <%= submit_tag "search", :name => nil, :id => 'search-button' %>
+    </p>
+  <% end %>
 
-  <input type='text' name='search-content' id="top-bar-search">
-  <input type='submit' value='search' id="search-button">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-<%= yield %>
-
-<section id='tracks-queue'>
-Hello I am temporary
-</section>
-
-<template id="trackTemplate">
-  <article class="track-box">
-    <header>
-      <h1 class="title">{{title}}</h1>
-      <h3 class="duration">{{duration}}</h3>
-    </header>
-      <article class="thumbnail">{{{thumbnail}}}</article>
-      <!-- <article class="embedVideo">{{{video}}}</article> -->
-      <ul>
-        <li><span class="viewCount">{{viewCount}}</span> views</li>
-        <li><span class="likeCount">{{likeCount}}</span> likes</li>
-        <li class="videoId">{{videoId}}</li>
-      </ul>
-  </article>
-      <ul>
-        <li><a href='#' class='queue' data-id='{{id}}' data-title='{{title}}'>add to queue</a></li>
-        <% if user_signed_in? %>
-          <li> <a href="#" class="add-to-playlist-link">Add to playlist</a></li>
-        <% end %>
-      </ul>
-</template>
-
+  <%= yield %>
 
 </body>
 </html>

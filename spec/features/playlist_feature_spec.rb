@@ -56,7 +56,7 @@ describe 'playlist management' do
         expect(current_path).to eq playlist_path(@taylorjamz)
       end
 
-      it 'a user can see a link to add to playlist from the home page', js: true do
+      xit 'a user can see a link to add to playlist from the home page', js: true do
         visit '/'
         fill_in 'search-content', with: "Beyonce"
         click_button "search"
@@ -65,7 +65,7 @@ describe 'playlist management' do
         expect(page).not_to have_content 'Add to Best of Beyonce'
       end
 
-      it 'a user can select a playlist to add the track to', js: true do
+      xit 'a user can select a playlist to add the track to', js: true do
         visit '/'
         fill_in 'search-content', with: "Beyonce"
         click_button "search"

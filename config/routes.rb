@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :tracks
 
   get '/player' => 'static_pages#player'
-  post '/player' => 'static_pages#player'
+  post "/tracks/create" => "tracks#create"
+  get '/test' => 'static_pages#test'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

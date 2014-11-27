@@ -13,6 +13,7 @@ gem 'omniauth-facebook'
 gem 'bower-rails'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'json'
+gem 'httparty'
 
 
 group :test, :development do

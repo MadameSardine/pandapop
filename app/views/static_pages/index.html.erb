@@ -2,24 +2,6 @@
 </section>
 
 <% if user_signed_in? %>
-	<section id="playlist-list">
-	  <ul>
-	    <% current_user.playlists.each do |playlist| %>
-	    <li>
-        <input type="checkbox" class="playlist-checkbox" name="<%= playlist.name %>"/>
-        Add to <%= playlist.name %>
-	    </li>
-	    <% end %>
-      <li>
-        <input type="checkbox" class="playlist-checkbox" name="create_new_playlist_checkbox"/>
-        <input type="text" class="playlist-input" name="new_playlist_name" placeholder="Create new playlist"/>
-      </li>
-      <li>
-        <%= link_to 'Add track to playlist(s)', new_track_path %>
-        <input type="submit" class="playlist-submit" value="Add track to playlist(s)"/>
-      </li>
-	  </ul>
-	</section>
 	<section class='playlists-box'>
 	  <h1>Playlists</h1>
 	  <%= link_to 'Create playlist', new_playlist_path %>
@@ -35,3 +17,22 @@
 
 image of pandas doing karaoke go here
 <% end %>
+<section id="results">
+  <% @json["items"].each do |item| %>
+    <article class="search-result-container">
+      <ul>
+        <li class="title"><%= item["snippet"]["title"] %></li>
+        <li class="thumbnail"><img src="<%= item["snippet"]["thumbnails"]["medium"]["url"] %>" /></li>
+        <li class="duration">Length: <%= @content_details["items"][0]["contentDetails"]["duration"] %></li>
+        <li class="viewCount"><%= @content_details["items"][0]["statistics"]["viewCount"] %> Views</li>
+        <li class="likeCount"><%= @content_details["items"][0]["statistics"]["likeCount"] %> Likes</li>
+        <li><a href='#'>Add to queue</a></li>
+        <%= form_for @track, :url => {:controller => 'tracks', :action => 'create'} do |f| %>
+          <%= f.hidden_field :title, :value => item["snippet"]["title"] %>
+          <%= f.hidden_field :video_id, :value => item["id"]["videoId"] %>
+          <%= f.submit "Save track"%></td>
+        <% end %>
+      </ul>
+    </article>
+  <% end %>
+</section>
