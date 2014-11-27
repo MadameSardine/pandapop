@@ -7,18 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "layouts/header" %>
-  <%= form_tag root_path, :method => 'get' do %>
-    <p>
-      <%= text_field_tag :'search-content' %>
-      <%= submit_tag "search", :name => nil, :id => 'search-button' %>
-    </p>
-  <% end %>
+  <main id="grid-main">
+    <%= render "layouts/header" %>
+    <%= form_tag root_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :'search-content' %>
+        <%= submit_tag "search", :name => nil, :id => 'search-button' %>
+      </p>
+    <% end %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-  <%= yield %>
+    <%= yield %>
+  </main>
+  <aside id="queue-bar">
+    <section id="queue">The queue goes here</section>
+  </aside>
 
 </body>
 </html>

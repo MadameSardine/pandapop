@@ -9,17 +9,18 @@ class StaticPagesController < ApplicationController
     @json["items"].each do |item|
       video_id = item["id"]["videoId"]
       @content_details = HTTParty.get("https://www.googleapis.com/youtube/v3/videos?id=#{video_id}&key=AIzaSyDX1TrCX_GkuuCFBaQHvVDRc24Rq3HL-Sk&part=contentDetails,statistics").parsed_response
-    @playlists = Playlist.all
     end
+    @playlists = Playlist.all
 	end
 
   def player
     if params[:videoId] == nil
       redirect_to root_path
     else
-    puts params[:videoId]
-    @url = 'http://youtube.com/embed/' + params[:videoId]
+      puts params[:videoId]
+      @url = 'http://youtube.com/embed/' + params[:videoId]
     end
+    @playlists = Playlist.all
   end
 
   def test

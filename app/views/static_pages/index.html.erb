@@ -11,9 +11,9 @@
 	  </article>
 	</section>
 <% else %>
-
 image of pandas doing karaoke go here
 <% end %>
+
 <section id="results">
   <% @json["items"].each do |item| %>
     <article class="search-result-container">
@@ -23,7 +23,6 @@ image of pandas doing karaoke go here
         <li class="duration">Length: <%= @content_details["items"][0]["contentDetails"]["duration"] %></li>
         <li class="viewCount"><%= @content_details["items"][0]["statistics"]["viewCount"] %> Views</li>
         <li class="likeCount"><%= @content_details["items"][0]["statistics"]["likeCount"] %> Likes</li>
-        <li><a href='#'>Add to queue</a></li>
         <%= form_for @track, :url => {:controller => 'tracks', :action => 'create'} do |f| %>
           <%= f.hidden_field :title, :value => item["snippet"]["title"] %>
           <%= f.hidden_field :video_id, :value => item["id"]["videoId"] %>
@@ -31,6 +30,9 @@ image of pandas doing karaoke go here
           <%= f.submit "Add to playlist", :class => 'add-to-playlist-link'%></td>
         <% end %>
       </ul>
+    </article>
+        <li><a href='#' class="add-to-queue" data-id='<%= item["id"]["videoId"] %>' data-title='<%= item["snippet"]["title"] %>'>Add to queue</a></li>
+    <article>
     </article>
   <% end %>
 </section>
