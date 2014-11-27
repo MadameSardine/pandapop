@@ -12,10 +12,10 @@ jQuery(document).ready(function ($) {
     $('#tracks-queue').append('<li class="queue-title">' + '<a href="http://youtube.com/watch/' + $(this).data('id') + '">' + $(this).data('title') + '</a></li>')
   });
 
-  $('#results').on('click', '.track-box', function(event){
+  $('#results').on('click', '.search-result-container', function(event){
     event.preventDefault();
     var $this = $(this);
-    var videoId = $this.find('.videoId').text();
+    var videoId = $this.find('#track_video_id').val();
     window.location = '/player?videoId=' + videoId;
   });
 

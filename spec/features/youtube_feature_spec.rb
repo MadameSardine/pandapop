@@ -38,11 +38,10 @@ describe 'youtube searches' do
       expect(page).to have_selector('.thumbnail')
     end
 
-    xit 'a user should click on a thumbnail and see a video on the player page' do
+    it 'a user should click on a thumbnail and see a video on the player page', js: true do
       within "#results" do
-        find('.track-box', match: :first).click
+        find('.search-result-container', match: :first).click
       end
-      expect(current_path).to eq '/player'
       expect(page).to have_selector('#player-iframe')
     end
 
