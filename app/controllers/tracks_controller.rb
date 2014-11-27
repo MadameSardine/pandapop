@@ -1,12 +1,11 @@
 class TracksController < ApplicationController
 
   def create
-    # @json= HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=#{params[:q]}&type=video&key=AIzaSyDX1TrCX_GkuuCFBaQHvVDRc24Rq3HL-Sk").parsed_response
-    # Track.create(params.permit(:video_id, :view_count))
-
+    @playlist = Playlist.find(params[:track][:playlists])
     @track = Track.create(track_params)
+    @playlist.tracks << @track
+    redirect_to root_path, notice: 'Track successfully added to playlist'
 
-    redirect_to root_path
   end
 
   def new

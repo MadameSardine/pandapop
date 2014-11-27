@@ -1,6 +1,3 @@
-<section id="results">
-</section>
-
 <% if user_signed_in? %>
 	<section class='playlists-box'>
 	  <h1>Playlists</h1>
@@ -30,7 +27,8 @@ image of pandas doing karaoke go here
         <%= form_for @track, :url => {:controller => 'tracks', :action => 'create'} do |f| %>
           <%= f.hidden_field :title, :value => item["snippet"]["title"] %>
           <%= f.hidden_field :video_id, :value => item["id"]["videoId"] %>
-          <%= f.submit "Save track"%></td>
+          <%= f.collection_select :playlists, @playlists, :id, :name%>
+          <%= f.submit "Add to playlist", :class => 'add-to-playlist-link'%></td>
         <% end %>
       </ul>
     </article>

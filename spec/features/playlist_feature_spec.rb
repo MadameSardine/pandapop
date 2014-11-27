@@ -56,33 +56,22 @@ describe 'playlist management' do
         expect(current_path).to eq playlist_path(@taylorjamz)
       end
 
-      xit 'a user can see a link to add to playlist from the home page', js: true do
+      it 'a user can see a link to add to playlist from the home page', js: true do
         visit '/'
         fill_in 'search-content', with: "Beyonce"
         click_button "search"
-        expect(page).to have_link 'Add to playlist'
-        expect(page).not_to have_content 'Add to Taylor Swift Jamz'
-        expect(page).not_to have_content 'Add to Best of Beyonce'
+        expect(page).to have_button 'Add to playlist'
+        expect(page).to have_css('#track_playlists')
       end
 
-      xit 'a user can select a playlist to add the track to', js: true do
+      it 'a user can select a playlist to add the track to'do
         visit '/'
         fill_in 'search-content', with: "Beyonce"
         click_button "search"
         within '#results' do
+          find('#track_playlists', match: :first)
           find('.add-to-playlist-link', match: :first).click
         end
-        expect(page).to have_content 'Add to Taylor Swift Jamz'
-        expect(page).to have_content 'Add to Best of Beyonce'
-      end
-
-      xit 'a user can add a track to Best of Beyonce', js: true do
-        visit '/'
-        fill_in 'search-content', with: "Beyonce"
-        click_button "search"
-        click_link 'Add to playlist'
-        find(:css, ".playlist-checkbox[name='Best of Beyonce']").set(true)
-        click_button "Add track to playlist(s)"
         expect(page).to have_content('Track successfully added to playlist')
       end
 
