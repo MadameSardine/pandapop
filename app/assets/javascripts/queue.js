@@ -1,39 +1,25 @@
 jQuery(document).ready(function ($) {
 
-  // $('#results').on('click', '.queue', function(event){
-  //   event.preventDefault();
-  //   $('#tracks-queue').append('<li class="queue-title">' + '<a href="http://youtube.com/watch/' + $(this).data('id') + '">' + $(this).data('title') + '</a></li>')
-  // });
+  var queue = document.getElementById('queue')
 
-  // $('#results').on('click', '.search-result-container', function(event){
-  //   event.preventDefault();
-  //   var $this = $(this);
-  //   var videoId = $this.find('#track_video_id').val();
-  //   window.location = '/player?videoId=' + videoId;
-  // });
-  var title;
-  if (localStorage.getItem('title') === undefined) {
-    title = [];
-  } else {
-    title = localStorage.getItem('title');
-  }
+  $(queue).bind("DOMSubtreeModified", function() {
+    localStorage.setItem('queue-list', this.innerHTML );
+  })
 
-  debugger
-
-  // var queue = document.getElementById('queue-bar')
-
-  // $(queue).bind("DOMSubtreeModified", function() {
-  //   localStorage.setItem()
-
-  // })
 
   $('#results').on('click', '.add-to-queue', function(event){
     event.preventDefault();
-    // // $('#queue').text(title)
-    title.push($(this).data("title"));
-    localStorage.setItem["title"] = title;
-    console.log(title)
-    $('#queue').text(title)
+    console.log(this);
+    $('#queue').append('<p class="queue-item" id="' + $(this).data('id') + '">' + $(this).data('title')+'</p>')
   });
+
+  if(localStorage.getItem('queue-list', this.innerHTML)) {
+    queue.innerHTML = localStorage.getItem('queue-list');
+  };
+
+  // $('#clear-queue').on('click', function(event){
+  //   event.preventDefault();
+  //   window.localStorage.clear();
+  // });
 
 });
