@@ -14,7 +14,7 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:title, :video_id)
+    params.require(:track).permit(:title, :duration, :view_count, :like_count, :video_id)
   end
 
 end

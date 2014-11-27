@@ -1,7 +1,15 @@
 These are the songs on your playlist woooo
 
-<% @playlist.tracks.each do |track| %>
-  <ol>
-    <li><%= track.title %></li>
-  </ol>
-<% end %>
+<h1><%= @playlist.name %></h1>
+<a href='#'>Play all </a>
+<ol type="1">
+  <% @playlist.tracks.each do |track| %>
+    <li>
+      <p>
+        <%= track.title %>
+        <%= track.duration %>
+        <a href='#'>Play</a>
+      </p>
+    </li>
+  <% end %>
+</ol>
