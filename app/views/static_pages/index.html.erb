@@ -18,8 +18,10 @@ image of pandas doing karaoke go here
   <% @json["items"].each do |item| %>
     <article class="search-result-container">
       <ul>
-        <li class="title"><%= item["snippet"]["title"] %></li>
-        <li class="thumbnail"><img src="<%= item["snippet"]["thumbnails"]["medium"]["url"] %>" /></li>
+        <article  class="title-and-thumbnail">
+          <li class="title"><%= item["snippet"]["title"] %></li>
+          <li class="thumbnail"><img src="<%= item["snippet"]["thumbnails"]["medium"]["url"] %>" /></li>
+         </article>
         <li class="duration">Length: <%= @content_details["items"][0]["contentDetails"]["duration"] %></li>
         <li class="viewCount"><%= @content_details["items"][0]["statistics"]["viewCount"] %> Views</li>
         <li class="likeCount"><%= @content_details["items"][0]["statistics"]["likeCount"] %> Likes</li>
