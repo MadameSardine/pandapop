@@ -34,7 +34,7 @@ describe 'playlist management' do
         @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
         @beyonce = Playlist.create(user: @panda, name: "Best of Beyonce")
         @shakeitoff = Track.create(title: "Shake it off", duration: 'PT4M23S' )
-        @beyonce.tracks << @shakeitoff
+        @taylorjamz.tracks << @shakeitoff
       end
 
       it 'a user can go to a playlist page' do
