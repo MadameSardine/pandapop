@@ -14,6 +14,23 @@ describe 'User' do
     click_button 'Sign up'
   end
 
+  it 'user will be redirected to home page if no video is selected' do
+    visit '/player'
+    expect(current_path).to eq root_path
+  end
+
+  it 'user sees a link to go to home page' do
+    visit '/'
+    expect(page).to have_link('Home')
+  end
+
+  it 'user can navigate to home page' do
+    visit '/'
+    click_link 'Home'
+    expect(current_path).to eq '/'
+  end
+
+
   context 'User is not logged in' do
 
     it 'should see a link to sign up' do

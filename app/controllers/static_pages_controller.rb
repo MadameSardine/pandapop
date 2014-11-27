@@ -14,8 +14,12 @@ class StaticPagesController < ApplicationController
 	end
 
   def player
+    if params[:videoId] == nil
+      redirect_to root_path
+    else
     puts params[:videoId]
     @url = 'http://youtube.com/embed/' + params[:videoId]
+    end
   end
 
   def test

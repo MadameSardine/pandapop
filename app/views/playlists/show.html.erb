@@ -1,1 +1,7 @@
 These are the songs on your playlist woooo
+
+<% @playlist.tracks.each do |track| %>
+  <ol>
+    <li><%= track.title %></li>
+  </ol>
+<% end %>
