@@ -4,8 +4,12 @@ class StaticPagesController < ApplicationController
 
 	def index
 		@playlists = Playlist.all
-    q = params[:'search-content'].to_s.gsub(' ', '+') + '+karaoke'
-    @json = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=#{q}&type=video&key=AIzaSyDX1TrCX_GkuuCFBaQHvVDRc24Rq3HL-Sk").parsed_response
+    if params[:'search-content'] == nil 
+      q = 'queen+karaoke+songs'
+    else
+      q = params[:'search-content'].to_s.gsub(' ', '+') + '+karaoke'
+    end
+    @json = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=#{q}&type=video&order=viewCount&key=AIzaSyDX1TrCX_GkuuCFBaQHvVDRc24Rq3HL-Sk").parsed_response
     @track = Track.new
 		@items = @json["items"].collect do |item|
 			HTTParty.get("https://www.googleapis.com/youtube/v3/videos?id=#{item["id"]["videoId"]}&key=AIzaSyDX1TrCX_GkuuCFBaQHvVDRc24Rq3HL-Sk&part=contentDetails,statistics,snippet").parsed_response
@@ -16,8 +20,7 @@ class StaticPagesController < ApplicationController
     if params[:videoId] == nil
       redirect_to root_path
     else
-      puts params[:videoId]
-     cp #to start on load
+      @url = 'http://youtube.com/embed/' + params[:videoId] + '?autoplay=1' #to start on load
     end
     @playlists = Playlist.all
   end

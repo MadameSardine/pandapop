@@ -42,7 +42,6 @@ jQuery(document).ready(function ($) {
 
   $('#player-link').on('click', function(event){
     event.preventDefault();
-    console.log('hmmmm')
   });
 
 });

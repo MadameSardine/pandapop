@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Pandapop</title>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet" type="text/css">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render "layouts/header" %>
   <main id="grid-main">
-    <%= render "layouts/header" %>
-    <%= form_tag root_path, :method => 'get' do %>
-      <p>
-        <%= text_field_tag :'search-content' %>
-        <%= submit_tag "search", :name => nil, :id => 'search-button' %>
-      </p>
-    <% end %>
+  
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-  <aside id="queue-bar">
-    <header id="queue-header">Queue</header>
-    <section id="queue"></section>
-    <button id="clear-queue">Clear queue</button>
-    <button id="play-queue">Play queue</button>
-  </aside>
 
     <%= yield %>
   </main>
 
+  <aside id="queue-bar">
+    <header id="queue-header">Queue</header>
+    <section id="queue"></section>
+      <button id="clear-queue">Clear queue</button>
+      <button id="play-queue">Play queue</button>
+  </aside>
 </body>
 </html>

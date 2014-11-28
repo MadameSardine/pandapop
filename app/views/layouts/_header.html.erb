@@ -1,8 +1,23 @@
-<% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to 'Sign up', new_user_registration_path %>
-  <%= link_to 'Sign in', new_user_session_path %>
-<% end %>
-
-<a href='/'>Home</a>
+<article id="top-nav">
+  <nav id="sign_in_nav">
+    <% if user_signed_in? %>
+    <span id='logged-in-container'>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    </span>
+    <% else %>
+    <span id='logged-out-container'>
+      <%= link_to 'Sign up', new_user_registration_path %>
+      <%= link_to 'Sign in', new_user_session_path %>
+    </span>
+    <% end %>
+  </nav>
+  <a href='/'><img src="/images/home.png" id="home-icon"/></a>
+  <article id="search-container">
+    <%= form_tag root_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :'search-content' %>
+        <%= submit_tag "search", :name => nil, :id => 'search-button' %>
+      </p>
+    <% end %>
+  </article>
+</article>

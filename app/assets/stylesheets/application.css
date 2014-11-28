@@ -1,31 +1,165 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require_tree .
  *= require_self
  */
 
 body {
-  color: red;
+}
+
+#top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 1000;
+  background-color: black;
+  /*overflow: hidden;*/
+  font-color: white;
+  display: block;
+  text-align: right;
+}
+
+#logged-out-container a {
+  text-align: right;
+  display: inline-block;
+}
+
+#sign_in_nav {
+  font-family: "Indie Flower", cursive;
+  font-size: 24px;
+  padding: 4px;
+  width: 200px;
+  height: 30px;
+  margin-right: 20px;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+#sign_in_nav a {
+  text-decoration: none;
+  color: #fff;
+  height: auto;
+  margin-left: 10px;
+}
+
+#sign_in_nav a:hover {
+  background-color: red;
+}
+
+#home-icon {
+  display: inline-block;
+  position: fixed;
+  left: 10px;
+  top: 3px;
+  height: 30px;
+}
+
+#search-container{
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  left: 150px;
+  width: 60%;
+  height: 40px;
+  display: block;
+  text-align: left;
+}
+
+#search-content{
+  display: inline-block;
+  width: 80%;
+  margin-top: 6px;
+  height: 20px;
+  border-radius: 15px;
+}
+
+#search-button {
+  display: inline-block;
+  background-color: white;
+  height: 20px;
+  width: 50px;
 }
 
 #grid-main {
-  display: inline-block;
-  width: 50%;
+  display: block;
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 98%;
+  min-height: 500px;
+  height: auto;
+  margin-bottom: 55px;
+  font-family: "Raleway", cursive;
+  text-align: center;
+}
+
+#welcome-message {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 80px;
+
 }
 
 #queue-bar {
-  display: inline-block;
-  width: 20%;
-  vertical-align: top;
-  border: 2px solid black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: orange;
+  height: 100px;
 }
+
+#results {
+  display: block;
+  width: 98%;
+  min-height: 400px;
+  padding: 0px;
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.title-and-thumbnail {
+  cursor: pointer;
+}
+
+.title-container {
+  height: 50px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 6px;
+  vertical-align: middle;
+}
+
+.title {
+  font-weight: bold;
+  text-align: center;
+  width: 96%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5px;
+  display: block;
+}
+
+.search-result-container {
+  position: relative;
+  width: 25%;
+  display: block;
+  float: left;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.thumbnail img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 96%;
+  max-height: 80%;
+}
+
+
+
