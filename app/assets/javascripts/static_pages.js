@@ -3,8 +3,6 @@
 
 jQuery(document).ready(function ($) {
 
-
-
   $('#playlist-list').hide();
 
   $('#results').on('click', '.queue', function(event){

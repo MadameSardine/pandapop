@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  color: red;
+}
+
+#grid-main {
+  display: inline-block;
+  width: 50%;
+}
+
+#queue-bar {
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+  border: 2px solid black;
+}
