@@ -14,6 +14,12 @@ describe 'User' do
     click_button 'Sign up'
   end
 
+  def search_for_simple_plan
+    visit '/'
+    fill_in 'search-content', with: 'simple plan'
+    click_button 'search'
+  end
+
   it 'user will be redirected to home page if no video is selected' do
     visit '/player'
     expect(current_path).to eq root_path
@@ -50,6 +56,31 @@ describe 'User' do
 
     it 'should not see a sign out link' do
       expect(page).not_to have_link 'Sign out'
+    end
+
+    it 'should see a queue bar' do 
+      visit '/'
+      expect(page).to have_content 'Queue'
+      expect(page).to have_selector('#queue-bar')
+    end
+
+    it 'should be able to add songs to the queue', js: true do 
+      search_for_simple_plan
+      expect(page).to have_content 'Simple Plan'
+      within('#results') do 
+        click_link('Add to queue', :match => :first)
+      end
+      within ('#queue-bar') do 
+        expect(page).to have_content 'Simple Plan'
+      end
+    end
+
+    it 'should be able to clear the queue', js: true do 
+      search_for_simple_plan
+      click_button 'Clear queue'
+      within ('#queue-bar') do 
+        expect(page).not_to have_content 'Simple Plan'
+      end
     end
 
   end
