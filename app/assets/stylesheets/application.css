@@ -120,6 +120,7 @@ body {
   z-index: 1000;
   background-color: orange;
   height: 100px;
+  overflow: scroll;
 }
 
 #results {
