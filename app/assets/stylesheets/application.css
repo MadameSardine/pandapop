@@ -73,13 +73,24 @@ body {
   margin-top: 6px;
   height: 20px;
   border-radius: 15px;
+  padding-left: 10px;
 }
 
 #search-button {
   display: inline-block;
+  border: 2px solid white;
+  background-color: black;
+  height: 30px;
+  width: 65px;
+  border-radius: 15px;
+  font-family: "Indie Flower";
+  color: white;
+  font-size: 0.9em;
+}
+
+#search-button:hover {
   background-color: white;
-  height: 20px;
-  width: 50px;
+  color: black;
 }
 
 #grid-main {
