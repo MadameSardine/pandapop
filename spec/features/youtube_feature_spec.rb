@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'youtube searches' do
 
-  context 'display searched results' do
+  context 'display searched results when searching for Taylor Swift' do
 
     before do
       visit '/'

@@ -32,4 +32,8 @@ jQuery(document).ready(function ($) {
     window.location = '/player?videoId='+youtubeVideoId
   });
 
+  if(localStorage.getItem('queue-list', this.innerHTML)) {
+    queue.innerHTML = JSON.parse(localStorage.getItem('queue-list'));
+  };
+
 });
