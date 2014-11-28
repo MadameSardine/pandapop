@@ -9,6 +9,7 @@ These are the songs on your playlist woooo
         <%= track.title %>
         <%= track.duration %>
         <a href='#'>Play</a>
+        <%= link_to 'Delete', playlist_path(:id => @playlist, :title => track.title), method: :delete %>
       </p>
     </li>
   <% end %>

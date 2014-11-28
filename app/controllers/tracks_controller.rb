@@ -5,7 +5,6 @@ class TracksController < ApplicationController
     @track = Track.create(track_params)
     @playlist.tracks << @track
     redirect_to root_path, notice: 'Track successfully added to playlist'
-
   end
 
   def new

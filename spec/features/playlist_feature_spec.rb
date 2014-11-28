@@ -84,6 +84,15 @@ describe 'playlist management' do
         expect(page).to have_content('Track successfully added to playlist')
       end
 
+      it 'a user can delete a track from a playlist' do
+        visit '/'
+        click_link 'Taylor Swift Jamz'
+        expect(page).to have_content('Shake it off')
+        click_link 'Delete'
+        expect(page).not_to have_content('Shake it off')
+        expect(page).to have_content('Track successfully removed from playlist')
+      end
+
     end
 
   end

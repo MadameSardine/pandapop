@@ -23,6 +23,17 @@ class PlaylistsController < ApplicationController
   end
 
   def edit
+
+
+  end
+
+  def destroy
+    @playlist = Playlist.find(params[:id])
+    @track = @playlist.tracks.find_by(:title => (params[:title]))
+    @playlist.tracks.delete(@track)
+    flash[:notice] = "Track successfully removed from playlist"
+    
+    redirect_to playlist_path(params[:id])
   end
 
 end
