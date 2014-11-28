@@ -8,6 +8,8 @@ class TracksController < ApplicationController
   end
 
   def new
+    @track = Track.new
+    @playlists = Playlist.all
   end
 
   private

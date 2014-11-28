@@ -1,0 +1,11 @@
+<%= form_for @track do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :duration %>
+  <%= f.text_field :duration %>
+  <%= f.label :video_id %>
+  <%= f.text_field :video_id %>
+  <%= f.label :playlist %>
+  <%= f.collection_select :playlists, @playlists, :id, :name%>
+  <%= f.submit "Add to playlist", :class => 'add-to-playlist-link'%>
+<% end %>
