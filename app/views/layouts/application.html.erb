@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Pandapop</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -18,14 +18,15 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    <%= yield %>
-  </main>
   <aside id="queue-bar">
     <header id="queue-header">Queue</header>
     <section id="queue"></section>
     <button id="clear-queue">Clear queue</button>
+    <button id="play-queue">Play queue</button>
   </aside>
+
+    <%= yield %>
+  </main>
 
 </body>
 </html>

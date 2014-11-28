@@ -18,7 +18,7 @@ class StaticPagesController < ApplicationController
       redirect_to root_path
     else
       puts params[:videoId]
-      @url = 'http://youtube.com/embed/' + params[:videoId]
+      @url = 'http://youtube.com/embed/' + params[:videoId] + '?autoplay=1' #to start on load
     end
     @playlists = Playlist.all
   end
