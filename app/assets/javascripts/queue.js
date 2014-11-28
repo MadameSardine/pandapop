@@ -33,7 +33,12 @@ jQuery(document).ready(function ($) {
   });
 
   if(localStorage.getItem('queue-list', this.innerHTML)) {
-    queue.innerHTML = JSON.parse(localStorage.getItem('queue-list'));
+    queue.innerHTML = localStorage.getItem('queue-list');
   };
+
+  $('#player-link').on('click', function(event){
+    event.preventDefault();
+    console.log('hmmmm')
+  });
 
 });

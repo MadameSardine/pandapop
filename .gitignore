@@ -17,3 +17,5 @@
 
 # Ignore secret files
 *.yml
+
+node_modules

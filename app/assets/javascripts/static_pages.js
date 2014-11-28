@@ -12,8 +12,7 @@ jQuery(document).ready(function ($) {
 
   $('#results').on('click', '.title-and-thumbnail', function(event){
     event.preventDefault();
-    var $this = $(this);
-    var videoId = $this.find('#track_video_id').val();
+    var videoId = $(this).data('video_id');
     window.location = '/player?videoId=' + videoId;
   });
 
