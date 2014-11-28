@@ -11,14 +11,6 @@
 </head>
 <body>
   <%= render "layouts/header" %>
-  <main id="grid-main">
-  
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </main>
-
   <aside id="queue-bar">
     <header id="queue-header">Queue</header>
     <section id="queue"></section>
@@ -26,6 +18,15 @@
     <button id="play-queue">Play queue</button>
     <button id="next-in-queue">Next</button>
   </aside>
-  
+  <main id="grid-main">
+
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </main>
+
+
+
 </body>
 </html>
