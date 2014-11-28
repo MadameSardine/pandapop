@@ -26,34 +26,43 @@ describe 'playlist management' do
     before do
       @panda = User.create(email: 'panda123@test.com', username: 'panda123', first_name: 'panda', last_name: 'pop', password: 'pandapop123', password_confirmation: 'pandapop123')
       login_as @panda
+      @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
+      @beyonce = Playlist.create(user: @panda, name: "Best of Beyonce")
+      @shakeitoff = Track.create(title: "Shake it off", duration: 'PT4M23S' )
+      @taylorjamz.tracks << @shakeitoff
     end
 
-    it 'user can see a link to create a playlist' do
-      visit '/'
-      expect(page).to have_link 'Create playlist'
-    end
+    context 'playlist viewing' do
 
-    it 'should be able to create a playlist with a name' do
-      visit '/'
-      click_link 'Create playlist'
-      expect(current_path).to eq new_playlist_path
-      fill_in "Name", with: "Taylor Swift Jamz"
-      click_button "Create playlist"
-      expect(page).to have_link "Taylor Swift Jamz"
-    end
-
-    context 'playlist viewing, editing, deleting' do
-
-      before do
-        @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
-        @beyonce = Playlist.create(user: @panda, name: "Best of Beyonce")
-      end
-
-      it 'a user can view tracks added to a playlist' do
+      it 'a user can go to a playlist page' do
         visit '/'
         expect(page).to have_content 'Taylor Swift Jamz'
         click_link 'Taylor Swift Jamz'
         expect(current_path).to eq playlist_path(@taylorjamz)
+      end
+
+      it 'a user can see the tracks in the playlist' do
+        visit playlist_path(@taylorjamz)
+        expect(page).to have_content("Shake it off")
+        expect(page).to have_content("PT4M23S")
+      end
+
+    end
+
+    context 'playlist editing, deleting' do
+
+      it 'user can see a link to create a playlist' do
+        visit '/'
+        expect(page).to have_link 'Create playlist'
+      end
+
+      it 'should be able to create a playlist with a name' do
+        visit '/'
+        click_link 'Create playlist'
+        expect(current_path).to eq new_playlist_path
+        fill_in "Name", with: "Taylor Swift Jamz"
+        click_button "Create playlist"
+        expect(page).to have_link "Taylor Swift Jamz"
       end
 
       it 'a user can see a link to add to playlist from the home page', js: true do
@@ -73,6 +82,35 @@ describe 'playlist management' do
           find('.add-to-playlist-link', match: :first).click
         end
         expect(page).to have_content('Track successfully added to playlist')
+      end
+
+      it 'a user can see a delete a track link' do
+        visit '/'
+        click_link 'Taylor Swift Jamz'
+        expect(page).to have_content('Delete')
+      end
+
+      it 'a user can delete a track from a playlist' do
+        visit '/'
+        click_link 'Taylor Swift Jamz'
+        expect(page).to have_content('Shake it off')
+        click_link 'Delete'
+        expect(page).not_to have_content('Shake it off')
+        expect(page).to have_content('Track successfully removed from playlist')
+      end
+
+      it 'a user see a delete a playlist link' do
+        visit '/'
+        click_link 'Taylor Swift Jamz'
+        expect(page).to have_content('Delete Playlist')
+      end
+
+      it 'a user can delete a playlist' do
+        visit '/'
+        click_link 'Taylor Swift Jamz'
+        click_link 'Delete Playlist'
+        expect(current_path).to eq '/'
+        expect(page).to have_content('Playlist has been successfully deleted')
       end
 
     end

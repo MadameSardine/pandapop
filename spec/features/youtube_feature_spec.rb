@@ -40,7 +40,7 @@ describe 'youtube searches' do
 
     it 'a user should click on a thumbnail and see a video on the player page', js: true do
       within "#results" do
-        find('.search-result-container', match: :first).click
+        find('.title-and-thumbnail', match: :first).click
       end
       expect(page).to have_selector('#player-iframe')
     end

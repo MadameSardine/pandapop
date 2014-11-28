@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
     $('#tracks-queue').append('<li class="queue-title">' + '<a href="http://youtube.com/watch/' + $(this).data('id') + '">' + $(this).data('title') + '</a></li>')
   });
 
-  $('#results').on('click', '.search-result-container', function(event){
+  $('#results').on('click', '.title-and-thumbnail', function(event){
     event.preventDefault();
     var $this = $(this);
     var videoId = $this.find('#track_video_id').val();

@@ -18,13 +18,18 @@ image of pandas doing karaoke go here
   <% @json["items"].each do |item| %>
     <article class="search-result-container">
       <ul>
-        <li class="title"><%= item["snippet"]["title"] %></li>
-        <li class="thumbnail"><img src="<%= item["snippet"]["thumbnails"]["medium"]["url"] %>" /></li>
+        <article  class="title-and-thumbnail">
+          <li class="title"><%= item["snippet"]["title"] %></li>
+          <li class="thumbnail"><img src="<%= item["snippet"]["thumbnails"]["medium"]["url"] %>" /></li>
+         </article>
         <li class="duration">Length: <%= @content_details["items"][0]["contentDetails"]["duration"] %></li>
         <li class="viewCount"><%= @content_details["items"][0]["statistics"]["viewCount"] %> Views</li>
         <li class="likeCount"><%= @content_details["items"][0]["statistics"]["likeCount"] %> Likes</li>
         <%= form_for @track, :url => {:controller => 'tracks', :action => 'create'} do |f| %>
           <%= f.hidden_field :title, :value => item["snippet"]["title"] %>
+          <%= f.hidden_field :duration, :value => @content_details["items"][0]["contentDetails"]["duration"] %>
+          <%= f.hidden_field :view_count, :value => @content_details["items"][0]["statistics"]["viewCount"] %>
+          <%= f.hidden_field :like_count, :value => @content_details["items"][0]["statistics"]["likeCount"] %>
           <%= f.hidden_field :video_id, :value => item["id"]["videoId"] %>
           <%= f.collection_select :playlists, @playlists, :id, :name%>
           <%= f.submit "Add to playlist", :class => 'add-to-playlist-link'%></td>
