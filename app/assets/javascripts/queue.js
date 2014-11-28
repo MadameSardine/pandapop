@@ -32,8 +32,15 @@ jQuery(document).ready(function ($) {
     window.location = '/player?videoId='+youtubeVideoId
   });
 
+// 'next' on click should
+// 1) Put the youtube video id of the n+1 child into the iframe
+// 2) delete from the queue the track that was just playing
+
+
+
   if(localStorage.getItem('queue-list', this.innerHTML)) {
     queue.innerHTML = JSON.parse(localStorage.getItem('queue-list'));
   };
+
 
 });
