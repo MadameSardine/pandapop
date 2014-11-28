@@ -126,11 +126,11 @@ body {
 }
 
 .title-container {
-  height: 50px;
+  min-height: 45px;
+  height: auto;
   display: block;
   width: 100%;
-  padding: 10px;
-  margin-bottom: 6px;
+  padding: 4px;
   vertical-align: middle;
 }
 
@@ -140,8 +140,12 @@ body {
   width: 96%;
   margin-right: auto;
   margin-left: auto;
-  padding: 5px;
   display: block;
+}
+
+.duration{
+  display: block;
+  margin-bottom: 4px;
 }
 
 .search-result-container {
@@ -159,6 +163,11 @@ body {
   margin-right: auto;
   max-width: 96%;
   max-height: 80%;
+}
+
+.viewCount .likeCount{
+  font-size: 0.5em;
+  white-space: nowrap;
 }
 
 

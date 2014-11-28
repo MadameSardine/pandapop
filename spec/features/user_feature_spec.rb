@@ -21,12 +21,12 @@ describe 'User' do
 
   it 'user sees a link to go to home page' do
     visit '/'
-    expect(page).to have_link('Home')
+    expect(page).to have_css('#home-icon')
   end
 
   it 'user can navigate to home page' do
     visit '/'
-    click_link 'Home'
+    find('#home-icon').click
     expect(current_path).to eq '/'
   end
 

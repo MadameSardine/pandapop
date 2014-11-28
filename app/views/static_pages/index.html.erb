@@ -24,11 +24,11 @@
           <span class='title-container'>
             <li class="title"><%= item["items"][0]["snippet"]["title"] %></li>
           </span>
+            <li class="duration"><%= Time.parse(item["items"][0]["contentDetails"]["duration"].gsub('PT', 'PT0H')).strftime("%M:%S") %></li>
           <li class="thumbnail"><img src="<%= item["items"][0]["snippet"]["thumbnails"]["medium"]["url"] %>" /></li>
          </article>
-        <li class="duration">Length: <%= Time.parse(item["items"][0]["contentDetails"]["duration"].gsub('PT', 'PT0H')).strftime("%M:%S") %></li>
-        <li class="viewCount"><%= item["items"][0]["statistics"]["viewCount"] %> Views</li>
-        <li class="likeCount"><%= item["items"][0]["statistics"]["likeCount"] %> Likes</li>
+          <li class="viewCount"><%= item["items"][0]["statistics"]["viewCount"] %> Views</li>
+          <li class="likeCount"><%= item["items"][0]["statistics"]["likeCount"] %> Likes</li>
         <%= form_for @track, :url => {:controller => 'tracks', :action => 'create'} do |f| %>
           <%= f.hidden_field :title, :value => item["items"][0]["snippet"]["title"] %>
           <%= f.hidden_field :duration, :value => item["items"][0]["contentDetails"]["duration"] %>
