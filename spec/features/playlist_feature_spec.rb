@@ -84,6 +84,12 @@ describe 'playlist management' do
         expect(page).to have_content('Track successfully added to playlist')
       end
 
+      it 'a user can see a delete a track link' do
+        visit '/'
+        click_link 'Taylor Swift Jamz'
+        expect(page).to have_content('Delete')
+      end
+
       it 'a user can delete a track from a playlist' do
         visit '/'
         click_link 'Taylor Swift Jamz'
@@ -91,6 +97,20 @@ describe 'playlist management' do
         click_link 'Delete'
         expect(page).not_to have_content('Shake it off')
         expect(page).to have_content('Track successfully removed from playlist')
+      end
+
+      it 'a user see a delete a playlist link' do
+        visit '/'
+        click_link 'Taylor Swift Jamz'
+        expect(page).to have_content('Delete Playlist')
+      end
+
+      it 'a user can delete a playlist' do
+        visit '/'
+        click_link 'Taylor Swift Jamz'
+        click_link 'Delete Playlist'
+        expect(current_path).to eq '/'
+        expect(page).to have_content('Playlist has been successfully deleted')
       end
 
     end
