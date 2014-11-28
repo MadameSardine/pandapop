@@ -115,5 +115,21 @@ describe 'playlist management' do
 
     end
 
+    context 'interacting with the queue' do
+
+      it 'a user can add a full playlist to the queue', js: true do
+        visit '/'
+        click_link "Taylor Swift Jamz"
+        click_link 'Play all'
+        expect(page).to have_css('.queue-item', text: 'Shake it off')
+      end
+
+      it 'a user can add a specific track from a playlist to the queue', js: true do
+        visit '/'
+        click_link "Taylor Swift Jamz"
+        find('.add-playlist-track-to-queue', match: :first).click
+        expect(page).to have_css('.queue-item', text: 'Shake it off')
+      end
+    end
   end
 end

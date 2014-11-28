@@ -26,25 +26,18 @@ describe 'queue management' do
     expect(current_path).to eq '/player'
   end
 
-  it 'should be able to go to the next song in a queue', js: true  do
-    fill_in 'search-content', with: "Lego"
+  xit 'should be able to go to the next song in a queue', js: true  do
+    fill_in 'search-content', with: "Burning down the house"
     click_button "search"
     within '#results' do
       find('.add-to-queue', match: :first).click
     end
     click_button 'Play queue'
-    expect(page).to have_content "Lego"
-    click_button 'Next'
-    expect(page).not_to have_content "Lego"
+    expect(page).to have_content "Beyonce"
+    within "#queue-bar" do
+      find('#next-in-queue').click
+    end
+    expect(page).not_to have_content "Beyonce"
   end
 
 end
-
-
-      # it 'a user can see a link to add to playlist from the home page', js: true do
-      #   visit '/'
-      #   fill_in 'search-content', with: "Beyonce"
-      #   click_button "search"
-      #   expect(page).to have_button 'Add to playlist'
-      #   expect(page).to have_css('#track_playlists')
-      # end

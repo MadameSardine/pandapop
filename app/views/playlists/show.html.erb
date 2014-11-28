@@ -2,14 +2,14 @@ These are the songs on your playlist woooo
 
 <h1><%= @playlist.name %></h1>
 <%= link_to 'Delete Playlist', playlist_path(:id => @playlist), method: :delete %>
-<a href='#'>Play all </a>
-<ol type="1">
+<a href='#' id="play-all">Play all </a>
+<ol type="1" class="playlist-tracks">
   <% @playlist.tracks.each do |track| %>
-    <li>
+    <li class="track-item" data-id="<%=track.video_id%>" data-title="<%=track.title%>">
       <p>
         <%= track.title %>
         <%= track.duration %>
-        <a href='#'>Play</a>
+        <a href='#' class='add-playlist-track-to-queue'>Play</a>
         <%= link_to 'Delete', playlist_path(:id => @playlist, :title => track.title), method: :patch %>
       </p>
     </li>
