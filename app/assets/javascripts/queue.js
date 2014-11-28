@@ -12,7 +12,7 @@ jQuery(document).ready(function ($) {
 
   $('#results').on('click', '.add-to-queue', function(event){
     event.preventDefault();
-    $queue.append('<p class="queue-item" data-id="' + $(this).data('id') + '">' + $(this).data('title')+'</p><br>')
+    $queue.append('<p class="queue-item" data-id="' + $(this).data('id') + '">' + $(this).data('title')+'</p>')
     $queue.trigger('trackAdded')
     // localStorage.setItem('queue-list', $(this).html());
 
@@ -32,17 +32,15 @@ jQuery(document).ready(function ($) {
     window.location = '/player?videoId='+youtubeVideoId
   });
 
-// 'next' on click should
-// 1) Put the youtube video id of the n+1 child into the iframe
-// 2) delete from the queue the track that was just playing
-
-  if(localStorage.getItem('queue-list', this.innerHTML)) {
-    queue.innerHTML = localStorage.getItem('queue-list');
-  };
-
-  $('#player-link').on('click', function(event){
+  $('#next-in-queue').on('click', function(event) {
     event.preventDefault();
-    console.log('hmmmm')
+
+    var secondyoutubeVideoId =  $("#queue p:nth-child(2)").data('id')
+    $('#player-iframe').attr('src', 'http://youtube.com/embed/' + secondyoutubeVideoId + '?autoplay=1')
+
+    $("#queue p:nth-child(1)").remove()
+    localStorage.setItem('queue-list', $queue.html());
+
   });
 
 });
