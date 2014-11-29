@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
 
-  <title>Pandapop</title>
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet" type="text/css">
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%= render "layouts/header" %>
-  <aside id="queue-bar">
-    <header id="queue-header">Queue</header>
-    <section id="queue"></section>
-    <button id="clear-queue">Clear queue</button>
-    <button id="play-queue">Play queue</button>
-    <button id="next-in-queue">Next</button>
-  </aside>
-  <main id="grid-main">
+    <title>Pandapop</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet" type="text/css">
+        <%= stylesheet_link_tag    'application', media: 'all' %>
+        <%= javascript_include_tag 'application' %>
+        <%= csrf_meta_tags %>
+  </head>
 
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </main>
+  <body>
+    <div id="sb-site">
+        <%= render "layouts/header" %>
+          <main id="grid-main">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= yield %>
+          </main>
+    </div>
+    <div class="sb-slidebar sb-left" >
+      <p><img src="/images/panda-v2-head-smile.png" class="panda-logo"></p>
+      <p><a href="#" class="sidebar-links">My Playlists</a></p>
+      <p><a href="#">pandapop! Playlists</a></p>
+      <p><a href="#">Starred Playlists</a></p>
+      <p><a href="#">Followers</a></p>
+    </div>
+    <aside id="queue-bar-container">
+        <div id="queue-bar">
+          <header id="queue-header">Queue</header>
+          <section id="queue"></section>
+          <button id="clear-queue">Clear queue</button>
+          <button id="play-queue">Play queue</button>
+          <button id="next-in-queue">Next</button>
+        </div>
+    </aside>
+  </body>
 
-
-
-</body>
 </html>

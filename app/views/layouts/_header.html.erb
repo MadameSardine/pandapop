@@ -1,4 +1,5 @@
 <article id="top-nav">
+
   <nav id="sign_in_nav">
     <% if user_signed_in? %>
     <span id='logged-in-container'>
@@ -11,6 +12,11 @@
     </span>
     <% end %>
   </nav>
+  <div class="sb-toggle-left">
+    <div class="navicon-line"></div>
+    <div class="navicon-line"></div>
+    <div class="navicon-line"></div>
+  </div>
   <a href='/'><img src="/images/home.png" id="home-icon"/></a>
   <article id="search-container">
     <%= form_tag root_path, :method => 'get' do %>

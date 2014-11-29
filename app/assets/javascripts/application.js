@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require_tree .
 
-
+  (function($) {
+    $(document).ready(function() {
+      $.slidebars();
+    });
+  }) (jQuery);

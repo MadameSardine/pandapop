@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
 
 	def index
 		@playlists = Playlist.all
-    if params[:'search-content'] == nil 
+    if params[:'search-content'] == nil
       q = 'queen+karaoke+songs'
     else
       q = params[:'search-content'].to_s.gsub(' ', '+') + '+karaoke'

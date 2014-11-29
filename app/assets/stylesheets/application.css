@@ -7,15 +7,14 @@ body {
 }
 
 #top-nav {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  width: 100%;
   height: 40px;
   z-index: 1000;
+  width: auto;
   background-color: black;
-  /*overflow: hidden;*/
+  overflow: hidden;
   font-color: white;
   display: block;
   text-align: right;
@@ -26,6 +25,20 @@ body {
   display: inline-block;
 }
 
+.sb-toggle-left {
+  display: block;
+  width: 58px;
+  float: left;
+  margin-top: 12px;
+  margin-left: 6px;
+}
+.navicon-line {
+  width: 24px;
+  height: 4px;
+  border-radius: 1px;
+  margin-bottom: 3px;
+  background-color: #fff;
+}
 #sign_in_nav {
   font-family: "Indie Flower", cursive;
   font-size: 24px;
@@ -51,7 +64,7 @@ body {
 #home-icon {
   display: inline-block;
   position: fixed;
-  left: 10px;
+  left: 45px;
   top: 3px;
   height: 30px;
 }
@@ -110,16 +123,17 @@ body {
   text-align: center;
   font-size: 2em;
   margin-bottom: 80px;
-
 }
 
 #queue-bar {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  right: 0;
+  width: 100px;
   z-index: 1000;
   background-color: orange;
-  height: 100px;
+  height: 100%;
+  margin-top: 30px;
   overflow: scroll;
 }
 
@@ -182,5 +196,7 @@ body {
   white-space: nowrap;
 }
 
-
-
+.panda-logo {
+  width: 80px;
+  height: auto;
+}
