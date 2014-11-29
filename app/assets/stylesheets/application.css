@@ -9,15 +9,16 @@ body {
 #top-nav {
   top: 0;
   left: 0;
-  right: 0;
+  right: 150px;
   height: 40px;
-  z-index: 1000;
+  z-index: 5000;
   width: auto;
   background-color: black;
   overflow: hidden;
   font-color: white;
   display: block;
   text-align: right;
+  position: fixed;
 }
 
 #logged-out-container a {
@@ -109,14 +110,16 @@ body {
 #grid-main {
   display: block;
   margin-top: 120px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 98%;
+  margin-right: 150px;
+  width: -moz-calc(100% - 150px);
+  width: -webkit-calc(100% - 150px);
+  width: calc(100% - 150px);
   min-height: 500px;
   height: auto;
   margin-bottom: 55px;
   font-family: "Raleway", cursive;
   text-align: center;
+  z-index: 1000;
 }
 
 #welcome-message {
@@ -127,14 +130,59 @@ body {
 
 #queue-bar {
   position: fixed;
+  top: 0;
   bottom: 0;
   right: 0;
-  width: 100px;
-  z-index: 1000;
-  background-color: orange;
+  width: 150px;
+  z-index: 1500;
+  background-color: #C40057;
+  opacity: 0.8;
   height: 100%;
-  margin-top: 30px;
+}
+
+#queue-header {
+  font-family: "Indie Flower";
+  font-size: 24px;
+  color: white;
+  padding: 8px;
+  background-color: gray;
+  text-align: center;
+  background-color: #C40057;
+} 
+
+p.queue-item {
+  font-size: 0.75em;
+  color: white;
+  border: 1px white solid;
+  margin: 6px;
+  padding: 5px;
+  background-color: black;
+  font-family: "Raleway";
+}
+
+#queue {
+  position: fixed;
+  top: 40px;
+  bottom: 60px;
   overflow: scroll;
+  height: -moz-calc(100% - 80px);
+  height: -webkit-calc(100% - 80px);
+  height: calc(100% - 80px);
+}
+
+.queue-button {
+  display: inline;
+  padding: 5px;
+  margin: 0px;
+  width: 50px;
+  height: 40px;
+}
+
+#queue-buttons {
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  margin: 0;
 }
 
 #results {

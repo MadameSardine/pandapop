@@ -8,14 +8,14 @@ jQuery(document).ready(function ($) {
 
   $queue.on('trackAdded', function() {
     localStorage.setItem('queue-list', $(this).html());
+    console.log('track added')
+    $queue.scrollTop($queue.height());
   });
 
   $('#results').on('click', '.add-to-queue', function(event){
     event.preventDefault();
     $queue.append('<p class="queue-item" data-id="' + $(this).data('id') + '">' + $(this).data('title')+'</p>')
     $queue.trigger('trackAdded')
-    // localStorage.setItem('queue-list', $(this).html());
-
   });
 
   $('#clear-queue').on('click', function(event){
