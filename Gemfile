@@ -16,6 +16,7 @@ gem 'json'
 gem 'httparty'
 gem 'rails_12factor', group: :production
 gem 'cancancan'
+gem 'figaro'
 
 
 group :test, :development do
@@ -27,4 +28,5 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'poltergeist'
   gem 'selenium-webdriver'
+  gem 'hirb'
 end

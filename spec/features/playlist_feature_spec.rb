@@ -117,25 +117,20 @@ describe 'playlist management' do
 
         before do 
           @koala = User.create(email: 'koala123@test.com', username: 'koala123', first_name: 'koala', last_name: 'bear', password: 'pandapop123', password_confirmation: 'pandapop123')
-          @koalajamz = Playlist.create(user: @koala, name: "Koala's Favorite Songs")
+          @koalajamz = Playlist.create(user: @koala, name: "Koala Jamz")
         end 
 
         it 'a user can only see his own playlists on the home page' do 
           visit '/'
-          expect(page).not_to have_content "Koala's Favorite Songs"
+          expect(page).not_to have_content "Koala Jamz"
         end
 
-      # it 'a user can only add songs to his own playlist' do 
-      #   visit '/'
-      #   fill_in 'search-content', with: "Beyonce"
-      #   click_button "search"
-      #   within '#results' do
-      #     find('#track_playlists', match: :first)
-      #     find('.add-to-playlist-link', match: :last).click
-      #     expect(page)
-      #   end
-      #   expect(page).not_to have_content 'Track successfully added to playlist'
-      # end
+        it 'a user should only see his own playlists in the dropdown menu' do 
+          visit '/'
+          expect(page).to have_xpath('//section/article/form/select[@id = "track_playlists"]/option[text() = "Taylor Swift Jamz"]')
+          expect(page).not_to have_xpath('//section/article/form/select[@id = "track_playlists"]/option[text() = "Koala Jamz"]')
+        end
+
       end
 
     end
@@ -157,6 +152,7 @@ describe 'playlist management' do
       end
 
     end
+
   end
 
 end
