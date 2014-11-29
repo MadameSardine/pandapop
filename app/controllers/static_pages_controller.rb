@@ -3,16 +3,17 @@ class StaticPagesController < ApplicationController
 	before_action :authenticate_user!, :except => [:index, :player, :test]
 
 	def index
+    @key = ENV['youtube_api_key']
 		@playlists = Playlist.all 
     if params[:'search-content'] == nil 
       q = 'queen+karaoke+songs'
     else
       q = params[:'search-content'].to_s.gsub(' ', '+') + '+karaoke'
     end
-    @json = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=#{q}&type=video&order=viewCount&key=AIzaSyDX1TrCX_GkuuCFBaQHvVDRc24Rq3HL-Sk").parsed_response
+    @json = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=#{q}&type=video&order=viewCount&key=#{@key}").parsed_response
     @track = Track.new
 		@items = @json["items"].collect do |item|
-			HTTParty.get("https://www.googleapis.com/youtube/v3/videos?id=#{item["id"]["videoId"]}&key=AIzaSyDX1TrCX_GkuuCFBaQHvVDRc24Rq3HL-Sk&part=contentDetails,statistics,snippet").parsed_response
+			HTTParty.get("https://www.googleapis.com/youtube/v3/videos?id=#{item["id"]["videoId"]}&key=#{@key}&part=contentDetails,statistics,snippet").parsed_response
 		end
 	end
 
