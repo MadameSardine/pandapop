@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 	before_action :authenticate_user!, :except => [:index, :player, :test]
 
 	def index
-		@playlists = Playlist.all
+		@playlists = Playlist.all 
     if params[:'search-content'] == nil 
       q = 'queen+karaoke+songs'
     else

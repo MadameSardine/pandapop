@@ -17,7 +17,7 @@ describe 'playlist management' do
   context 'User is not logged in' do
     it 'should not see a link to create a playlist' do
       visit '/'
-      expect(page).not_to have_content "New playlist"
+      expect(page).not_to have_content "Create playlist"
     end
   end
 
@@ -113,6 +113,31 @@ describe 'playlist management' do
         expect(page).to have_content('Playlist has been successfully deleted')
       end
 
+      context 'users can only manage their own playlists' do 
+
+        before do 
+          @koala = User.create(email: 'koala123@test.com', username: 'koala123', first_name: 'koala', last_name: 'bear', password: 'pandapop123', password_confirmation: 'pandapop123')
+          @koalajamz = Playlist.create(user: @koala, name: "Koala's Favorite Songs")
+        end 
+
+        it 'a user can only see his own playlists on the home page' do 
+          visit '/'
+          expect(page).not_to have_content "Koala's Favorite Songs"
+        end
+
+      # it 'a user can only add songs to his own playlist' do 
+      #   visit '/'
+      #   fill_in 'search-content', with: "Beyonce"
+      #   click_button "search"
+      #   within '#results' do
+      #     find('#track_playlists', match: :first)
+      #     find('.add-to-playlist-link', match: :last).click
+      #     expect(page)
+      #   end
+      #   expect(page).not_to have_content 'Track successfully added to playlist'
+      # end
+      end
+
     end
 
     context 'interacting with the queue' do
@@ -130,6 +155,9 @@ describe 'playlist management' do
         find('.add-playlist-track-to-queue', match: :first).click
         expect(page).to have_css('.queue-item', text: 'Shake it off')
       end
+
     end
   end
+
 end
+

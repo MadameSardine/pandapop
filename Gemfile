@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'json'
 gem 'httparty'
 gem 'rails_12factor', group: :production
+gem 'cancancan'
 
 
 group :test, :development do

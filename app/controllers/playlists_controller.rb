@@ -10,8 +10,13 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = Playlist.new(playlist_params)
     @playlist.user = current_user
-    @playlist.save
-    redirect_to root_path
+    if @playlist.save
+      flash[:notice] = "Playlist successfully created"
+      redirect_to root_path
+    else
+      flash[:notice] = "Playlist was not successfully created"
+      redirect_to root_path
+    end
   end
 
   def playlist_params

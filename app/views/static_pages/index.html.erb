@@ -17,7 +17,6 @@
 
 <h1 id='welcome-message'>Find the best YouTube karaoke songs with PandaPop</h1>
 
-
 <section id="results">
   <% @items.each do |item| %>
     <article class="search-result-container">
@@ -31,15 +30,17 @@
          </article>
           <li class="viewCount"><%= item["items"][0]["statistics"]["viewCount"] %> Views</li>
           <li class="likeCount"><%= item["items"][0]["statistics"]["likeCount"] %> Likes</li>
-        <%= form_for @track, :url => {:controller => 'tracks', :action => 'create'} do |f| %>
-          <%= f.hidden_field :title, :value => item["items"][0]["snippet"]["title"] %>
-          <%= f.hidden_field :duration, :value => item["items"][0]["contentDetails"]["duration"] %>
-          <%= f.hidden_field :view_count, :value => item["items"][0]["statistics"]["viewCount"] %>
-          <%= f.hidden_field :like_count, :value => item["items"][0]["statistics"]["likeCount"] %>
-          <%= f.hidden_field :video_id, :value => item["items"][0]["id"] %>
-          <%= f.collection_select :playlists, @playlists, :id, :name%>
-          <%= f.submit "Add to playlist", :class => 'add-to-playlist-link'%></td>
-        <% end %>
+          <% if user_signed_in? %>
+            <%= form_for @track, :url => {:controller => 'tracks', :action => 'create'} do |f| %>
+              <%= f.hidden_field :title, :value => item["items"][0]["snippet"]["title"] %>
+              <%= f.hidden_field :duration, :value => item["items"][0]["contentDetails"]["duration"] %>
+              <%= f.hidden_field :view_count, :value => item["items"][0]["statistics"]["viewCount"] %>
+              <%= f.hidden_field :like_count, :value => item["items"][0]["statistics"]["likeCount"] %>
+              <%= f.hidden_field :video_id, :value => item["items"][0]["id"] %>
+              <%= f.collection_select :playlists, current_user.playlists, :id, :name%>
+              <%= f.submit "Add to playlist", :class => 'add-to-playlist-link'%></td>
+            <% end %>
+          <% end %>
       </ul>
         <li><a href='#' class="add-to-queue" data-id='<%= item["items"][0]["id"] %>' data-title='<%= item["items"][0]["snippet"]["title"] %>'>Add to queue</a></li>
       </article>
