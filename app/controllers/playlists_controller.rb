@@ -12,15 +12,15 @@ class PlaylistsController < ApplicationController
     @playlist.user = current_user
     if @playlist.save
       flash[:notice] = "Playlist successfully created"
-      redirect_to root_path
+      redirect_to :back
     else
       flash[:notice] = "Playlist was not successfully created"
-      redirect_to root_path
+      redirect_to :back
     end
   end
 
   def playlist_params
-    params.require(:playlist).permit(:name)
+    params.require(:playlist).permit(:name, :image)
   end
 
   def show
@@ -40,7 +40,6 @@ class PlaylistsController < ApplicationController
     @track = @playlist.tracks.find_by(:title => (params[:title]))
     @playlist.tracks.delete(@track)
     flash[:notice] = "Track successfully removed from playlist"
-
     redirect_to playlist_path(params[:id])
   end
 

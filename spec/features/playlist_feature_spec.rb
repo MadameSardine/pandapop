@@ -32,10 +32,17 @@ describe 'playlist management' do
   end
 
   context 'User is not logged in' do
+
     it 'should not see a link to create a playlist' do
       visit '/'
       expect(page).not_to have_content "Create playlist"
     end
+
+    it 'a playlist uploaded without an image should have the default missing image displayed on the home page' do 
+      visit '/'
+      expect(page).to have_selector("img[src$='missing.png']")
+    end
+
   end
 
   context 'User is logged in' do

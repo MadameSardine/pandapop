@@ -1,17 +1,27 @@
-These are the songs on your playlist woooo
+<section class='playlist-container'>
+  <aside class='image-container'>
+    <%= image_tag @playlist.image.url(:medium) %>
+    <br>Created on <%= @playlist.created_at.strftime("%B %-d, %Y") %>
+    <br>Made by: <%= @playlist.user.username %>
+  </aside>
+  <article class='playlist-content'>
+    <header class='playlist-title-bar'>
+      <h1 class='playlist-name'><%= @playlist.name %></h1>
+      <h4 class='playlist-links'>
+        <a href='#' id="play-all">Queue up playlist</a>
+        <%= link_to 'Delete Playlist', playlist_path(:id => @playlist), method: :delete %>
+      </h4>
+    </header>
+    <ol type="1" class="playlist-tracks">
+      <% @playlist.tracks.each do |track| %>
+        <li class="track-item" data-id="<%=track.video_id%>" data-title="<%=track.title%>">
+          <p class='track-title-and-duration'><%= track.title %> (<%= Time.parse(track.duration.gsub('PT', 'PT0H')).strftime("%M:%S") %>)</p>
+          <p class='track-links'><a href='#' class='add-playlist-track-to-queue'>Play</a>
+            <%= link_to 'Delete', playlist_path(:id => @playlist, :title => track.title), method: :patch %>
+          </p>
+        </li>
+      <% end %>
+    </ol>
+  </article>
+</section>
 
-<h1><%= @playlist.name %></h1>
-<%= link_to 'Delete Playlist', playlist_path(:id => @playlist), method: :delete %>
-<a href='#' id="play-all">Play all </a>
-<ol type="1" class="playlist-tracks">
-  <% @playlist.tracks.each do |track| %>
-    <li class="track-item" data-id="<%=track.video_id%>" data-title="<%=track.title%>">
-      <p>
-        <%= track.title %>
-        <%= track.duration %>
-        <a href='#' class='add-playlist-track-to-queue'>Play</a>
-        <%= link_to 'Delete', playlist_path(:id => @playlist, :title => track.title), method: :patch %>
-      </p>
-    </li>
-  <% end %>
-</ol>

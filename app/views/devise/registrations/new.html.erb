@@ -1,6 +1,7 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)), html: {multipart: true} do |f| %>
+
   <%= devise_error_messages! %>
 
   <div class="field">
@@ -36,9 +37,15 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.password_field :avatar %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+  
 <% end %>
 
 <%= render "devise/shared/links" %>

@@ -1,0 +1,55 @@
+section.playlist-container {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+aside.image-container {
+  width: 310px;
+  display: inline-block;
+  border: 1px black solid;
+}
+
+article.playlist-content {
+  display: inline-block;
+  vertical-align: top;
+  overflow-y: scroll;
+  height: auto;
+  width: auto;
+  border: 1px black solid;
+}
+
+header.playlist-title-bar {
+  padding: 5px;
+}
+
+h1.playlist-name {
+  font-size: 2em;
+  text-align: left;
+}
+
+h4.playlist-links {
+  font-size: 0.75em;
+  text-align: left;
+}
+
+p.track-title-and-duration {
+  text-align: left;
+  font-size: 1em;
+}
+
+p.track-links {
+  margin-top: 5px;
+  text-align: right;
+  font-size: 0.75em;
+}
+
+li.track-item {
+  width: auto;
+  border: 1px solid red;
+  padding: 5px;
+  margin: 5px;
+}

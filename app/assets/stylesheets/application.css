@@ -249,3 +249,37 @@ p.queue-item {
   width: 80px;
   height: auto;
 }
+
+#pandapop-playlists {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+#playlists-welcome {
+  font-size: 2em;
+}
+
+article.pandapop-playlist-item {
+  width: 150px;
+  display: inline-block;
+  border: 1px black solid;
+  padding: 5px;
+  margin: 10px;
+  font-size: 1em;
+  text-align: center;
+}
+
+article.pandapop-playlist-item a {
+  text-decoration: none;
+}
+
+#user-avatar {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-radius: 50%;
+}

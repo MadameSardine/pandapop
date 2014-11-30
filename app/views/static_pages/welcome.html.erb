@@ -20,15 +20,19 @@
 <section id='pandapop-playlists'>
 <h2 id='playlists-welcome'>Our favorite playlists</h2>
   <article class='pandapop-playlist-item'>
-    <%= @playlists[3].name %>
+    <%= link_to @playlists[3].name, playlist_path(@playlists[3]) %>
+    <br><%= image_tag @playlists[3].image.url(:thumb) %>
   </article>
   <article class='pandapop-playlist-item'>
-    <%= @playlists[2].name %>
+    <%= link_to @playlists[2].name, playlist_path(@playlists[2]) %>
+    <br><%= image_tag @playlists[2].image.url(:thumb) %>
   </article>
   <article class='pandapop-playlist-item'>
-    <%= @playlists[1].name %>
+    <%= link_to @playlists[1].name, playlist_path(@playlists[1]) %>
+    <br><%= image_tag @playlists[1].image.url(:thumb) %>
   </article>
   <article class='pandapop-playlist-item'>
-    <%= @playlists[0].name %>
+    <%= link_to @playlists[0].name, playlist_path(@playlists[0]) %>
+    <br><%= image_tag @playlists[0].image.url(:thumb) %>
   </article>
 </section>
