@@ -1,0 +1,34 @@
+<% if user_signed_in? %>
+  <section class='playlists-box'>
+    <h1>Playlists</h1>
+    <%= link_to 'Add your own song to a playlist', new_track_path %>
+    <br>
+    <%= link_to 'Create playlist', new_playlist_path %>
+    <article class='playlists'>
+      <ul>
+        <% current_user.playlists.each do |playlist| %>
+        <li><%= link_to playlist.name, playlist_path(playlist) %></li>
+        <% end %>
+      </ul>
+    </article>
+  </section>
+<% else %>
+<% end %>
+
+<h1 id='welcome-message'>Find the best YouTube karaoke songs with PandaPop</h1>
+
+<section id='pandapop-playlists'>
+<h2 id='playlists-welcome'>Our favorite playlists</h2>
+  <article class='pandapop-playlist-item'>
+    <%= @playlists[3].name %>
+  </article>
+  <article class='pandapop-playlist-item'>
+    <%= @playlists[2].name %>
+  </article>
+  <article class='pandapop-playlist-item'>
+    <%= @playlists[1].name %>
+  </article>
+  <article class='pandapop-playlist-item'>
+    <%= @playlists[0].name %>
+  </article>
+</section>

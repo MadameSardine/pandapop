@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
     @key = ENV['youtube_api_key']
 		@playlists = Playlist.all 
     if params[:'search-content'] == nil 
-      q = 'queen+karaoke+songs'
+      render :'static_pages/welcome'
     else
       q = params[:'search-content'].to_s.gsub(' ', '+') + '+karaoke'
     end

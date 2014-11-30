@@ -2,6 +2,17 @@ require 'rails_helper'
 
 describe 'youtube searches' do
 
+  def preload_playlists 
+    @playlist1 = Playlist.create(name: "Makers Jamz")
+    @playlist2 = Playlist.create(name: "Friday Night")
+    @playlist3 = Playlist.create(name: "Katy Perry Jamz")
+    @playlist4 = Playlist.create(name: "Taylor Swift Jamz")
+  end
+  
+  before do 
+    preload_playlists
+  end
+
   context 'display searched results when searching for Taylor Swift' do
 
     before do

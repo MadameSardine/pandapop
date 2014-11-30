@@ -2,6 +2,13 @@ require 'rails_helper'
 
 describe 'queue management when user not logged in' do
 
+  def preload_playlists 
+    Playlist.create(name: "Makers Jamz")
+    Playlist.create(name: "Friday Night")
+    Playlist.create(name: "Katy Perry Jamz")
+    Playlist.create(name: "Taylor Swift Jamz")
+  end
+
   def search_for_simple_plan
     visit '/'
     fill_in 'search-content', with: 'simple plan'
@@ -20,6 +27,10 @@ describe 'queue management when user not logged in' do
     end
   end
 
+  before do 
+    preload_playlists
+  end
+
   it 'should see a queue bar' do 
     visit '/'
     expect(page).to have_content 'Queue'
@@ -28,9 +39,13 @@ describe 'queue management when user not logged in' do
 
   context 'a user searches for simple plan and adds the first track to the queue' do 
 
-    before do 
+    before :each do 
       search_for_simple_plan
       add_first_result_to_queue
+    end
+
+    after :each do 
+      click_button 'Clear'
     end
 
     it 'should be able to add a track to the queue', js: true  do
@@ -57,6 +72,7 @@ describe 'queue management when user not logged in' do
         expect(page).to have_content 'Simple Plan'
       end
     end
+
   end
 
   it 'should be able to go to the next song in a queue, removing the previously played track', js: true  do

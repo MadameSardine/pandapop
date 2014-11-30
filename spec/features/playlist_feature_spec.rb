@@ -14,6 +14,23 @@ describe 'playlist management' do
     click_button 'Sign up'
   end
 
+  def search_for_taylor_swift 
+    visit '/'
+    fill_in 'search-content', with: 'taylor swift'
+    click_button 'search'
+  end
+
+  def preload_playlists 
+    @playlist1 = Playlist.create(name: "Makers Jamz")
+    @playlist2 = Playlist.create(name: "Friday Night")
+    @playlist3 = Playlist.create(name: "Katy Perry Jamz")
+    @playlist4 = Playlist.create(name: "Taylor Swift Jamz")
+  end
+
+  before do 
+    preload_playlists
+  end
+
   context 'User is not logged in' do
     it 'should not see a link to create a playlist' do
       visit '/'
@@ -122,11 +139,13 @@ describe 'playlist management' do
 
         it 'a user can only see his own playlists on the home page' do 
           visit '/'
+          search_for_taylor_swift
           expect(page).not_to have_content "Koala Jamz"
         end
 
         it 'a user should only see his own playlists in the dropdown menu' do 
           visit '/'
+          search_for_taylor_swift
           expect(page).to have_xpath('//section/article/form/select[@id = "track_playlists"]/option[text() = "Taylor Swift Jamz"]')
           expect(page).not_to have_xpath('//section/article/form/select[@id = "track_playlists"]/option[text() = "Koala Jamz"]')
         end
