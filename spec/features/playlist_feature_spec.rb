@@ -135,7 +135,7 @@ describe 'playlist management' do
 
     end
 
-    context 'interacting with the queue' do
+    context 'adding playlists to the queue' do
 
       it 'a user can add a full playlist to the queue', js: true do
         visit '/'
