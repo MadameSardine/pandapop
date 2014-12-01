@@ -1,1 +1,15 @@
+<main ng-app='Pandapop' ng-controller="SearchController as searchCtrl">
 <h1 id='welcome-message'>Find the best YouTube karaoke songs with PandaPop</h1>
+<section id='search-box'>
+Build the angular search thingy here!!
+<br>
+<div id='search'>
+  <input ng-model='query' placeholder='search' ng-keyup="$event.keyCode == 13 && executeSearch()">
+  <div class="result" ng-repeat="result in results">
+    <p>{{ track.title }}</p>
+  </div>
+</div>
+check if angular is working: {{ 2 + 2 }}
+{{ query }}
+</section>
+</main>

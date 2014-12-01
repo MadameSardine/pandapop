@@ -16,24 +16,20 @@ jQuery(document).ready(function ($) {
     window.location = '/player?videoId=' + videoId;
   });
 
+})
 
-  $('#search').on('submit', function(event){
- 			event.preventDefault();
-      $.post('/get_songs', {'search-content': $('#search-content').val()}, function(response){
 
-      }, 'json')
-        .done(function(data){
-            $('#results').empty();
-            data.items.forEach(function(item) {
-            $("#results").append("<div id='results-container'>"
-            +  "<li>" + item.items[0].snippet.title + "</li>"
-            + "<li>" + item.items[0].contentDetails.duration + "</li>"
-            + "<img src='" + item.items[0].snippet.thumbnails.medium.url + "'></img>" + "</div>");
-          });
-        })
-        .fail(function(){
-          console.log('Error')
-        })
-    });
+  // $('#search').on('submit', function(event){
+ 	// 		event.preventDefault();
+  //     $.post('/get_songs', {'search-content': $('#search-content').val()}, function(response){
 
-});
+  //     }, 'json')
+  //       .done(function(data){
+  //           $('#results').empty();
+  //         //   
+  //         });
+  //       })
+  //       .fail(function(){
+  //         console.log('Error')
+  //       })
+  //   });

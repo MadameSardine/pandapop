@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
 
 	before_action :authenticate_user!, :except => [:index, :player, :test, :get_songs]
+  skip_before_action :verify_authenticity_token
 
 	def index
 		@playlists = Playlist.all
