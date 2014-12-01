@@ -1,7 +1,22 @@
 /*
+ *= require jquery-ui
  *= require_tree .
  *= require_self
  */
+
+/*test*/
+.draggable-title {
+  font-family: arial;
+  background-color: gray;
+  width: 150px;
+  border: 2px solid;
+  border-radius: 10px;
+/*  padding-top: 25px;
+  padding-right: 50px;
+  padding-bottom: 25px;
+  padding-left: 50px;*/
+}
+/*test*/
 
 body {
 }
