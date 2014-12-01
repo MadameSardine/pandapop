@@ -1,4 +1,8 @@
-<h1 id='welcome-message'>Find the best YouTube karaoke songs with PandaPop</h1>
-
-<!-- <iframe width="1280" height="780" id="player-iframe" src='<%= @url %>'/> -->
-
+<!-- <h1 id='welcome-message'>Find the best YouTube karaoke songs with PandaPop</h1> -->
+<article id="player-title">
+<h1>Now playing: <span id="current-player-title"></span></h1>
+</article>
+<article id="iframe-container">
+  <iframe id="player-iframe" src='<%= @url %>' frameborder="0" allowfullscreen/>
+</article>
+<%= render "static_pages/queue" %>

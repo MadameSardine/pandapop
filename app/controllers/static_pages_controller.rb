@@ -16,9 +16,9 @@ class StaticPagesController < ApplicationController
 			HTTParty.get("https://www.googleapis.com/youtube/v3/videos?id=#{item["id"]["videoId"]}&key=#{@key}&part=contentDetails,statistics,snippet").parsed_response
 		end
     if params[:videoId] == nil
-      @url = 'http://youtube.com/embed/videoId=hDZbA17QqXU?autoplay=1'
+      @url = 'http://youtube.com/embed/videoId=hDZbA17QqXU?autoplay=1?wmode=opaque'
     else
-      @url = 'http://youtube.com/embed/' + params[:videoId] + '?autoplay=1' #to start on load
+      @url = 'http://youtube.com/embed/' + params[:videoId] + '?autoplay=1?wmode=opaque' #to start on load
     end
   end
 end
