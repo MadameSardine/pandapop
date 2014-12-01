@@ -17,6 +17,7 @@ gem 'httparty'
 gem 'rails_12factor', group: :production
 gem 'cancancan'
 gem 'figaro'
+gem 'jquery-ui-rails'
 
 
 group :test, :development do
