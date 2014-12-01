@@ -25,8 +25,8 @@ describe 'youtube searches' do
       expect(page).to have_content 'Taylor Swift'
     end
 
-    it 'a user sees only four results' do
-      expect(page).to have_selector('.search-result-container', count: 4)
+    it 'a user sees only five results' do
+      expect(page).to have_selector('.search-result-container', count: 5)
     end
 
     it 'a user should see a video title' do
