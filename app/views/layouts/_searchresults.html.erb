@@ -1,0 +1,33 @@
+<% if @items %>
+  <section id="results">
+    <% @items.each do |item| %>
+      <article class="search-result-container">
+        <ul>
+          <article class="title-and-thumbnail" data-video_id='<%= item["items"][0]["id"] %>'>
+            <span class='title-container'>
+              <li class="title"><%= item["items"][0]["snippet"]["title"] %></li>
+            </span>
+              <li class="duration"><%= Time.parse(item["items"][0]["contentDetails"]["duration"].gsub('PT', 'PT0H')).strftime("%M:%S") %></li>
+            <li class="thumbnail"><img src="<%= item["items"][0]["snippet"]["thumbnails"]["medium"]["url"] %>" /></li>
+           </article>
+
+            <li class="viewCount"><%= item["items"][0]["statistics"]["viewCount"] %> Views</li>
+            <li class="likeCount"><%= item["items"][0]["statistics"]["likeCount"] %> Likes</li>
+          </ul>
+            <% if user_signed_in? %>
+              <%= form_for @track, :url => {:controller => 'tracks', :action => 'create'} do |f| %>
+                <%= f.hidden_field :title, :value => item["items"][0]["snippet"]["title"] %>
+                <%= f.hidden_field :duration, :value => item["items"][0]["contentDetails"]["duration"] %>
+                <%= f.hidden_field :view_count, :value => item["items"][0]["statistics"]["viewCount"] %>
+                <%= f.hidden_field :like_count, :value => item["items"][0]["statistics"]["likeCount"] %>
+                <%= f.hidden_field :video_id, :value => item["items"][0]["id"] %>
+                <%= f.collection_select :playlists, current_user.playlists, :id, :name%>
+                <%= f.submit "Add to playlist", :class => 'add-to-playlist-link'%></td>
+              <% end %>
+            <% end %>
+
+          <li><a href='#' class="add-to-queue" data-id='<%= item["items"][0]["id"] %>' data-title='<%= item["items"][0]["snippet"]["title"] %>'>Add to queue</a></li>
+        </article>
+    <% end %>
+  </section>
+<% end %>

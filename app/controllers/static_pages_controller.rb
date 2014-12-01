@@ -4,9 +4,9 @@ class StaticPagesController < ApplicationController
 
 	def index
     @key = ENV['youtube_api_key']
-		@playlists = Playlist.all 
-    if params[:'search-content'] == nil 
-      render :'static_pages/welcome'
+		@playlists = Playlist.all
+    if params[:'search-content'] == nil
+      q = 'panda+karaoke'
     else
       q = params[:'search-content'].to_s.gsub(' ', '+') + '+karaoke'
     end
@@ -15,15 +15,10 @@ class StaticPagesController < ApplicationController
 		@items = @json["items"].collect do |item|
 			HTTParty.get("https://www.googleapis.com/youtube/v3/videos?id=#{item["id"]["videoId"]}&key=#{@key}&part=contentDetails,statistics,snippet").parsed_response
 		end
-	end
-
-  def player
     if params[:videoId] == nil
-      redirect_to root_path
+      @url = 'http://youtube.com/embed/videoId=hDZbA17QqXU?autoplay=1'
     else
       @url = 'http://youtube.com/embed/' + params[:videoId] + '?autoplay=1' #to start on load
     end
-    @playlists = Playlist.all
   end
-
 end

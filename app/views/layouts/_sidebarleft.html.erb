@@ -1,0 +1,16 @@
+<div class="sb-slidebar sb-left" >
+      <p><img src="/images/panda-v2-head-smile.png" class="panda-logo"></p>
+      <% if user_signed_in? %>
+      <%= image_tag current_user.avatar.url(:medium), :id => 'user-avatar' %>
+      <% end %>
+      <% if user_signed_in? %>
+      <p><%= link_to "Sign out", destroy_user_session_path, method: :delete %></p>
+      <p><%= link_to 'My Playlists', playlists_path %></p>
+      <p><a href="#">Starred Playlists</a></p>
+      <p><a href="#">Followers</a></p>
+      <% else %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+      <%= link_to 'Sign in', new_user_session_path %>
+      <% end %>
+      <p><a href="#">pandapop! Playlists</a></p>
+</div>

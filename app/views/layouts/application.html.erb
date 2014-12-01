@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <title>Pandapop</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
@@ -10,38 +9,8 @@
         <%= javascript_include_tag 'application' %>
         <%= csrf_meta_tags %>
   </head>
-
   <body>
-
-    <aside id="queue-bar-container">
-        <div id="queue-bar">
-          <header id="queue-header">Queue</header>
-          <section id="queue"></section>
-          <section id="queue-buttons">
-          <!-- do not change indentation on the line below! --> 
-          <button id="play-queue" class="queue-button">Play</button><!--
---><button id="next-in-queue" class="queue-button">Next</button><!-- --><button id="clear-queue" class="queue-button">Clear</button>
-          </section>
-        </div>
-    </aside>
-
-    <div class="sb-slidebar sb-left" >
-      <p><img src="/images/panda-v2-head-smile.png" class="panda-logo"></p>
-      <% if user_signed_in? %>
-      <%= image_tag current_user.avatar.url(:medium), :id => 'user-avatar' %>
-      <% end %>
-      <% if user_signed_in? %>
-      <p><%= link_to "Sign out", destroy_user_session_path, method: :delete %></p>
-      <p><%= link_to 'My Playlists', playlists_path %></p>
-      <p><a href="#">Starred Playlists</a></p>
-      <p><a href="#">Followers</a></p>
-      <% else %>
-      <%= link_to 'Sign up', new_user_registration_path %>
-      <%= link_to 'Sign in', new_user_session_path %>
-      <% end %>
-      <p><a href="#">pandapop! Playlists</a></p>
-    </div>
-
+    <%= render "layouts/sidebarleft"%>
     <div id="sb-site">
         <%= render "layouts/header" %>
           <main id="grid-main">
@@ -49,8 +18,7 @@
             <p class="alert"><%= alert %></p>
             <%= yield %>
           </main>
+        <%= render "layouts/searchresults" %>
     </div>
-
   </body>
-
 </html>

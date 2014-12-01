@@ -2,20 +2,28 @@
 
 <section id='pandapop-playlists'>
 <h2 id='playlists-welcome'>Our favorite playlists</h2>
-  <article class='pandapop-playlist-item'>
-    <%= link_to @playlists[3].name, playlist_path(@playlists[3]) %>
-    <br><%= image_tag @playlists[3].image.url(:thumb) %>
-  </article>
-  <article class='pandapop-playlist-item'>
-    <%= link_to @playlists[2].name, playlist_path(@playlists[2]) %>
-    <br><%= image_tag @playlists[2].image.url(:thumb) %>
-  </article>
-  <article class='pandapop-playlist-item'>
-    <%= link_to @playlists[1].name, playlist_path(@playlists[1]) %>
-    <br><%= image_tag @playlists[1].image.url(:thumb) %>
-  </article>
-  <article class='pandapop-playlist-item'>
-    <%= link_to @playlists[0].name, playlist_path(@playlists[0]) %>
-    <br><%= image_tag @playlists[0].image.url(:thumb) %>
-  </article>
+  <% if @playlists[3] %>
+    <article class='pandapop-playlist-item'>
+      <%= link_to @playlists[3].name, playlist_path(@playlists[3]) %>
+      <br><%= image_tag @playlists[3].image.url(:thumb) %>
+    </article>
+  <% end %>
+  <% if @playlists[2] %>
+    <article class='pandapop-playlist-item'>
+      <%= link_to @playlists[2].name, playlist_path(@playlists[2]) %>
+      <br><%= image_tag @playlists[2].image.url(:thumb) %>
+    </article>
+  <% end %>
+  <% if @playlists[1] %>
+    <article class='pandapop-playlist-item'>
+      <%= link_to @playlists[1].name, playlist_path(@playlists[1]) %>
+      <br><%= image_tag @playlists[1].image.url(:thumb) %>
+    </article>
+  <% end %>
+  <% if @playlists[0] %>
+    <article class='pandapop-playlist-item'>
+      <%= link_to @playlists[0].name, playlist_path(@playlists[0]) %>
+      <br><%= image_tag @playlists[0].image.url(:thumb) %>
+    </article>
+  <% end %>
 </section>
