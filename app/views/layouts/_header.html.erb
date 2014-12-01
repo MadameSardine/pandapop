@@ -10,11 +10,10 @@
   </div>
   <a href='/'><img src="/images/home.png" id="home-icon"/></a>
   <article id="search-container">
-    <%= form_tag root_path, :method => 'get' do %>
-      <p>
-        <%= text_field_tag :'search-content' %>
-        <%= submit_tag "search", :name => nil, :id => 'search-button' %>
-      </p>
-    <% end %>
+    <form id="search" action="/get_songs" method="post">
+      <input type="text" name="search-content" id="search-content">
+      <input type="submit" value="search" id="search-button">
+    </form>
+
   </article>
 </article>

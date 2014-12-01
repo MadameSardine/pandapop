@@ -1,20 +1,10 @@
 class StaticPagesController < ApplicationController
 
-	before_action :authenticate_user!, :except => [:index, :player, :test]
+	before_action :authenticate_user!, :except => [:index, :player, :test, :get_songs]
 
 	def index
-    @key = ENV['youtube_api_key']
-		@playlists = Playlist.all 
-    if params[:'search-content'] == nil 
-      render :'static_pages/welcome'
-    else
-      q = params[:'search-content'].to_s.gsub(' ', '+') + '+karaoke'
-    end
-    @json = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=#{q}&type=video&order=viewCount&key=#{@key}").parsed_response
+		@playlists = Playlist.all
     @track = Track.new
-		@items = @json["items"].collect do |item|
-			HTTParty.get("https://www.googleapis.com/youtube/v3/videos?id=#{item["id"]["videoId"]}&key=#{@key}&part=contentDetails,statistics,snippet").parsed_response
-		end
 	end
 
   def player
@@ -25,5 +15,17 @@ class StaticPagesController < ApplicationController
     end
     @playlists = Playlist.all
   end
+
+	def get_songs
+		q = params[:'search-content'].to_s.gsub(' ', '+') + '+karaoke'
+		@key = ENV['youtube_api_key']
+		@json = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=#{q}&type=video&order=viewCount&key=#{@key}").parsed_response
+		@track = Track.new
+		@items = @json["items"].collect do |item|
+			HTTParty.get("https://www.googleapis.com/youtube/v3/videos?id=#{item["id"]["videoId"]}&key=#{@key}&part=contentDetails,statistics,snippet").parsed_response
+		end
+		render json: {:json => @json,
+									:items => @items}
+	end
 
 end
