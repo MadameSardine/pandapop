@@ -13,7 +13,7 @@ jQuery(document).ready(function ($) {
   $('#results').on('click', '.title-and-thumbnail', function(event){
     event.preventDefault();
     var videoId = $(this).data('video_id');
-    window.location = '/player?videoId=' + videoId;
+    window.location = '/?videoId=' + videoId;
   });
 
 });

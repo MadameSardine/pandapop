@@ -5,6 +5,8 @@ section.playlist-container {
   position: relative;
   overflow-x: hidden;
   white-space: nowrap;
+  background-color: white;
+  font-family: 'PT Sans', sans-serif;
 }
 
 aside.image-container {

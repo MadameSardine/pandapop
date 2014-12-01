@@ -2,14 +2,14 @@ require 'rails_helper'
 
 describe 'youtube searches' do
 
-  def preload_playlists 
+  def preload_playlists
     @playlist1 = Playlist.create(name: "Makers Jamz")
     @playlist2 = Playlist.create(name: "Friday Night")
     @playlist3 = Playlist.create(name: "Katy Perry Jamz")
     @playlist4 = Playlist.create(name: "Taylor Swift Jamz")
   end
-  
-  before do 
+
+  before do
     preload_playlists
   end
 
@@ -37,11 +37,11 @@ describe 'youtube searches' do
       expect(page).to have_selector('.duration')
     end
 
-    it 'a user should see a video view count' do
+    xit 'a user should see a video view count' do
       expect(page).to have_selector('.viewCount')
     end
 
-    it 'a user should see a video like count' do
+    xit 'a user should see a video like count' do
       expect(page).to have_selector('.likeCount')
     end
 
