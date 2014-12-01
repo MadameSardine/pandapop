@@ -9,15 +9,32 @@
  @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
 
 /*test*/
+
+/*test area */
 .draggable-title {
   font-family: arial;
   width: 150px;
   border: 2px solid;
   border-radius: 10px;
-/*  padding-top: 25px;
-  padding-right: 50px;
-  padding-bottom: 25px;
-  padding-left: 50px;*/
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.sb-slidebar {
+  background-color: #1d1d1d;
+  background-image:
+    linear-gradient(
+      to left,
+      #1d1d1d,
+      #353535 10%
+    );
 }
 /*test*/
 
@@ -212,6 +229,7 @@ body {
   margin-bottom: 80px;
 }*/
 
+
 /*#queue-bar {
   position: fixed;
   top: 0;
@@ -265,6 +283,7 @@ p.queue-item {
   margin: 0;
 }
 */
+
 
 
 /*===============SEARCH RESULTS============================*/
@@ -398,8 +417,64 @@ article.pandapop-playlist-item a {
 }
 
 #user-avatar {
-  width: 250px;
+  width: 180px;
+  display: block;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 50%;
+<<<<<<< HEAD
 }*/
+/*=======
+  border:5px solid gray;
+}*/
+
+
+.sidebar-button {
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px gray solid;
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  font-size: 1.3em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+}
+
+#top-button {
+  border-top: 2px gray solid;
+}
+
+.sidebar-button:hover {
+  background-color: #545454;
+  border-left: 7px #ff358b solid;
+}
+
+#sidebar-button-area {
+  margin-top: 30px;
+}
+
+h1 {
+  font-family: 'PT Sans', sans-serif;
+}
+
+h1#username {
+  font-size: 1.6em;
+  color: #ff358b;
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+h2 {
+  font-family: 'PT Sans', sans-serif;
+}
+
+#panda-mascot {
+  width: 60px;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+

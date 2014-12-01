@@ -25,7 +25,7 @@ jQuery(document).ready(function ($) {
     	var title = ui.draggable.clone().find('.title').text();
     	var videoId = ui.draggable.clone().find('.title-and-thumbnail').data().video_id
     	
-    	var newQueueItem = '<p class="queue-item" data-id="' + videoId + '">' + title + '</p>'
+    	var newQueueItem = '<article class="queue-item" data-id="' + videoId + '">' + title + '</article>'
       $('#queue').append(newQueueItem)
 
 

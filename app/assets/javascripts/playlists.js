@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
 		event.preventDefault();
 
 		$("li").each(function() {
-			$queue.append('<p class="queue-item" data-id="' + $(this).data('id') + '">' + $(this).data('title')+'</p>')	
+			$queue.append('<article class="queue-item" data-id="' + $(this).data('id') + '">' + $(this).data('title')+'</article>')	
 		});		
 
 		localStorage.setItem('queue-list', $queue.html());
@@ -20,7 +20,7 @@ jQuery(document).ready(function ($) {
 	$('.add-playlist-track-to-queue').on('click', function(event) {
 		event.preventDefault();
 
-		$queue.append('<p class="queue-item" data-id="' + $(this).closest('li').data('id') + '">' + $(this).closest('li').data('title')+'</p>')	
+		$queue.append('<article class="queue-item" data-id="' + $(this).closest('li').data('id') + '">' + $(this).closest('li').data('title')+'</article>')	
 
 		localStorage.setItem('queue-list', $queue.html());
 		
