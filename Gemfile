@@ -17,7 +17,6 @@ gem 'httparty'
 gem 'rails_12factor', group: :production
 gem 'cancancan'
 gem 'figaro'
-gem 'paperclip'
 gem 'aws-sdk'
 gem 'jquery-ui-rails'
 
