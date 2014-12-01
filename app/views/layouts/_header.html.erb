@@ -1,18 +1,29 @@
 <article id="top-nav">
-  <nav id="sign_in_nav">
+  <nav id="top-nav-inner">
+    <ul>
+      <li>
+        <div class="sb-toggle-left" id='nav-bar-slide-out'>
+          <div id="navicon-line-container" >
+            <div class="navicon-line"></div>
+            <div class="navicon-line"></div>
+            <div class="navicon-line"></div>
+          </div>
+        </div>
+      </li>
+        <h1 id="pandapop-title">pandapop</h1>
+      <li>
+        <a href='/'><img src="/images/panda-v2-head-smile.png" id="home-icon"/></a>
+      </li>
+      <li>
+        <article id="search-container">
+          <%= form_tag root_path, :method => 'get' do %>
+            <p>
+              <%= text_field_tag :'search-content' %>
+              <%= image_submit_tag('/images/search.png', :alt => 'search-button', :id => 'search-button') %>
+            </p>
+          <% end %>
+        </article>
+      </li>
+    </ul>
   </nav>
-  <div class="sb-toggle-left" id='nav-bar-slide-out'>
-    <div class="navicon-line"></div>
-    <div class="navicon-line"></div>
-    <div class="navicon-line"></div>
-  </div>
-  <a href='/'><img src="/images/home.png" id="home-icon"/></a>
-  <article id="search-container">
-    <%= form_tag root_path, :method => 'get' do %>
-      <p>
-        <%= text_field_tag :'search-content' %>
-        <%= submit_tag "search", :name => nil, :id => 'search-button' %>
-      </p>
-    <% end %>
-  </article>
 </article>
