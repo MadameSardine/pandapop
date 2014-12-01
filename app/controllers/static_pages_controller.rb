@@ -26,7 +26,4 @@ class StaticPagesController < ApplicationController
     @playlists = Playlist.all
   end
 
-  def test
-    @song = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=#{params[:q]}&type=video&key=AIzaSyDX1TrCX_GkuuCFBaQHvVDRc24Rq3HL-Sk").parsed_response
-  end
 end

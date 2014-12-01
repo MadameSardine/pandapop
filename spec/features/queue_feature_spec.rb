@@ -2,13 +2,6 @@ require 'rails_helper'
 
 describe 'queue management when user not logged in' do
 
-  def preload_playlists 
-    Playlist.create(name: "Makers Jamz")
-    Playlist.create(name: "Friday Night")
-    Playlist.create(name: "Katy Perry Jamz")
-    Playlist.create(name: "Taylor Swift Jamz")
-  end
-
   def search_for_simple_plan
     visit '/'
     fill_in 'search-content', with: 'simple plan'
@@ -25,6 +18,16 @@ describe 'queue management when user not logged in' do
     within '#results' do 
       find('.add-to-queue', match: :first).click
     end
+  end
+
+  def create_taylor_jamz_playlist
+    visit '/'
+    find('#nav-bar-slide-out').click
+    click_link "My Playlists"
+    click_link 'Create new playlist'
+    expect(current_path).to eq new_playlist_path
+    fill_in "Name", with: "Taylor Swift Jamz"
+    click_button "Create playlist"
   end
 
   before do 
@@ -75,11 +78,35 @@ describe 'queue management when user not logged in' do
 
   end
 
+  it 'a user can add a full playlist to the queue', js: true do
+    sign_up_as_panda
+    create_taylor_jamz_playlist
+    visit '/'
+    find('#nav-bar-slide-out').click
+    click_link "My Playlists"
+    click_link 'Taylor Swift Jamz'
+    click_link 'Queue up playlist'
+    expect(page).to have_css('.queue-item', text: 'Shake it off')
+  end
+
+  it 'a user can add a specific track from a playlist to the queue', js: true do
+    sign_up_as_panda
+    create_taylor_jamz_playlist
+    visit '/'
+    find('#nav-bar-slide-out').click
+    click_link "My Playlists"
+    click_link 'Taylor Swift Jamz'
+    find('.add-playlist-track-to-queue', match: :first).click
+    expect(page).to have_css('.queue-item', text: 'Shake it off')
+  end
+
   it 'should be able to go to the next song in a queue, removing the previously played track', js: true  do
     search_for_simple_plan
     add_first_result_to_queue
+    expect(page).to have_selector('.queue-item', count: 1)
     search_for_taylor_swift
     add_first_result_to_queue
+    visit '/'
     within ('#queue-bar') do 
       expect(page).to have_selector('.queue-item', count: 2)
     end    

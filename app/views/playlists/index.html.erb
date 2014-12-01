@@ -1,0 +1,18 @@
+<h1>Your Playlists</h1>
+
+<article class='playlists-list'>
+
+  <section class='playlists-box'>
+  <% @user.playlists.each do |playlist| %>
+    <p class='playlist-item'><%= link_to playlist.name, playlist_path(playlist) %></p>
+  <% end %>
+  </section>
+
+  <section class='playlists-management'>
+    <h1>Playlists</h1>
+    <h2><%= link_to 'Add your own song to a playlist', new_track_path %></h2>
+    <h2><%= link_to 'Create new playlist', new_playlist_path %></h2>
+  </section>
+
+</article>
+

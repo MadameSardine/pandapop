@@ -1,30 +1,11 @@
 require 'rails_helper'
 
-describe 'playlist management' do
-
-  def sign_up_as_panda
-    visit '/'
-    click_link 'Sign up'
-    fill_in 'Email', with: 'panda@test.com'
-    fill_in 'Username', with: 'Panda123'
-    fill_in 'First name', with: 'Panda'
-    fill_in 'Last name', with: 'Pop'
-    fill_in 'Password', with: 'pandapop123'
-    fill_in 'Password confirmation', with: 'pandapop123'
-    click_button 'Sign up'
-  end
+describe 'playlist management', js: true do
 
   def search_for_taylor_swift 
     visit '/'
     fill_in 'search-content', with: 'taylor swift'
     click_button 'search'
-  end
-
-  def preload_playlists 
-    @playlist1 = Playlist.create(name: "Makers Jamz")
-    @playlist2 = Playlist.create(name: "Friday Night")
-    @playlist3 = Playlist.create(name: "Katy Perry Jamz")
-    @playlist4 = Playlist.create(name: "Taylor Swift Jamz")
   end
 
   before do 
@@ -52,7 +33,7 @@ describe 'playlist management' do
       login_as @panda
       @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
       @beyonce = Playlist.create(user: @panda, name: "Best of Beyonce")
-      @shakeitoff = Track.create(title: "Shake it off", duration: 'PT4M23S' )
+      @shakeitoff = Track.create(title: "Shake it off", duration: 'PT4M23S')
       @taylorjamz.tracks << @shakeitoff
     end
 
@@ -60,6 +41,8 @@ describe 'playlist management' do
 
       it 'a user can go to a playlist page' do
         visit '/'
+        find('#nav-bar-slide-out').click
+        click_link "My Playlists"
         expect(page).to have_content 'Taylor Swift Jamz'
         click_link 'Taylor Swift Jamz'
         expect(current_path).to eq playlist_path(@taylorjamz)
@@ -68,7 +51,6 @@ describe 'playlist management' do
       it 'a user can see the tracks in the playlist' do
         visit playlist_path(@taylorjamz)
         expect(page).to have_content("Shake it off")
-        expect(page).to have_content("PT4M23S")
       end
 
     end
@@ -77,16 +59,20 @@ describe 'playlist management' do
 
       it 'user can see a link to create a playlist' do
         visit '/'
-        expect(page).to have_link 'Create playlist'
+        find('#nav-bar-slide-out').click
+        click_link "My Playlists"
+        expect(page).to have_link 'Create new playlist'
       end
 
       it 'should be able to create a playlist with a name' do
         visit '/'
-        click_link 'Create playlist'
+        find('#nav-bar-slide-out').click
+        click_link "My Playlists"
+        click_link 'Create new playlist'
         expect(current_path).to eq new_playlist_path
         fill_in "Name", with: "Taylor Swift Jamz"
         click_button "Create playlist"
-        expect(page).to have_link "Taylor Swift Jamz"
+        expect(page).to have_content "Playlist successfully created"
       end
 
       it 'a user can see a link to add to playlist from the home page', js: true do
@@ -110,27 +96,25 @@ describe 'playlist management' do
 
       it 'a user can see a delete a track link' do
         visit '/'
+        find('#nav-bar-slide-out').click
+        click_link "My Playlists"
         click_link 'Taylor Swift Jamz'
         expect(page).to have_content('Delete')
       end
 
       it 'a user can delete a track from a playlist' do
         visit '/'
+        find('#nav-bar-slide-out').click
+        click_link "My Playlists"
         click_link 'Taylor Swift Jamz'
-        expect(page).to have_content('Shake it off')
         click_link 'Delete'
-        expect(page).not_to have_content('Shake it off')
         expect(page).to have_content('Track successfully removed from playlist')
-      end
-
-      it 'a user see a delete a playlist link' do
-        visit '/'
-        click_link 'Taylor Swift Jamz'
-        expect(page).to have_content('Delete Playlist')
       end
 
       it 'a user can delete a playlist' do
         visit '/'
+        find('#nav-bar-slide-out').click
+        click_link "My Playlists"
         click_link 'Taylor Swift Jamz'
         click_link 'Delete Playlist'
         expect(current_path).to eq '/'
@@ -153,28 +137,10 @@ describe 'playlist management' do
         it 'a user should only see his own playlists in the dropdown menu' do 
           visit '/'
           search_for_taylor_swift
-          expect(page).to have_xpath('//section/article/form/select[@id = "track_playlists"]/option[text() = "Taylor Swift Jamz"]')
-          expect(page).not_to have_xpath('//section/article/form/select[@id = "track_playlists"]/option[text() = "Koala Jamz"]')
+          expect(page).to have_xpath('//div/main/section/article/form/select[@id = "track_playlists"]/option[text() = "Taylor Swift Jamz"]')
+          expect(page).not_to have_xpath('//div/main/section/article/form/select[@id = "track_playlists"]/option[text() = "Koala Jamz"]')
         end
 
-      end
-
-    end
-
-    context 'adding playlists to the queue' do
-
-      it 'a user can add a full playlist to the queue', js: true do
-        visit '/'
-        click_link "Taylor Swift Jamz"
-        click_link 'Play all'
-        expect(page).to have_css('.queue-item', text: 'Shake it off')
-      end
-
-      it 'a user can add a specific track from a playlist to the queue', js: true do
-        visit '/'
-        click_link "Taylor Swift Jamz"
-        find('.add-playlist-track-to-queue', match: :first).click
-        expect(page).to have_css('.queue-item', text: 'Shake it off')
       end
 
     end

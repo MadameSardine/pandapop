@@ -79,8 +79,7 @@ html.sb-scroll-lock.sb-active:not(.sb-static) {
 }
 
 .sb-left {
-	min-width: 200px
-	max-width: 400px;
+	min-width: 200px;
 	left: 0; /* Set Slidebar to the left. */
 }
 

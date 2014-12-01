@@ -12,6 +12,7 @@
   </head>
 
   <body>
+
     <aside id="queue-bar-container">
         <div id="queue-bar">
           <header id="queue-header">Queue</header>
@@ -23,14 +24,15 @@
           </section>
         </div>
     </aside>
+
     <div class="sb-slidebar sb-left" >
       <p><img src="/images/panda-v2-head-smile.png" class="panda-logo"></p>
       <% if user_signed_in? %>
-      <%= image_tag current_user.image.url(:medium), :id => 'user-avatar' %>
+      <%= image_tag current_user.avatar.url(:medium), :id => 'user-avatar' %>
       <% end %>
       <% if user_signed_in? %>
       <p><%= link_to "Sign out", destroy_user_session_path, method: :delete %></p>
-      <p><a href="#" class="sidebar-links">My Playlists</a></p>
+      <p><%= link_to 'My Playlists', playlists_path %></p>
       <p><a href="#">Starred Playlists</a></p>
       <p><a href="#">Followers</a></p>
       <% else %>
@@ -39,6 +41,7 @@
       <% end %>
       <p><a href="#">pandapop! Playlists</a></p>
     </div>
+
     <div id="sb-site">
         <%= render "layouts/header" %>
           <main id="grid-main">
@@ -47,6 +50,7 @@
             <%= yield %>
           </main>
     </div>
+
   </body>
 
 </html>

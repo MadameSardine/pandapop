@@ -1,6 +1,11 @@
 class PlaylistsController < ApplicationController
 
-  before_action :authenticate_user!, :except => [:index, :show]
+  before_action :authenticate_user!, :except => [:show]
+
+  def index
+    @user = current_user
+    @playlists = Playlist.all
+  end
 
   def new
     @user = current_user
@@ -12,10 +17,10 @@ class PlaylistsController < ApplicationController
     @playlist.user = current_user
     if @playlist.save
       flash[:notice] = "Playlist successfully created"
-      redirect_to :back
+      redirect_to playlists_path
     else
       flash[:notice] = "Playlist was not successfully created"
-      redirect_to :back
+      redirect_to playlists_path
     end
   end
 

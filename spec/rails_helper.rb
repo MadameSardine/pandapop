@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'database_cleaner'
 require 'capybara/poltergeist'
+require 'support/test_helpers'
 Capybara.javascript_driver = :poltergeist
 
 include Warden::Test::Helpers
@@ -61,6 +62,8 @@ RSpec.configure do |config|
   end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  config.include TestHelpers
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
