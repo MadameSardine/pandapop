@@ -37,6 +37,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include Devise::TestHelpers, :type => :requests
   config.include Warden::Test::Helpers, :type => :requests
+  config.include FactoryGirl::Syntax::Methods
 
   config.use_transactional_fixtures = false
 
