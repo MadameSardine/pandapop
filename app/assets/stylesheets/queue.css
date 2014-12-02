@@ -63,17 +63,24 @@
   font-weight: bold;
   font-family: 'PT Sans', sans-serif;
   color: #fff;
-  margin-left: 8px;
+  margin-left: 4px;
+  margin-top: 6px;
 }
 
-#small-play-icon {
+.queue-button-icon {
   position : relative;
   display: block;
   float: left;
-  margin-left: 14px;
-  height: 16px;
+  margin-left: 6px;
+  height: 26px;
   width: auto;
+  padding: 0px;
+}
 
+#clear-queue h3 {
+  position: relative;
+  margin-left: 20px;
+  margin-top: -0.5px;
 }
 
 #queue {
