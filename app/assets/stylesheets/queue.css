@@ -58,6 +58,7 @@
 }
 
 .queue-button h3 {
+  cursor: pointer;
   display: block;
   float: left;
   font-size: 12px;
@@ -66,6 +67,10 @@
   color: #fff;
   margin-left: 4px;
   margin-top: 6px;
+}
+
+.queue-button:hover {
+  background-color: #01B0F0;
 }
 
 .queue-button-icon {
@@ -110,7 +115,6 @@ article.queue-item {
   width: 78%;
   float: left;
 }
-
 
 .queue-item-icons {
   display: block;

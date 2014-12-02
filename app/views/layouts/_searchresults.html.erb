@@ -7,9 +7,9 @@
 
     <article class="search-result-container" ng-repeat='result in results'>
 
-      <p class='duration'>{{ result.items[0].contentDetails.duration | formatDate }}</p>
+      
       <article class='title-and-thumbnail' data-video_id='{{ result.items[0].id }}'>
-        <p class='title'>{{ result.items[0].snippet.title }}</p>
+        <p class='title'>{{ result.items[0].snippet.title }} ({{ result.items[0].contentDetails.duration | formatDate }})</p>
         <img ng-src='{{ result.items[0].snippet.thumbnails.medium.url }}' class='thumbnail' />
         <img src='/images/arrow.png' class='thumbnail-play-icon' />
       </article>
