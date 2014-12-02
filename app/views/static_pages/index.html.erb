@@ -3,8 +3,22 @@
 <h1>Now playing: <span id="current-player-title"><%= @current_track_title %></span></h1>
 </article>
 
+<aside id="queue-bar-container">
+  <div id="queue-bar">
+    <header id="queue-header">
+      <h1>Play queue</h1>
+      <nav id="queue-nav">
+        <section id="queue-buttons">
+          <button id="play-queue" class="queue-button">Play</button>
+          <button id="next-in-queue" class="queue-button">Next</button>
+          <button id="clear-queue" class="queue-button">Clear</button>
+        </section>
+      </nav>
+    </header>
+    <section id="queue"></section>
+  </div>
+</aside>
+
 <article id="iframe-container">
   <iframe id="player-iframe" src='<%= @url %>' frameborder="0" allowfullscreen/>
 </article>
-
-<%= render "static_pages/queue"%>
