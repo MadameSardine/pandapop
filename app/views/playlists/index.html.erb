@@ -3,20 +3,22 @@
 </article>
 
 <section class="playlists-main">
-  <article class='playlists-list'>
-    <section class='playlists-box'>
-    <% @user.playlists.each do |playlist| %>
-      <ul>
-        <li class='playlist-item'><%= link_to playlist.name, playlist_path(playlist) %></li>
-      </ul>
-    <% end %>
+  <section class="playlists-main-inner">
+    <section class='playlists-left'>
+      <article class='playlists-list'>
+      <% @user.playlists.each do |playlist| %>
+        <ul>
+          <li class='playlist-item'><%= link_to playlist.name, playlist_path(playlist) %></li>
+        </ul>
+      <% end %>
+      </article>
     </section>
-    <section class='playlists-management'>
+    <section class='playlists-right'>
       <article class="playlist-management-links">
         <h2><%= link_to 'Add a song to a playlist', new_track_path %></h2>
         <h2><%= link_to 'New playlist', new_playlist_path %></h2>
       </article>
     </section>
-  </article>
+  </section>
 </section>
 

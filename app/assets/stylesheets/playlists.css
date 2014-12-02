@@ -1,3 +1,5 @@
+/*===========PLAYLISTS LAYOUT====================*/
+
 .playlists-main {
   position: relative;
   margin-top: 20px;
@@ -9,14 +11,15 @@
   overflow: scroll;
 }
 
-.playlists-list {
+
+.playlists-main-inner {
   font-size: 24px;
   display: block;
   width: 100%;
-  height: 85%;
+  height: 660px;
 }
 
-.playlists-box,  .playlists-management {
+.playlists-left,  .playlists-right {
   display: block;
   width: 40%;
   height: 100%;
@@ -26,13 +29,15 @@
   padding: 12px;
 }
 
-
 .playlists-header {
   text-align: center;
   margin-left: 20px;
   padding-top: 10px;
   white-space: nowrap;
 }
+
+
+/*============PLAYLISTS SPECIFICS=================*/
 
 .playlist-item {
   margin-bottom: 8px;
@@ -64,60 +69,104 @@
   color: rgb(255, 52, 139);
 }
 
-section.playlist-container {
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
+.image-container {
   position: relative;
-  overflow-x: hidden;
-  white-space: nowrap;
-  background-color: white;
-  font-family: 'PT Sans', sans-serif;
-}
-
-aside.image-container {
   width: 310px;
-  display: inline-block;
-  border: 1px black solid;
+  display: block;
+  border-radius: 100%;
+  background-color: #fff;
+  margin-top: 100px;
+  margin-left: 12px;
+  margin-bottom: 12px;
 }
 
-article.playlist-content {
-  display: inline-block;
-  vertical-align: top;
+#playlist-info {
+  display: block;
+  position: relative;
+  width: 50%;
+  float: right;
+  margin-right: 20px;
+}
+
+#playlist-info p {
+  padding: 8px;
+}
+
+.playlist-content {
+  display: block;
+  text-align: left;
   overflow-y: scroll;
-  height: auto;
-  width: auto;
-  border: 1px black solid;
 }
 
-header.playlist-title-bar {
+.playlist-title-bar {
   padding: 5px;
+  margin-bottom: 24px;
 }
 
-h1.playlist-name {
-  font-size: 2em;
+.playlist-name {
+  font-size: 40px;
   text-align: left;
-}
-
-h4.playlist-links {
-  font-size: 0.75em;
-  text-align: left;
-}
-
-p.track-title-and-duration {
-  text-align: left;
-  font-size: 1em;
-}
-
-p.track-links {
-  margin-top: 5px;
-  text-align: right;
-  font-size: 0.75em;
-}
-
-li.track-item {
+  padding-bottom: 8px;
+  display: block;
   width: auto;
-  border: 1px solid red;
-  padding: 5px;
-  margin: 5px;
+  float: left;
+  margin-right: 24px;
+}
+
+.playlist-link {
+  display: block;
+  width: 80px;
+  background-color: yellow;
+  float: left;
+}
+
+.playlist-links a {
+  font-size: 18px;
+  text-align: left;
+  color: rgb(255, 52, 139);
+  text-decoration: none;
+}
+
+.playlist-icon {
+  height: 30px;
+  width: auto;
+  margin-top: 4px;
+  margin-right: 6px;
+}
+
+.playlist-track-container {
+  float: left;
+  width: 98%;
+}
+
+.playlist-tracks ol {
+  list-style-type: decimal;
+}
+
+.playlist-tracks li {
+  margin-left: 50px;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.track-title-and-duration {
+  display: inline-block;
+  width: 80%;
+  width: 90%;
+}
+
+.track-links {
+  display: block;
+  float: left;
+  width: 60px;
+  margin-right: 36px;
+  margin-left: 8px;
+}
+
+.playlist-track-icon {
+  display: block;
+  height: 20px;
+  width: auto;
+  float: left;
+  margin-right: 8px;
 }
