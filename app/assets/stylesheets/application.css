@@ -223,72 +223,6 @@ body {
 }
 
 
-
-/*=============PLAY QUEUE====================================*/
-
-/*#welcome-message {
-  text-align: center;
-  font-size: 2em;
-  margin-bottom: 80px;
-}*/
-
-
-#queue-bar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 500px;
-  z-index: 1500;
-  opacity: 0.8;
-  height: 100%;
-}
-
-#queue-header {
-  font-family: "Indie Flower";
-  font-size: 24px;
-  color: white;
-  padding: 8px;
-  text-align: center;
-}
-
-p.queue-item {
-  font-size: 0.75em;
-  color: white;
-  border: 1px white solid;
-  margin: 6px;
-  padding: 5px;
-  font-family: "Raleway";
-}
-
-#queue {
-  position: fixed;
-  top: 40px;
-  bottom: 60px;
-  overflow: scroll;
-  height: -moz-calc(100% - 80px);
-  height: -webkit-calc(100% - 80px);
-  height: calc(100% - 80px);
-}
-
-.queue-button {
-  display: inline;
-  padding: 5px;
-  margin: 0px;
-  width: 50px;
-  height: 40px;
-}
-
-#queue-buttons {
-  position: fixed;
-  bottom: 0;
-  height: 40px;
-  margin: 0;
-}
-
-
-
-
 /*===============SEARCH RESULTS============================*/
 #results {
   display: block;
@@ -328,14 +262,6 @@ p.queue-item {
   margin-top: 8px;
 }
 
-/*.search-result-container ul {
-  display: inline;
-}
-
-.search-result-container ul li {
-  list-style-type: none;
-  float: left;
-}*/
 
 .title-and-thumbnail {
   cursor: pointer;
@@ -390,7 +316,7 @@ p.queue-item {
 
 /*=======================PLAYLISTS======================*/
 
-/*.panda-logo {
+.panda-logo {
   width: 80px;
   height: auto;
 }
@@ -428,11 +354,8 @@ article.pandapop-playlist-item a {
   margin-left: auto;
   margin-right: auto;
   border-radius: 50%;
-<<<<<<< HEAD
-}*/
-/*=======
   border:5px solid gray;
-}*/
+}
 
 
 .sidebar-button {
