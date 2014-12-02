@@ -1,16 +1,16 @@
 #queue-bar {
-  position: fixed;
-  top: 130px;
+  position: absolute;
+  top: 56px;
   right: 0;
   width: 500px;
-  height: 713px;
+  height: 705px;
   background-color: #474747;
   display: block;
   overflow: scroll;
 }
 
 #queue-header {
-  position: fixed;
+  position: absolute;
   font-family: 'PT Sans', sans-serif;
   font-size: 30px;
   display: block;
@@ -22,6 +22,7 @@
   text-align: left;
   background-color: #474747;
   border-bottom: 2px gray solid;
+  z-index: 1000;
 }
 
 #queue-header h1 {
@@ -87,12 +88,11 @@
   position: relative;
   margin-top: 50px;
   padding-top: 10px;
-  z-index: -1;
 }
 
 article.queue-item {
   display: block;
-  font-size: 20px;
+  font-size: 16px;
   color: white;
   margin: 8px;
   background-color: #5f5f5f;

@@ -24,7 +24,7 @@ class StaticPagesController < ApplicationController
 	def get_songs
 		q = params[:'search-content'].to_s.gsub(' ', '+') + '+karaoke'
 		@key = ENV['youtube_api_key']
-		@json = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=4&q=#{q}&type=video&order=viewCount&key=#{@key}").parsed_response
+		@json = HTTParty.get("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&q=#{q}&type=video&order=viewCount&key=#{@key}").parsed_response
 		@track = Track.new
 		@items = @json["items"].collect do |item|
 			HTTParty.get("https://www.googleapis.com/youtube/v3/videos?id=#{item["id"]["videoId"]}&key=#{@key}&part=contentDetails,statistics,snippet").parsed_response

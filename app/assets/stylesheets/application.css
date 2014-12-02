@@ -49,7 +49,7 @@ body {
 
 #top-nav {
   background-color: rgb(53, 53, 53);
-/*  position: fixed;*/
+  /*position: fixed;*/
   top: 0;
   left: 0;
   right: 0;
@@ -62,11 +62,11 @@ body {
 
 
 #top-nav-inner {
-  position: relative;
+  position: absolute;
   display: inline;
   margin-top: 5px;
   margin-bottom: 10px;
-  height: 70px;
+  height: auto;
   width: 100%;
   z-index: 100000;
   overflow: hidden;
@@ -123,22 +123,22 @@ body {
 
 #home-icon {
   display: block;
-  position: fixed;
+  position: absolute;
   height: 50px;
   width: auto;
-  top: 18px;
+  top: 10px;
   right: 50%;
 }
 
 
 #search-container{
   display: block;
-  position: fixed;
-  top: 0;
-  right: 0;
+  position: absolute;
+  top: 0px;
+  right: 10px;
   width: 500px;
   height: 60px;
-  clear: left;
+  z-index: 20000;
 }
 
 #search-content{
@@ -240,13 +240,12 @@ body {
   color: #fff;
   position: absolute;
   margin-top: 760px;
-  overflow-y: hidden;
-  overflow-x: scroll;
+  overflow: auto;
 }
 
 #search-results-header {
   display: block;
-  width: 100%;
+  width: 3000px;
   height: 50px;
   border-bottom: 4px solid rgb(255, 52, 139);
 }
@@ -257,6 +256,13 @@ body {
   margin-left: 20px;
   padding-top: 16px;
   padding-bottom: 8px;
+  position: absolute;
+}
+
+#all-search-results {
+  width: 3000px;
+  white-space: nowrap;
+  height: 200px;
 }
 
 .search-result-container {
@@ -277,7 +283,7 @@ body {
 .title {
   background-color: rgb(53, 53, 53);
   display: block;
-  width: 100%;
+  width: 300px;
   opacity: 0.8;
   text-align: left;
   z-index:100;
@@ -286,6 +292,7 @@ body {
   top: 16px;
   padding: 4px;
   font-size: 24px;
+  white-space: normal;
 }
 
 .duration .viewCount .likeCount{
