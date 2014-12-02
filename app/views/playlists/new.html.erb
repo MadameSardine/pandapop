@@ -1,18 +1,17 @@
 <article class="pink-ribbon">
-
+  <h1 class="playlists-header"> Create a new playlist</h1>
 </article>
 
 <section class="playlists-main">
   <article id="new-playlist-form">
-    <p id='playlist-instructions'>
+    <h2 id='playlist-instructions'>
       Please give your new playlist a title and optional image!
-    </p>
+    </h2>
     <%= form_for @playlist, html: {multipart: true} do |f| %>
-      <%= f.label :name %>
-      <%= f.text_area :name %>
-      <%= f.label :image %>
-      <%= f.file_field :image %>
-      <%= f.submit 'Create playlist' %>
+        <%= f.label :name %>
+        <%= f.text_area :name %>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+        <%= f.submit 'Create playlist' %>
     <% end %>
-  </article>
 </section>
