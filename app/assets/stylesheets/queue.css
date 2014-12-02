@@ -1,65 +1,139 @@
 #queue-bar {
   position: fixed;
-  top: 0;
-  bottom: 0;
+  top: 130px;
   right: 0;
-  width: 400px;
-  z-index: 1500;
-  height: 100%;
+  width: 500px;
+  height: 713px;
   background-color: #474747;
-}
-
-#queue-header {
-  font-family: 'PT Sans', sans-serif; 
-  font-size: 1.5em;
-  color: white;
-  padding: 0.2em;
-  text-align: center;
-  background-color: #474747;
-  border-bottom: 2px gray solid;
-} 
-
-#queue {
-  position: relative;
+  display: block;
   overflow: scroll;
 }
 
-article.queue-item {
-  font-size: 0.75em;
-  color: white;
-  margin: 8px;
-  padding: 0.75em;
-  background-color: #5f5f5f;
+#queue-header {
+  position: fixed;
   font-family: 'PT Sans', sans-serif;
-  font-size: 1em;
+  font-size: 30px;
+  display: block;
+  height: 40px;
+  width: 100%;
+  color: white;
+  padding-left: 10px;
+  padding-top: 10px;
   text-align: left;
-  vertical-align: top;
+  background-color: #474747;
+  border-bottom: 2px gray solid;
 }
 
+#queue-header h1 {
+  display: block;
+  height: 100%;
+  width: 160px;
+  float: left;
+}
+
+#queue-nav {
+  display: block;
+  height: 25px;
+  width: 320px;
+  float: left;
+  margin-left: 4px;
+  height: 100%;
+}
 
 .queue-button {
-  display: inline;
-  padding: 5px;
-  margin: 0px;
-  width: 50px;
-  height: 40px;
+  display: block;
+  position: relative;
+  height: 30px;
+  width: 90px;
+  float: left;
+  margin-right: 15px;
+  margin-top: 0px;
+  border: none;
+  border-radius: 20px;
+  outline: 0;
+  box-shadow: none;
+  background-color: black;
+  padding-right: 14px;
 }
 
-#queue-buttons {
-  position: fixed;
-  bottom: 0;
-  height: 40px;
-  margin: 0;
+.queue-button h3 {
+  display: block;
+  float: left;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'PT Sans', sans-serif;
+  color: #fff;
+  margin-left: 4px;
+  margin-top: 6px;
 }
 
-#queue-item-icons {
-  
+.queue-button-icon {
+  position : relative;
+  display: block;
+  float: left;
+  margin-left: 6px;
+  height: 26px;
+  width: auto;
+  padding: 0px;
 }
-#delete-from-queue {
+
+#clear-queue h3 {
+  position: relative;
+  margin-left: 20px;
+  margin-top: -0.5px;
+}
+
+#queue {
+  position: relative;
+  margin-top: 50px;
+  padding-top: 10px;
+  z-index: -1;
+}
+
+article.queue-item {
+  display: block;
+  font-size: 20px;
+  color: white;
+  margin: 8px;
+  background-color: #5f5f5f;
+  font-family: 'PT Sans', sans-serif;
+  text-align: left;
+  vertical-align: top;
+  min-height: 40px;
+  height: auto;
+  padding: 10px;
+}
+
+.queue-item-title {
+  display: block;
+  height: 100%;
+  width: 78%;
+  float: left;
+}
+
+
+.queue-item-icons {
+  display: block;
+  height: 100%;
+  width: 18%;
+  float: right;
+}
+
+.delete-from-queue, .star-icon{
+  display: block;
   width: 30px;
+  height: auto;
+  float: left;
+  margin-left: 8px;
 }
 
-#star {
-  width: 30px;
+.delete-from-queue {
+  margin-top: 4px;
 }
+
+.star-icon {
+  margin-top: 3px;
+}
+
+
 

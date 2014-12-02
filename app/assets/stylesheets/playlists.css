@@ -1,57 +1,191 @@
-section.playlist-container {
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
+/*===========PLAYLISTS LAYOUT====================*/
+
+.playlists-main {
   position: relative;
-  overflow-x: hidden;
-  white-space: nowrap;
-  background-color: white;
+  margin-top: 20px;
+  color: #fff;
   font-family: 'PT Sans', sans-serif;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
 }
 
-aside.image-container {
+.playlists-main-inner {
+  font-size: 24px;
+  display: block;
+  width: 100%;
+  height: 660px;
+}
+
+.playlists-left,  .playlists-right {
+  display: block;
+  width: 40%;
+  height: 100%;
+  float: left;
+  margin-left: 6%;
+  background-color: #474747;
+  padding: 12px;
+}
+
+.playlists-header {
+  text-align: center;
+  margin-left: 20px;
+  padding-top: 10px;
+  white-space: nowrap;
+}
+
+
+/*============PLAYLISTS SPECIFICS=================*/
+
+.playlist-item {
+  margin-bottom: 8px;
+}
+
+.playlist-item a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.playlist-management-links {
+  margin-top: 18%;
+}
+
+.playlist-management-links h2 {
+  display: block;
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 60px;
+  border: 3px solid rgb(255, 52, 139);
+  padding: 20px;
+  border-radius: 30px;
+  vertical-align: middle;
+}
+
+.playlist-management-links h2 a {
+  font-size: 40px;
+  text-decoration: none;
+  color: rgb(255, 52, 139);
+}
+
+.image-container {
+  position: relative;
   width: 310px;
-  display: inline-block;
-  border: 1px black solid;
+  display: block;
+  border-radius: 100%;
+  background-color: #fff;
+  margin-top: 100px;
+  margin-left: 12px;
+  margin-bottom: 12px;
 }
 
-article.playlist-content {
-  display: inline-block;
-  vertical-align: top;
+#playlist-info {
+  display: block;
+  position: relative;
+  width: 50%;
+  float: right;
+  margin-right: 20px;
+}
+
+#playlist-info p {
+  padding: 8px;
+}
+
+.playlist-content {
+  display: block;
+  text-align: left;
   overflow-y: scroll;
-  height: auto;
-  width: auto;
-  border: 1px black solid;
 }
 
-header.playlist-title-bar {
+.playlist-title-bar {
   padding: 5px;
+  margin-bottom: 24px;
 }
 
-h1.playlist-name {
-  font-size: 2em;
+.playlist-name {
+  font-size: 40px;
   text-align: left;
-}
-
-h4.playlist-links {
-  font-size: 0.75em;
-  text-align: left;
-}
-
-p.track-title-and-duration {
-  text-align: left;
-  font-size: 1em;
-}
-
-p.track-links {
-  margin-top: 5px;
-  text-align: right;
-  font-size: 0.75em;
-}
-
-li.track-item {
+  padding-bottom: 8px;
+  display: block;
   width: auto;
-  border: 1px solid red;
-  padding: 5px;
-  margin: 5px;
+  float: left;
+  margin-right: 24px;
+}
+
+.playlist-link {
+  display: block;
+  width: 80px;
+  background-color: yellow;
+  float: left;
+}
+
+.playlist-links a {
+  font-size: 18px;
+  text-align: left;
+  color: rgb(255, 52, 139);
+  text-decoration: none;
+}
+
+.playlist-icon {
+  height: 30px;
+  width: auto;
+  margin-top: 4px;
+  margin-right: 6px;
+}
+
+.playlist-track-container {
+  float: left;
+  width: 98%;
+}
+
+.playlist-tracks ol {
+  list-style-type: decimal;
+}
+
+.playlist-tracks li {
+  margin-left: 50px;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.track-title-and-duration {
+  display: inline-block;
+  width: 80%;
+  width: 90%;
+}
+
+.track-links {
+  display: block;
+  float: left;
+  width: 60px;
+  margin-right: 36px;
+  margin-left: 8px;
+}
+
+.playlist-track-icon {
+  display: block;
+  height: 20px;
+  width: auto;
+  float: left;
+  margin-right: 8px;
+}
+
+
+/*=============NEW PLAYLIST===================*/
+
+#new-playlist-form {
+  display: block;
+  width: 60%;
+  margin-left: 20%;
+  height: 200px;
+  background-color: #474747;
+  text-align: center;
+}
+
+#playlist-instructions {
+  display: block;
+  font-size: 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
 }

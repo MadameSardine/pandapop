@@ -14,13 +14,15 @@
 
     <%= render "layouts/sidebarleft"%>
     <div id="sb-site">
-        <%= render "layouts/header" %>
-        <%= render "layouts/searchresults" %>
-          <main id="grid-main">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
-            <%= yield %>
-          </main>
+      <%= render "layouts/header" %>
+      <%= render "layouts/searchresults" %>
+      <main id="grid-main">
+        <section id="flash-messages">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </section>
+        <%= yield %>
+      </main>
     </div>
   </body>
 </html>

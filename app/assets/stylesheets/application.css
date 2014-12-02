@@ -43,6 +43,7 @@ body {
 }
 
 
+
 /*===============TOP NAV=======================*/
 
 
@@ -169,6 +170,7 @@ body {
 
 
 
+
 /*=================GRID MAIN================================*/
 
 #grid-main {
@@ -177,15 +179,11 @@ body {
   position: relative;
   margin-top: 0px;
   text-align: center;
-  z-index: 1000;
+  z-index: 100000;
+  height: 770px;
 }
 
-
-/*===================PLAYER===================================*/
-
-
-
-#player-title {
+.pink-ribbon {
   height: 50px;
   text-align: left;
   background-color: rgb(255, 52, 139);
@@ -195,6 +193,15 @@ body {
   display: block;
   overflow: hidden;
 }
+
+#flash-messages {
+  color: #fff;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 24px;
+}
+
+/*===================PLAYER===================================*/
+
 
 #player-title h1 {
   margin-left: 20px;
@@ -221,72 +228,6 @@ body {
   width: 98%;
   height: 98%;
 }
-
-
-
-/*=============PLAY QUEUE====================================*/
-
-/*#welcome-message {
-  text-align: center;
-  font-size: 2em;
-  margin-bottom: 80px;
-}*/
-
-
-#queue-bar {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 500px;
-  z-index: 1500;
-  opacity: 0.8;
-  height: 100%;
-}
-
-#queue-header {
-  font-family: "Indie Flower";
-  font-size: 24px;
-  color: white;
-  padding: 8px;
-  text-align: center;
-}
-
-p.queue-item {
-  font-size: 0.75em;
-  color: white;
-  border: 1px white solid;
-  margin: 6px;
-  padding: 5px;
-  font-family: "Raleway";
-}
-
-#queue {
-  position: fixed;
-  top: 40px;
-  bottom: 60px;
-  overflow: scroll;
-  height: -moz-calc(100% - 80px);
-  height: -webkit-calc(100% - 80px);
-  height: calc(100% - 80px);
-}
-
-.queue-button {
-  display: inline;
-  padding: 5px;
-  margin: 0px;
-  width: 50px;
-  height: 40px;
-}
-
-#queue-buttons {
-  position: fixed;
-  bottom: 0;
-  height: 40px;
-  margin: 0;
-}
-
-
 
 
 /*===============SEARCH RESULTS============================*/
@@ -328,14 +269,6 @@ p.queue-item {
   margin-top: 8px;
 }
 
-/*.search-result-container ul {
-  display: inline;
-}
-
-.search-result-container ul li {
-  list-style-type: none;
-  float: left;
-}*/
 
 .title-and-thumbnail {
   cursor: pointer;
@@ -370,7 +303,7 @@ p.queue-item {
   opacity: 0.2;
 }
 
-.result-icons {
+.result-icons, .thumbnail-play-icon {
   position: absolute;
   background-color: rgb(53, 53, 53);
   right: 0px;
@@ -385,6 +318,14 @@ p.queue-item {
 .play-icon, .plus-icon{
   width: 40px;
   margin-left: 8px;
+  padding-top: 6px;
+}
+
+.thumbnail-play-icon {
+  background-color: transparent;
+  right: 80px;
+  bottom: 40px;
+  opacity: 0.9;
 }
 
 .playlists-popup-menu {
@@ -402,7 +343,7 @@ p.queue-item {
 
 /*=======================PLAYLISTS======================*/
 
-/*.panda-logo {
+.panda-logo {
   width: 80px;
   height: auto;
 }
@@ -440,11 +381,8 @@ article.pandapop-playlist-item a {
   margin-left: auto;
   margin-right: auto;
   border-radius: 50%;
-<<<<<<< HEAD
-}*/
-/*=======
   border:5px solid gray;
-}*/
+}
 
 
 .sidebar-button {
@@ -494,4 +432,6 @@ h2 {
   margin-left: auto;
   margin-right: auto;
 }
+
+
 
