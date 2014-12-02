@@ -4,8 +4,8 @@ pandapop.controller('SearchController', ['$scope', 'Youtube', function SearchCon
   $scope.executeSearch = function executeSearch(){
     Youtube.searchVideos($scope.query, function(error, data){
       if (!error) {
-        console.log(data)
-        $scope.videos = data.items;
+        console.log(data.items[0].items[0].snippet.title);
+        $scope.results = data.items;
       }
     });
   };
@@ -25,4 +25,3 @@ pandapop.factory('Youtube', function Youtube($http){
     }
   };
 });
-
