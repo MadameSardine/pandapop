@@ -1,10 +1,18 @@
-<p id='playlist-instructions'>
-  Please give your new playlist a title and optional image!
-</p>
-<%= form_for @playlist, html: {multipart: true} do |f| %>
-  <%= f.label :name %>
-  <%= f.text_area :name %>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-  <%= f.submit 'Create playlist' %>
-<% end %>
+<article class="pink-ribbon">
+
+</article>
+
+<section class="playlists-main">
+  <article id="new-playlist-form">
+    <p id='playlist-instructions'>
+      Please give your new playlist a title and optional image!
+    </p>
+    <%= form_for @playlist, html: {multipart: true} do |f| %>
+      <%= f.label :name %>
+      <%= f.text_area :name %>
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+      <%= f.submit 'Create playlist' %>
+    <% end %>
+  </article>
+</section>

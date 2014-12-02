@@ -43,6 +43,7 @@ body {
 }
 
 
+
 /*===============TOP NAV=======================*/
 
 
@@ -169,6 +170,7 @@ body {
 
 
 
+
 /*=================GRID MAIN================================*/
 
 #grid-main {
@@ -177,15 +179,11 @@ body {
   position: relative;
   margin-top: 0px;
   text-align: center;
-  z-index: 1000;
+  z-index: 100000;
+  height: 770px;
 }
 
-
-/*===================PLAYER===================================*/
-
-
-
-#player-title {
+.pink-ribbon {
   height: 50px;
   text-align: left;
   background-color: rgb(255, 52, 139);
@@ -195,6 +193,15 @@ body {
   display: block;
   overflow: hidden;
 }
+
+#flash-messages {
+  color: #fff;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 24px;
+}
+
+/*===================PLAYER===================================*/
+
 
 #player-title h1 {
   margin-left: 20px;
