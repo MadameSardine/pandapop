@@ -1,6 +1,14 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  after_create do |user|
+  	user.create_starred_tracks_playlist
+  end
+
+  def create_starred_tracks_playlist
+  	self.playlists.create(name: "Starred tracks")
+  end
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
