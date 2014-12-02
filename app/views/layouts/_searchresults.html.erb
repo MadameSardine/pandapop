@@ -9,10 +9,10 @@
         <article class="title-and-thumbnail" data-video_id='<%= item["items"][0]["id"] %>'>
           <p class="title"><%= item["items"][0]["snippet"]["title"] %></p>
           <img src="<%= item["items"][0]["snippet"]["thumbnails"]["medium"]["url"] %>" class="thumbnail" />
+          <img src="/images/arrow.png" class="thumbnail-play-icon"/>
         </article>
         <article class="result-icons">
-          <a href='#' class="add-to-playlist" data-id='<%= item["items"][0]["id"] %>' data-title='<%= item["items"][0]["snippet"]["title"] %>'><img src="/images/plus.png"/ class="plus-icon"></a>
-          <a href='#' class="add-to-queue" data-id='<%= item["items"][0]["id"] %>' data-title='<%= item["items"][0]["snippet"]["title"] %>'><img src="/images/play.png"/ class="play-icon"></a>
+          <a href='#' class="add-to-queue" data-id='<%= item["items"][0]["id"] %>' data-title='<%= item["items"][0]["snippet"]["title"] %>'><img src="/images/plus.png"/ class="plus-icon"></a>
         </article>
         <article class="playlist-drop-down">
           <% if user_signed_in? %>

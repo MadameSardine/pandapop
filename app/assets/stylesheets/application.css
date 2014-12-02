@@ -303,7 +303,7 @@ body {
   opacity: 0.2;
 }
 
-.result-icons {
+.result-icons, .thumbnail-play-icon {
   position: absolute;
   background-color: rgb(53, 53, 53);
   right: 0px;
@@ -318,6 +318,14 @@ body {
 .play-icon,  .plus-icon{
   width: 40px;
   margin-left: 8px;
+  padding-top: 6px;
+}
+
+.thumbnail-play-icon {
+  background-color: transparent;
+  right: 80px;
+  bottom: 40px;
+  opacity: 0.9;
 }
 
 
