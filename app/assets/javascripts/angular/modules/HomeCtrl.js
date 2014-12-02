@@ -2,14 +2,13 @@ var pandapop = angular.module('Pandapop', []);
 
 pandapop.controller('SearchController', ['$scope', 'Youtube', function SearchController($scope, Youtube){
   $scope.executeSearch = function executeSearch(){
-    console.log("Fire!")
     Youtube.searchVideos($scope.query, function(error, data){
       if (!error) {
-        console.log(data);
         $scope.results = data.items;
       }
     });
   };
+
 }]);
 
 pandapop.filter('formatDate', function(){
@@ -29,7 +28,6 @@ pandapop.factory('Youtube', function Youtube($http){
     searchVideos: function searchVideos(query, callback) {
       $http.post('/get_songs', { 'search-content': query } )
       .success(function (data) {
-        console.log(data);
         callback(null, data);
       })
       .error(function (e) {

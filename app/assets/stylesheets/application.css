@@ -382,11 +382,23 @@ p.queue-item {
   opacity: 0.8;
 }
 
-.play-icon,  .plus-icon{
+.play-icon, .plus-icon{
   width: 40px;
   margin-left: 8px;
 }
 
+.playlists-popup-menu {
+  position: absolute;
+  bottom: 60px;
+  left: -10px;
+  height: auto;
+  width: auto;
+  background-color: blue;
+}
+
+.playlist-menu-item {
+  padding: 4px;
+}
 
 /*=======================PLAYLISTS======================*/
 

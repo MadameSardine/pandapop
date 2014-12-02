@@ -2,6 +2,7 @@
   <article id="search-results-header">
     <h1>Search results for {{ query }}</h1>
   </article>
+
     <article class="search-result-container" ng-repeat='result in results'>
 
       <p class='duration'>{{ result.items[0].contentDetails.duration | formatDate }}</p>
@@ -9,6 +10,7 @@
         <p class='title'>{{ result.items[0].snippet.title }}</p>
         <img ng-src='{{ result.items[0].snippet.thumbnails.medium.url }}' class='thumbnail' />
       </article>
+
       <article class='result-icons'>
         <a href='#' class='add-to-playlist' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}'>
           <img src='/images/plus.png' class='plus-icon'/>
@@ -16,7 +18,6 @@
         <a href='#' class='add-to-queue' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}'>
           <img src='/images/play.png' class='play-icon'/>
         </a>
-      </article>
-      
     </article>
+
 </section>
