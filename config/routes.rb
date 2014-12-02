@@ -9,10 +9,7 @@ Rails.application.routes.draw do
   get '/player' => 'static_pages#player'
   post "/tracks/create" => "tracks#create"
   get '/get_songs' => 'static_pages#get_songs'
-  post '/get_songs' => 'static_pages#get_songs'
-  get '/test' => 'static_pages#test'
-  post '/search' =>'static_pages#search'
-
+  post '/get_songs' => 'static_pages#get_songs' 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

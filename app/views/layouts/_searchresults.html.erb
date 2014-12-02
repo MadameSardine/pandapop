@@ -1,33 +1,22 @@
-<% if @items %>
-  <section id="results">
-    <article id="search-results-header">
-      <h1>Search results</h1>
-    </article>
-    <% @items.each do |item| %>
-      <article class="search-result-container">
-        <p class="duration"><%= Time.parse(item["items"][0]["contentDetails"]["duration"].gsub('PT', 'PT0H')).strftime("%M:%S") %></p>
-        <article class="title-and-thumbnail" data-video_id='<%= item["items"][0]["id"] %>'>
-          <p class="title"><%= item["items"][0]["snippet"]["title"] %></p>
-          <img src="<%= item["items"][0]["snippet"]["thumbnails"]["medium"]["url"] %>" class="thumbnail" />
-        </article>
-        <article class="result-icons">
-          <a href='#' class="add-to-playlist" data-id='<%= item["items"][0]["id"] %>' data-title='<%= item["items"][0]["snippet"]["title"] %>'><img src="/images/plus.png"/ class="plus-icon"></a>
-          <a href='#' class="add-to-queue" data-id='<%= item["items"][0]["id"] %>' data-title='<%= item["items"][0]["snippet"]["title"] %>'><img src="/images/play.png"/ class="play-icon"></a>
-        </article>
-        <article class="playlist-drop-down">
-          <% if user_signed_in? %>
-            <%= form_for @track, :url => {:controller => 'tracks', :action => 'create'} do |f| %>
-              <%= f.hidden_field :title, :value => item["items"][0]["snippet"]["title"] %>
-              <%= f.hidden_field :duration, :value => item["items"][0]["contentDetails"]["duration"] %>
-              <%= f.hidden_field :view_count, :value => item["items"][0]["statistics"]["viewCount"] %>
-              <%= f.hidden_field :like_count, :value => item["items"][0]["statistics"]["likeCount"] %>
-              <%= f.hidden_field :video_id, :value => item["items"][0]["id"] %>
-              <%= f.collection_select :playlists, current_user.playlists, :id, :name%>
-              <%= f.submit "Add to playlist", :class => 'add-to-playlist-link'%>
-            <% end %>
-          <% end %>
-        </article>
+<section id="results">
+  <article id="search-results-header">
+    <h1>Search results for {{ query }}</h1>
+  </article>
+    <article class="search-result-container" ng-repeat='result in results'>
+
+      <p class='duration'>{{ result.items[0].contentDetails.duration | formatDate }}</p>
+      <article class='title-and-thumbnail' data-video_id='{{ result.items[0].id }}'>
+        <p class='title'>{{ result.items[0].snippet.title }}</p>
+        <img ng-src='{{ result.items[0].snippet.thumbnails.medium.url }}' class='thumbnail' />
       </article>
-    <% end %>
-  </section>
-<% end %>
+      <article class='result-icons'>
+        <a href='#' class='add-to-playlist' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}'>
+          <img src='/images/plus.png' class='plus-icon'/>
+        </a>
+        <a href='#' class='add-to-queue' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}'>
+          <img src='/images/play.png' class='play-icon'/>
+        </a>
+      </article>
+      
+    </article>
+</section>

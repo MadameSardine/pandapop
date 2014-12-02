@@ -19,6 +19,7 @@ gem 'cancancan'
 gem 'figaro'
 gem 'aws-sdk'
 gem 'jquery-ui-rails'
+gem 'angularjs-rails'
 
 
 group :test, :development do

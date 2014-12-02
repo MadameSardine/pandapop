@@ -15,31 +15,11 @@
         <a href='/'><img src="/images/panda-v2-head-smile.png" id="home-icon"/></a>
       </li>
       <li>
-        <article id="search-container">
-          <%= form_tag root_path, :method => 'get' do %>
-            <p>
-              <%= text_field_tag :'search-content' %>
-              <%= image_submit_tag('/images/search.png', :alt => 'search-button', :id => 'search-button') %>
-            </p>
-          <% end %>
-        </article>
+        <form id="search-container" ng-submit='executeSearch()'>
+          <input ng-model='query' id='search-content'>
+          <input type='image' src='images/search.png' id='search-button' alt='search-button'>
+        </form>
       </li>
     </ul>
   </nav>
-<<<<<<< HEAD
-  <div class="sb-toggle-left" id='nav-bar-slide-out'>
-    <div class="navicon-line"></div>
-    <div class="navicon-line"></div>
-    <div class="navicon-line"></div>
-  </div>
-  <a href='/'><img src="/images/home.png" id="home-icon"/></a>
-  <article id="search-container">
-    <form id="search" action="/get_songs" method="post">
-      <input type="text" name="search-content" id="search-content">
-      <input type="submit" value="search" id="search-button">
-    </form>
-
-  </article>
-=======
->>>>>>> 572362546d0b7f89f05d0c75c34fb3ca7ac7c5f4
 </article>
