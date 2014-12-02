@@ -1,142 +1,245 @@
+
+
 /*
+ *= require jquery-ui
  *= require_tree .
  *= require_self
  */
 
-body {
+ @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+
+/*test*/
+
+/*test area */
+.draggable-title {
+  font-family: arial;
+  width: 150px;
+  border: 2px solid;
+  border-radius: 10px;
 }
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.sb-slidebar {
+  background-color: #1d1d1d;
+  background-image:
+    linear-gradient(
+      to left,
+      #1d1d1d,
+      #353535 10%
+    );
+}
+/*test*/
+
+body {
+  background-color: rgb(53, 53, 53);
+}
+
+
+/*===============TOP NAV=======================*/
+
 
 #top-nav {
+  background-color: rgb(53, 53, 53);
+/*  position: fixed;*/
   top: 0;
   left: 0;
-  right: 150px;
-  height: 40px;
+  right: 0;
+  height: 80px;
   z-index: 5000;
-  width: auto;
-  background-color: black;
-  overflow: hidden;
-  font-color: white;
+  width: 100%;
   display: block;
-  text-align: right;
-  position: fixed;
+  color: #fff;
 }
 
-#logged-out-container a {
-  text-align: right;
-  display: inline-block;
+
+#top-nav-inner {
+  position: relative;
+  display: inline;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  height: 70px;
+  width: 100%;
+  z-index: 100000;
+  overflow: hidden;
+}
+
+#top-nav-inner ul {
+  display: inline;
+}
+
+#top-nav-inner li {
+  list-style-type: none;
+  float: left;
 }
 
 .sb-toggle-left {
+  position: relative;
   display: block;
-  width: 58px;
-  float: left;
-  margin-top: 12px;
-  margin-left: 6px;
+  height: 40px;
+  width: 40px;
+  margin-top: 15px;
+  margin-left: 20px;
+  border: 4px solid white;
+  border-radius: 100%;
 }
+
+#navicon-line-container {
+  position: relative;
+  display: block;
+  margin-top: 12px;
+  margin-left: 10px;
+  padding: 0;
+}
+
 .navicon-line {
-  width: 24px;
-  height: 4px;
-  border-radius: 1px;
-  margin-bottom: 3px;
+  position: relative;
+  display: block;
+  padding: 0;
+  width: 22px;
+  height: 3px;
+  border-radius: 4px;
+  margin-bottom: 4px;
   background-color: #fff;
 }
-#sign_in_nav {
-  font-family: "Indie Flower", cursive;
-  font-size: 24px;
-  padding: 4px;
-  width: 200px;
-  height: 30px;
-  margin-right: 20px;
-  margin-top: 5px;
-  display: inline-block;
-}
 
-#sign_in_nav a {
-  text-decoration: none;
-  color: #fff;
-  height: auto;
-  margin-left: 10px;
-}
-
-#sign_in_nav a:hover {
-  background-color: red;
+#pandapop-title {
+   font-family: 'PT Sans', sans-serif;
+   display: block;
+   font-size: 40px;
+   float: left;
+   margin-left: 20px;
+   margin-top: 20px;
+   z-index: 10000;
 }
 
 #home-icon {
-  display: inline-block;
+  display: block;
   position: fixed;
-  left: 45px;
-  top: 3px;
-  height: 30px;
+  height: 50px;
+  width: auto;
+  top: 18px;
+  right: 50%;
 }
 
+
 #search-container{
-  display: inline-block;
+  display: block;
   position: fixed;
   top: 0;
-  left: 150px;
-  width: 60%;
-  height: 40px;
-  display: block;
-  text-align: left;
+  right: 0;
+  width: 500px;
+  height: 60px;
+  clear: left;
 }
 
 #search-content{
-  display: inline-block;
-  width: 80%;
-  margin-top: 6px;
-  height: 20px;
-  border-radius: 15px;
+  display: block;
+  width: 400px;
+  margin-top: 15px;
+  height: 44px;
+  border-radius: 30px;
+  float: left;
+  margin-left: 10px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 25px;
   padding-left: 10px;
 }
 
 #search-button {
+  position: relative;
+  float: left;
+  margin-left: 10px;
   display: inline-block;
-  border: 2px solid white;
-  background-color: black;
-  height: 30px;
-  width: 65px;
-  border-radius: 15px;
-  font-family: "Indie Flower";
-  color: white;
-  font-size: 0.9em;
+  border: 4px solid white;
+  height: 28px;
+  width: auto;
+  border-radius: 100%;
+  margin-top: 16px;
+  padding: 6px;
+  padding-left: 8px;
 }
 
-#search-button:hover {
-  background-color: white;
-  color: black;
-}
+
+
+/*=================GRID MAIN================================*/
 
 #grid-main {
   display: block;
-  /*margin-top: 120px;*/
-  padding-top: 120px;
-  margin-right: 150px;
-  width: -moz-calc(100% - 150px);
-  width: -webkit-calc(100% - 150px);
-  width: calc(100% - 150px);
-  min-height: 500px;
-  height: auto;
-  margin-bottom: 55px;
-  font-family: "Raleway", cursive;
+  background-color: rgb(53, 53, 53);
+  position: relative;
+  margin-top: 0px;
   text-align: center;
   z-index: 1000;
 }
 
-#welcome-message {
+
+/*===================PLAYER===================================*/
+
+
+
+#player-title {
+  height: 50px;
+  text-align: left;
+  background-color: rgb(255, 52, 139);
+  color: #fff;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 30px;
+  display: block;
+  overflow: hidden;
+}
+
+#player-title h1 {
+  margin-left: 20px;
+  padding-top: 10px;
+  white-space: nowrap;
+}
+
+#iframe-container {
+  display: block;
+  background-color: rgb(53, 53, 53);
+  width: -moz-calc(100% - 500px);
+  width: -webkit-calc(100% - 500px);
+  width: calc(100% - 500px);
+  text-align: center;
+  height: 720px;
+ /* height: -moz-calc(100% - 200px);
+  height: -webkit-calc(100% - 200px);
+  height: calc(100% - 200px);*/
+}
+
+#iframe-container iframe{
+  margin-top: 0.5%;
+  margin-left: 0.5%;
+  width: 98%;
+  height: 98%;
+}
+
+
+
+/*=============PLAY QUEUE====================================*/
+
+/*#welcome-message {
   text-align: center;
   font-size: 2em;
   margin-bottom: 80px;
-}
+}*/
+
 
 #queue-bar {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
-  width: 150px;
+  width: 500px;
   z-index: 1500;
-  background-color: #C40057;
   opacity: 0.8;
   height: 100%;
 }
@@ -146,10 +249,8 @@ body {
   font-size: 24px;
   color: white;
   padding: 8px;
-  background-color: gray;
   text-align: center;
-  background-color: #C40057;
-} 
+}
 
 p.queue-item {
   font-size: 0.75em;
@@ -157,7 +258,6 @@ p.queue-item {
   border: 1px white solid;
   margin: 6px;
   padding: 5px;
-  background-color: black;
   font-family: "Raleway";
 }
 
@@ -186,66 +286,111 @@ p.queue-item {
   margin: 0;
 }
 
+
+
+
+/*===============SEARCH RESULTS============================*/
 #results {
   display: block;
-  width: 98%;
-  min-height: 400px;
+  background-color: rgb(53, 53, 53);
+  width: 100%;
+  height: 260px;
   padding: 0px;
-  position: relative;
-  margin-right: auto;
-  margin-left: auto;
+  color: #fff;
+  position: absolute;
+  margin-top: 760px;
+  overflow-y: hidden;
+  overflow-x: scroll;
 }
+
+#search-results-header {
+  display: block;
+  width: 100%;
+  height: 50px;
+  border-bottom: 4px solid rgb(255, 52, 139);
+}
+
+#search-results-header h1{
+  font-family: 'PT Sans', sans-serif;
+  font-size: 30px;
+  margin-left: 20px;
+  padding-top: 16px;
+  padding-bottom: 8px;
+}
+
+.search-result-container {
+  position: relative;
+  width: 320px;
+  height: 220px;
+  display: block;
+  float: left;
+  margin-left: 20px;
+  margin-top: 8px;
+}
+
+/*.search-result-container ul {
+  display: inline;
+}
+
+.search-result-container ul li {
+  list-style-type: none;
+  float: left;
+}*/
 
 .title-and-thumbnail {
   cursor: pointer;
 }
 
-.title-container {
-  min-height: 45px;
-  height: auto;
+.title {
+  background-color: rgb(53, 53, 53);
   display: block;
   width: 100%;
+  opacity: 0.8;
+  text-align: left;
+  z-index:100;
+  position:absolute;
+  left: 0;
+  top: 16px;
   padding: 4px;
-  vertical-align: middle;
+  font-size: 24px;
 }
 
-.title {
-  font-weight: bold;
-  text-align: center;
-  width: 96%;
-  margin-right: auto;
-  margin-left: auto;
-  display: block;
-}
-
-.duration{
-  display: block;
-  margin-bottom: 4px;
-}
-
-.search-result-container {
-  position: relative;
-  width: 25%;
+.duration .viewCount .likeCount{
   display: block;
   float: left;
-  margin-right: auto;
-  margin-left: auto;
 }
+
 
 .thumbnail img {
-  display: block;
+  position: absolute;
   margin-left: auto;
   margin-right: auto;
-  max-width: 96%;
-  max-height: 80%;
+  width: 100%;
+  height: auto;
+  opacity: 0.2;
 }
 
-.viewCount .likeCount{
-  font-size: 0.5em;
-  white-space: nowrap;
+.result-icons {
+  position: absolute;
+  background-color: rgb(53, 53, 53);
+  right: 0px;
+  bottom: 22px;
+  z-index:100;
+  display: block;
+  padding-right: 8px;
+  padding-bottom: 8px;
+  opacity: 0.8;
 }
 
-.panda-logo {
+.play-icon,  .plus-icon{
+  width: 40px;
+  margin-left: 8px;
+}
+
+
+/*=======================PLAYLISTS======================*/
+
+/*.panda-logo {
   width: 80px;
   height: auto;
 }
@@ -277,9 +422,64 @@ article.pandapop-playlist-item a {
 }
 
 #user-avatar {
-  width: 250px;
+  width: 180px;
+  display: block;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
   border-radius: 50%;
+<<<<<<< HEAD
+}*/
+/*=======
+  border:5px solid gray;
+}*/
+
+
+.sidebar-button {
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px gray solid;
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  font-size: 1.3em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
 }
+
+#top-button {
+  border-top: 2px gray solid;
+}
+
+.sidebar-button:hover {
+  background-color: #545454;
+  border-left: 7px #ff358b solid;
+}
+
+#sidebar-button-area {
+  margin-top: 30px;
+}
+
+h1 {
+  font-family: 'PT Sans', sans-serif;
+}
+
+h1#username {
+  font-size: 1.6em;
+  color: #ff358b;
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+h2 {
+  font-family: 'PT Sans', sans-serif;
+}
+
+#panda-mascot {
+  width: 60px;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+

@@ -1,0 +1,24 @@
+<div class="sb-slidebar sb-left" >
+      <% if user_signed_in? %>
+            <%= image_tag current_user.avatar.url(:medium), :id => 'user-avatar' %>
+            <h1 id="username"><%= current_user.username %></h1>
+      <% else %>
+      Hello
+      <% end %>
+      <div id='sidebar-button-area'>
+      <% if user_signed_in? %>
+            <div class='sidebar-button' id='top-button'><%= link_to 'playlists', playlists_path %></div>
+            <div class='sidebar-button'>followers</div>
+            <div class='sidebar-button'>starred</div>
+            <div class='sidebar-button'>groups</div>
+            <div class='sidebar-button'><%= link_to "sign out", destroy_user_session_path, method: :delete %></div>
+      <% else %>
+            <div class='sidebar-button'><%= link_to 'Sign up', new_user_registration_path %></div>
+            <div class='sidebar-button'><%= link_to 'Sign in', new_user_session_path %></div>
+      <% end %>
+      </div>
+
+      <img src="/images/panda-v2.png" alt="PandaPop!" id="panda-mascot">
+
+
+</div>
