@@ -20,6 +20,7 @@ gem 'figaro'
 gem 'aws-sdk'
 gem 'jquery-ui-rails'
 gem 'angularjs-rails'
+gem 'pry'
 
 
 group :test, :development do
@@ -33,4 +34,6 @@ group :test, :development do
   gem 'selenium-webdriver'
   gem 'hirb'
   gem 'byebug'
+=======
+  gem "factory_girl_rails"
 end
