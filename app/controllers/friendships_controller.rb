@@ -2,8 +2,7 @@ class FriendshipsController < ApplicationController
 
   before_filter :authenticate
 
-  def create!
-    p "TESTING"
+  def create
     @user = User.find(params[:friendship][:followed_id])
     current_user.follow!(@user)
     redirect_to @user

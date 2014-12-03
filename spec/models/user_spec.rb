@@ -5,11 +5,11 @@ RSpec.describe User, :type => :model do
   describe "friendships" do
 
     before(:each) do
-      @spike = User.create(username: "Spike", email: "spike@spike.com", password: "fixingshit", password_confirmation: "fixingshit")
-      @nicole = User.create(username: "Nicole", email: "nicole@terriblecode.com", password: "breakingshit", password_confirmation: "breakingshit")
+      # @spike = User.create(username: "Spike", email: "spike@spike.com", password: "fixingshit", password_confirmation: "fixingshit")
+      # @nicole = User.create(username: "Nicole", email: "nicole@terriblecode.com", password: "breakingshit", password_confirmation: "breakingshit")
 
-      # @panda = create(:user)
-      # @followed = build(:user, email: "pop@panda.com")
+      @panda = create(:user)
+      @followed = User.create(username: "Spike", email: "spike@panda.com", password: "fixingshit", password_confirmation: "fixingshit")
     end
 
     it "should have a friendships method" do
@@ -29,13 +29,13 @@ RSpec.describe User, :type => :model do
     end
 
     it "should follow another user" do
-      @nicole.follow!(@spike)
-      p @nicole.friendships
-      p @nicole.following?(@spike) == true
+      # @nicole.follow!(@spike)
+      # p @nicole.friendships
+      # p @nicole.following?(@spike) == true
       # p @panda
       # p @followed
-      # @panda.follow!(@followed)
-      # expect(@panda).to be_following(@followed)
+      @panda.follow!(@followed)
+      expect(@panda).to be_following(@followed)
     end
 
     it "should include the followed user in the following array" do

@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :playlists
   has_many :friendships, foreign_key: "follower_id", dependent: :destroy
-  has_many :reverse_friendships, foreign_key: "followed_id", class_name: "Friendship", dependent: :destroy
-
   has_many :followed_users, through: :friendships, source: :followed
+
+  has_many :reverse_friendships, foreign_key: "followed_id", class_name: "Friendship", dependent: :destroy
   has_many :followers, through: :reverse_friendships, source: :follower
 
   has_attached_file :avatar, :styles => { :medium => "300x300", :thumb => "100x100" }, :default_url => "/images/:style/missing.png"
@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
   end
 
   def follow!(followed)
-    binding.pry
     self.friendships.create!(followed_id: followed.id)
   end
 
