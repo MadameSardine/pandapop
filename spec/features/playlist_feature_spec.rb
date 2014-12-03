@@ -2,26 +2,22 @@ require 'rails_helper'
 
 describe 'playlist management', js: true do
 
-  def search_for_taylor_swift 
+  def search_for_taylor_swift
     visit '/'
     fill_in 'search-content', with: 'taylor swift'
     click_button 'search'
   end
 
-  before do 
+  before do
     preload_playlists
   end
 
   context 'User is not logged in' do
 
-    it 'should not see a link to create a playlist' do
+    it 'should not see a link to playlists' do
       visit '/'
-      expect(page).not_to have_content "Create playlist"
-    end
-
-    it 'a playlist uploaded without an image should have the default missing image displayed on the home page' do 
-      visit '/'
-      expect(page).to have_selector("img[src$='missing.png']")
+      find('#nav-bar-slide-out').click
+      expect(page).not_to have_link "my playlists"
     end
 
   end
@@ -39,43 +35,54 @@ describe 'playlist management', js: true do
 
     context 'playlist viewing' do
 
-      it 'a user can go to a playlist page' do
+      it 'a user can access his playlists page' do
         visit '/'
         find('#nav-bar-slide-out').click
-        click_link "My Playlists"
+        click_link "my playlists"
+        expect(current_path).to eq user_playlists_path(@panda)
+      end
+
+      it 'a user can see his playlists' do
+        visit user_playlists_path(@panda)
         expect(page).to have_content 'Taylor Swift Jamz'
+        expect(page).to have_content 'Best of Beyonce'
+      end
+
+      it 'a user can go to a playlist page' do
+        visit user_playlists_path(@panda)
         click_link 'Taylor Swift Jamz'
-        expect(current_path).to eq playlist_path(@taylorjamz)
+        expect(current_path).to eq user_playlist_path(@panda, @taylorjamz)
       end
 
       it 'a user can see the tracks in the playlist' do
-        visit playlist_path(@taylorjamz)
+        visit user_playlist_path(@panda, @taylorjamz)
         expect(page).to have_content("Shake it off")
+      end
+
+      it 'a playlist uploaded without an image should have the default missing image displayed on the home page' do
+        visit user_playlist_path(@panda, @taylorjamz)
+        expect(page).to have_selector("img[src$='missing.png']")
       end
 
     end
 
-    context 'playlist editing, deleting' do
+    context 'playlist management' do
 
       it 'user can see a link to create a playlist' do
-        visit '/'
-        find('#nav-bar-slide-out').click
-        click_link "My Playlists"
-        expect(page).to have_link 'Create new playlist'
+        visit user_playlists_path(@panda)
+        expect(page).to have_link 'New playlist'
       end
 
       it 'should be able to create a playlist with a name' do
-        visit '/'
-        find('#nav-bar-slide-out').click
-        click_link "My Playlists"
-        click_link 'Create new playlist'
-        expect(current_path).to eq new_playlist_path
+        visit user_playlists_path(@panda)
+        click_link 'New playlist'
+        expect(current_path).to eq new_user_playlist_path(@panda)
         fill_in "Name", with: "Taylor Swift Jamz"
         click_button "Create playlist"
         expect(page).to have_content "Playlist successfully created"
       end
 
-      it 'a user can see a link to add to playlist from the home page', js: true do
+      xit 'a user can see a link to add to playlist from the home page', js: true do
         visit '/'
         fill_in 'search-content', with: "Beyonce"
         click_button "search"
@@ -83,7 +90,7 @@ describe 'playlist management', js: true do
         expect(page).to have_css('#track_playlists')
       end
 
-      it 'a user can select a playlist to add the track to'do
+      xit 'a user can select a playlist to add the track to'do
         visit '/'
         fill_in 'search-content', with: "Beyonce"
         click_button "search"
@@ -95,46 +102,37 @@ describe 'playlist management', js: true do
       end
 
       it 'a user can see a delete a track link' do
-        visit '/'
-        find('#nav-bar-slide-out').click
-        click_link "My Playlists"
-        click_link 'Taylor Swift Jamz'
-        expect(page).to have_content('Delete')
+        visit user_playlist_path(@panda, @taylorjamz)
+        expect(page).to have_selector('.delete-track-icon')
       end
 
       it 'a user can delete a track from a playlist' do
-        visit '/'
-        find('#nav-bar-slide-out').click
-        click_link "My Playlists"
-        click_link 'Taylor Swift Jamz'
-        click_link 'Delete'
+        visit user_playlist_path(@panda, @taylorjamz)
+        click_link 'delete-track-icon'
         expect(page).to have_content('Track successfully removed from playlist')
       end
 
       it 'a user can delete a playlist' do
-        visit '/'
-        find('#nav-bar-slide-out').click
-        click_link "My Playlists"
-        click_link 'Taylor Swift Jamz'
-        click_link 'Delete Playlist'
+        visit user_playlist_path(@panda, @taylorjamz)
+        click_link 'delete-playlist-icon'
         expect(current_path).to eq '/'
         expect(page).to have_content('Playlist has been successfully deleted')
       end
 
-      context 'users can only manage their own playlists' do 
+      context 'users can only manage their own playlists' do
 
-        before do 
+        before do
           @koala = User.create(email: 'koala123@test.com', username: 'koala123', first_name: 'koala', last_name: 'bear', password: 'pandapop123', password_confirmation: 'pandapop123')
           @koalajamz = Playlist.create(user: @koala, name: "Koala Jamz")
-        end 
+        end
 
-        it 'a user can only see his own playlists on the home page' do 
+        it 'a user can only see his own playlists on the home page' do
           visit '/'
           search_for_taylor_swift
           expect(page).not_to have_content "Koala Jamz"
         end
 
-        it 'a user should only see his own playlists in the dropdown menu' do 
+        xit 'a user should only see his own playlists in the dropdown menu' do
           visit '/'
           search_for_taylor_swift
           expect(page).to have_xpath('//div/main/section/article/form/select[@id = "track_playlists"]/option[text() = "Taylor Swift Jamz"]')

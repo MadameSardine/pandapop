@@ -3,8 +3,12 @@ class PlaylistsController < ApplicationController
   before_action :authenticate_user!, :except => [:show]
 
   def index
-    @user = current_user
-    @playlists = Playlist.all
+    if User.where(:id => params[:user_id]).blank?
+      flash[:notice] = "We can't find this user in our database"
+      redirect_to root_path
+    else
+      @user = User.find(params[:user_id])
+    end
   end
 
   def new
@@ -17,11 +21,10 @@ class PlaylistsController < ApplicationController
     @playlist.user = current_user
     if @playlist.save
       flash[:notice] = "Playlist successfully created"
-      redirect_to playlists_path
     else
       flash[:notice] = "Playlist was not successfully created"
-      redirect_to playlists_path
     end
+    redirect_to user_playlists_path(current_user)
   end
 
   def playlist_params
@@ -45,7 +48,7 @@ class PlaylistsController < ApplicationController
     @track = @playlist.tracks.find_by(:title => (params[:title]))
     @playlist.tracks.delete(@track)
     flash[:notice] = "Track successfully removed from playlist"
-    redirect_to playlist_path(params[:id])
+    redirect_to user_playlist_path(current_user, params[:id])
   end
 
   # def edit

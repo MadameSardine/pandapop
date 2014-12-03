@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   root to: 'static_pages#index'
 
-  resources :playlists
+  resources :users do
+    resources :playlists
+  end
   resources :tracks
 
   get '/player' => 'static_pages#player'
   post "/tracks/create" => "tracks#create"
   get '/get_songs' => 'static_pages#get_songs'
-  post '/get_songs' => 'static_pages#get_songs' 
+  post '/get_songs' => 'static_pages#get_songs'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
