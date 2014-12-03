@@ -3,6 +3,18 @@
 
 jQuery(document).ready(function ($) {
 
+  // $('#player-iframe').hide();
+
+  // $('#play-queue').on('click',function(event){
+  //   event.preventDefault();
+  //   $('#player-iframe').show();
+  // });
+
+  // $('#next-in-queue').on('click', function(event){
+  //   event.preventDefault();
+  //   $('#player-iframe').show();
+  // });
+
   $('#playlist-list').hide();
 
   $('#results').on('click', '.queue', function(event){

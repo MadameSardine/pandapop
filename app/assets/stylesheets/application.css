@@ -529,3 +529,48 @@ label, .devise-h1, .devise-h2, .devise-h3, .devise-p, .devise-i {
   text-align: left;
 }
 
+/*=======================LANDING PAGE=========================*/
+
+#readymade-playlists-container {
+  position: relative;
+  margin-top: 0.5%;
+  margin-left: 0.5%;
+  padding: 0.5%;
+  width: 98%;
+  height: 705px;
+  background-color: yellow;
+}
+
+.readymade-item-container {
+  position: relative;
+  display: inline-block;
+  width: 49%;
+  height: 49%;
+  background-color: blue;
+}
+
+.readymade-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 99%;
+  height: 99%;
+  z-index: 500;
+}
+
+.readymade-header {
+  position: relative;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  padding: 15px;
+  width: auto;
+  background-color: rgba(0,0,0,0.5);
+  height: auto;
+  z-index: 1000;
+  top: 35%;
+}
+
+
+

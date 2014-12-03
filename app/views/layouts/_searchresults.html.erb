@@ -21,6 +21,17 @@
         <a href='#' class='add-to-queue' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}'>
           <img src='/images/plus.png' class='plus-icon'/>
         </a>
+        <a href='#' class='add-to-playlist' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}' ng-click='show = !show'>
+          <img src='/images/plus.png' class='plus-icon'/>
+        </a>
+      </article>
+
+      <article class='playlists-popup' ng-show='show'>
+        <% current_user.playlists.each do |playlist| %>
+        <span id='playlist-popup-item' data-playlist_id='<%= playlist.id %>'>
+          <%= playlist.name %>
+        </span>
+        <% end %>
       </article>
 
     </article>
