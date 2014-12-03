@@ -1,5 +1,5 @@
 class CreateFriendships < ActiveRecord::Migration
-  def self.change
+  def change
     create_table :friendships do |t|
       t.integer :follower_id
       t.integer :followed_id
