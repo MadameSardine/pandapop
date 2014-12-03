@@ -7,7 +7,7 @@
 
     <article class="search-result-container" ng-repeat='result in results'>
 
-      
+
       <article class='title-and-thumbnail' data-video_id='{{ result.items[0].id }}'>
         <p class='title'>{{ result.items[0].snippet.title }} ({{ result.items[0].contentDetails.duration | formatDate }})</p>
         <img ng-src='{{ result.items[0].snippet.thumbnails.medium.url }}' class='thumbnail' />
