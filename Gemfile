@@ -21,6 +21,7 @@ gem 'aws-sdk'
 gem 'jquery-ui-rails'
 gem 'angularjs-rails'
 gem 'pry'
+gem "gritter", "1.1.0"
 
 
 group :test, :development do

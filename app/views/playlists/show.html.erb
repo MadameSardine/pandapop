@@ -31,7 +31,7 @@
                   <%= link_to image_tag("/images/cross.png", :alt => 'delete-track-icon', :class => 'playlist-track-icon'), playlist_path(:id => @playlist, :title => track.title), method: :patch %>
                 </article>
                 <li class="track-item" data-id="<%=track.video_id%>" data-title="<%=track.title%>">
-                  <p class='track-title-and-duration'><%= track.title %> (<%= Time.parse(track.duration.gsub('PT', 'PT0H')).strftime("%M:%S") %>)</p>
+                  <p class='track-title-and-duration'><%= track.title %></p>
                 </li>
               </article>
             <% end %>

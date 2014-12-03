@@ -86,6 +86,7 @@ GEM
     ffi (1.9.6)
     figaro (1.0.0)
       thor (~> 0.14)
+    gritter (1.1.0)
     hashie (3.3.1)
     hike (1.2.3)
     hirb (0.7.2)
@@ -249,6 +250,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   figaro
+  gritter (= 1.1.0)
   hirb
   httparty
   jbuilder (~> 2.0)
