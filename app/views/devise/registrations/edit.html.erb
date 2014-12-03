@@ -1,5 +1,8 @@
+<article class="pink-ribbon">
+  <h2 class='devise-h2'>Edit your profile!</h2>
+</article>
+
 <article id='devise-edit-page'>
-<h2 class='devise-h2'>Edit your profile!</h2>
 
 <%= form_for(resource, :id => 'devise-form', as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <p class='devise-p'><%= devise_error_messages! %></p>
@@ -24,21 +27,21 @@
     <%= f.label :avatar %>
     <%= f.file_field :avatar %>
   </div>
-
-  <div class="field">
+<!--
+  <div class="devise-field">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.text_field :first_name, autofocus: true , :class => 'devise-input'%>
   </div>
 
-  <div class="field">
+  <div class="devise-field">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
+    <%= f.text_field :last_name, autofocus: true , :class => 'devise-input'%>
   </div>
 
-  <div class="field">
-    <%= f.label :avatar %><br />
+  <div class="devise-field">
+    <%= f.label :avatar %>
     <%= f.file_field :avatar %>
-  </div>
+  </div> -->
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
