@@ -31,11 +31,6 @@ describe 'User' do
       expect(page).to have_link 'Sign in'
     end
 
-    it 'should be able to sign up' do
-      sign_up_as_panda
-      expect(page).to have_content 'Welcome!'
-    end
-
     it 'should not see a sign out link' do
       visit '/'
       find('#nav-bar-slide-out').click
@@ -46,14 +41,6 @@ describe 'User' do
       visit '/'
       expect(page).to have_selector('#pandapop-playlists')
       expect(page).to have_content('Our favorite playlists')
-    end
-
-    xit 'should no longer see recommended playlists after entering search query' do
-      visit '/'
-      fill_in 'search-content', with: 'taylor swift'
-      click_button 'search'
-      expect(page).not_to have_selector('#pandapop-playlists')
-      expect(page).not_to have_content('Our favorite playlists')
     end
 
   end
