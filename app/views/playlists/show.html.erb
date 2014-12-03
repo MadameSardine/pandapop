@@ -19,7 +19,7 @@
           <h1 class='playlist-name'><%= @playlist.name %></h1>
           <article class='playlist-links'>
             <a href='#' id="play-all"><img src="/images/play.png" class="playlist-icon"/></a>
-            <%= link_to image_tag("/images/cross.png", :alt => 'delete-playlist-icon', :class => 'playlist-icon'), playlist_path(:id => @playlist), method: :delete %>
+            <%= link_to image_tag("/images/cross.png", :alt => 'delete-playlist-icon', :class => 'delete-playlist-icon'), user_playlist_path(current_user, :id => @playlist), method: :delete %>
           </article>
         </header>
         <article class="playlist-tracks">
@@ -28,10 +28,11 @@
               <article class="playlist-track-container">
                 <article class='track-links'>
                   <a href='#' class='add-playlist-track-to-queue'><img src="/images/play.png" class="playlist-track-icon"/></a>
-                  <%= link_to image_tag("/images/cross.png", :alt => 'delete-track-icon', :class => 'playlist-track-icon'), playlist_path(:id => @playlist, :title => track.title), method: :patch %>
+                  <%= link_to image_tag("/images/cross.png", :alt => 'delete-track-icon', :class => 'delete-track-icon'), user_playlist_path(current_user, :id => @playlist, :title => track.title), method: :patch %>
                 </article>
                 <li class="track-item" data-id="<%=track.video_id%>" data-title="<%=track.title%>">
-                  <p class='track-title-and-duration'><%= track.title %> (<%= Time.parse(track.duration.gsub('PT', 'PT0H')).strftime("%M:%S") %>)</p>
+
+                  <p class='track-title-and-duration'><% if track.title %><%= track.title %><% end %><% if track.duration %> (<%= Time.parse(track.duration.gsub('PT', 'PT0H')).strftime("%M:%S") %>)<% end %></p>
                 </li>
               </article>
             <% end %>

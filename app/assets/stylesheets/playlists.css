@@ -126,7 +126,7 @@
   text-decoration: none;
 }
 
-.playlist-icon {
+.playlist-icon, .delete-track-icon, .delete-playlist-icon {
   height: 30px;
   width: auto;
   margin-top: 4px;
