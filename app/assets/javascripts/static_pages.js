@@ -24,7 +24,6 @@ jQuery(document).ready(function ($) {
     } else {
       position-=1;
     }
-    console.log(position)
     event.preventDefault();
     $('#all-search-results').animate({
         marginLeft: "-=340px"
@@ -37,7 +36,6 @@ jQuery(document).ready(function ($) {
     } else {
       position+=1;
     }
-      console.log(position)
       event.preventDefault();
 
     $('#all-search-results').animate({
