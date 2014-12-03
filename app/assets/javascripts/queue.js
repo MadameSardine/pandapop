@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
     event.preventDefault();
 
     var secondyoutubeVideoId =  $("#queue article:nth-child(2)").data('id')
-    $('#player-iframe').attr('src', 'http://youtube.com/embed/' + secondyoutubeVideoId + '?autoplay=1')
+    $('#player-iframe').attr('src', 'https://youtube.com/embed/' + secondyoutubeVideoId + '?autoplay=1')  
 
     $("#queue article:nth-child(1)").remove()
     localStorage.setItem('queue-list', $queue.html());
