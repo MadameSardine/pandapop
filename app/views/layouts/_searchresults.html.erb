@@ -28,9 +28,9 @@
 
       <article class='playlists-popup' ng-show='show'>
         <% current_user.playlists.each do |playlist| %>
-        <span id='playlist-popup-item' data-playlist_id='<%= playlist.id %>'>
+        <div class='playlist-popup-item' data-playlistId='<%= playlist.id %>'>
           <%= playlist.name %>
-        </span>
+        </div>
         <% end %>
       </article>
 
