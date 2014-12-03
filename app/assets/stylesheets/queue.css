@@ -6,7 +6,8 @@
   height: 705px;
   background-color: #474747;
   display: block;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 #queue-header {
