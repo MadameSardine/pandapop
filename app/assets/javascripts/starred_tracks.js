@@ -3,7 +3,7 @@ jQuery(document).ready( function ($) {
 	$(document).on('click', ".star-icon", function() {
 			console.log('clicked')
 			var $this = $(this)
-			var starredPlaylist = $this.parents('#queue-bar').data().starredplaylist;
+			var starredPlaylist = $(document).find('#starred-playlists-bar').data().starredplaylist;
 			var videoTitle = $this.closest("article").find('.queue-item-title').text()
 			var videoId = $this.closest("article.queue-item").data().id;
 			// $this.attr("src", "/images/star-filled.png")

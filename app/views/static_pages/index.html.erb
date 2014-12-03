@@ -4,7 +4,10 @@
 </article>
 
 <aside id="queue-bar-container">
-  <div id="queue-bar" data-starredplaylist="<%=current_user.playlists.where(name: 'Starred tracks')[0].id %>">
+  <div id="queue-bar">
+    <% if user_signed_in? %>
+      <div id="starred-playlists-bar" data-starredplaylist="<%=current_user.playlists.where(name: 'Starred tracks')[0].id %>"></div>
+      <% end %>
     <header id="queue-header">
       <h1>Play queue</h1>
       <nav id="queue-nav">
