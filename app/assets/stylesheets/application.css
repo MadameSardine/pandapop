@@ -2,6 +2,7 @@
 
 /*
  *= require jquery-ui
+ *= require gritter
  *= require_tree .
  *= require_self
  */

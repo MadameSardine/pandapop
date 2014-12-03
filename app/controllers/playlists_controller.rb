@@ -48,4 +48,8 @@ class PlaylistsController < ApplicationController
     redirect_to playlist_path(params[:id])
   end
 
+  # def edit
+  #   @playlist = Playlist.find(params[:id])
+  # end 
+
 end

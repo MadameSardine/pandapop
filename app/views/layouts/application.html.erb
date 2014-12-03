@@ -17,10 +17,10 @@
       <%= render "layouts/header" %>
       <%= render "layouts/searchresults" %>
       <main id="grid-main">
-        <section id="flash-messages">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-        </section>
+      <%= js add_gritter(flash[:notice]) %>
+      <%= js add_gritter(flash[:error]) %>
+      <%= js add_gritter(flash[:alert]) %>
+      
         <%= yield %>
       </main>
     </div>
