@@ -43,12 +43,13 @@ body {
 }
 
 
+
 /*===============TOP NAV=======================*/
 
 
 #top-nav {
   background-color: rgb(53, 53, 53);
-/*  position: fixed;*/
+  /*position: fixed;*/
   top: 0;
   left: 0;
   right: 0;
@@ -61,11 +62,11 @@ body {
 
 
 #top-nav-inner {
-  position: relative;
+  position: absolute;
   display: inline;
   margin-top: 5px;
   margin-bottom: 10px;
-  height: 70px;
+  height: auto;
   width: 100%;
   z-index: 100000;
   overflow: hidden;
@@ -122,22 +123,22 @@ body {
 
 #home-icon {
   display: block;
-  position: fixed;
+  position: absolute;
   height: 50px;
   width: auto;
-  top: 18px;
+  top: 10px;
   right: 50%;
 }
 
 
 #search-container{
   display: block;
-  position: fixed;
-  top: 0;
-  right: 0;
+  position: absolute;
+  top: 0px;
+  right: 10px;
   width: 500px;
   height: 60px;
-  clear: left;
+  z-index: 20000;
 }
 
 #search-content{
@@ -169,6 +170,7 @@ body {
 
 
 
+
 /*=================GRID MAIN================================*/
 
 #grid-main {
@@ -177,15 +179,11 @@ body {
   position: relative;
   margin-top: 0px;
   text-align: center;
-  z-index: 1000;
+  z-index: 100000;
+  height: 770px;
 }
 
-
-/*===================PLAYER===================================*/
-
-
-
-#player-title {
+.pink-ribbon {
   height: 50px;
   text-align: left;
   background-color: rgb(255, 52, 139);
@@ -195,6 +193,15 @@ body {
   display: block;
   overflow: hidden;
 }
+
+#flash-messages {
+  color: #fff;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 24px;
+}
+
+/*===================PLAYER===================================*/
+
 
 #player-title h1 {
   margin-left: 20px;
@@ -234,14 +241,16 @@ body {
   position: absolute;
   margin-top: 760px;
   overflow-y: hidden;
-  overflow-x: scroll;
 }
 
 #search-results-header {
   display: block;
-  width: 100%;
+  width: 500px;
   height: 50px;
   border-bottom: 4px solid rgb(255, 52, 139);
+  overflow-x: hidden;
+  position: absolute;
+  background-color: blue;
 }
 
 #search-results-header h1{
@@ -250,6 +259,15 @@ body {
   margin-left: 20px;
   padding-top: 16px;
   padding-bottom: 8px;
+  position: absolute;
+}
+
+#all-search-results {
+  width: 3000px;
+  white-space: nowrap;
+  height: 220px;
+  overflow-y: hidden;
+  overflow-x: scroll;
 }
 
 .search-result-container {
@@ -268,24 +286,25 @@ body {
 }
 
 .title {
+  font-family: 'PT Sans', sans-serif;
   background-color: rgb(53, 53, 53);
   display: block;
-  width: 100%;
+  width: 310px;
   opacity: 0.8;
   text-align: left;
   z-index:100;
   position:absolute;
-  left: 0;
+  left: 0px;
   top: 16px;
-  padding: 4px;
+  padding: 6px;
   font-size: 24px;
+  white-space: normal;
 }
 
-.duration .viewCount .likeCount{
+.viewCount .likeCount{
   display: block;
   float: left;
 }
-
 
 .thumbnail img {
   position: absolute;
@@ -296,7 +315,7 @@ body {
   opacity: 0.2;
 }
 
-.result-icons {
+.result-icons, .thumbnail-play-icon {
   position: absolute;
   background-color: rgb(53, 53, 53);
   right: 0px;
@@ -308,11 +327,31 @@ body {
   opacity: 0.8;
 }
 
-.play-icon,  .plus-icon{
+.play-icon, .plus-icon{
   width: 40px;
   margin-left: 8px;
+  padding-top: 6px;
 }
 
+.thumbnail-play-icon {
+  background-color: transparent;
+  right: 80px;
+  bottom: 40px;
+  opacity: 0.9;
+}
+
+.playlists-popup-menu {
+  position: absolute;
+  bottom: 60px;
+  left: -10px;
+  height: auto;
+  width: auto;
+  background-color: blue;
+}
+
+.playlist-menu-item {
+  padding: 4px;
+}
 
 /*=======================PLAYLISTS======================*/
 
@@ -338,7 +377,7 @@ article.pandapop-playlist-item {
   display: inline-block;
   border: 1px black solid;
   padding: 5px;
-  margin: 10px;
+  margin: 15px;
   font-size: 1em;
   text-align: center;
 }
@@ -348,8 +387,8 @@ article.pandapop-playlist-item a {
 }
 
 #user-avatar {
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   display: block;
   margin-top: 20px;
   margin-left: auto;
@@ -400,6 +439,12 @@ h1#username {
   margin-top: 0.5em;
 }
 
+#slidebar-edit-icon {
+  height: 15px;
+  width: 15px;
+  display: inline;
+}
+
 h2 {
   font-family: 'PT Sans', sans-serif;
 }
@@ -411,5 +456,72 @@ h2 {
   margin-bottom: 0px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/*=======================DEVISE PAGES======================*/
+
+label, .devise-h1, .devise-h2, .devise-h3, .devise-p, .devise-i {
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  margin-left: 0;
+}
+
+.devise-h2 {
+  font-size: 2em;
+  padding: 15px;
+}
+
+#devise-edit-page {
+  width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.devise-field {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.devise-input {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  height: 30px;
+  width: 100%;
+  padding: 4px;
+}
+
+#devise-cancel {
+  background-color: black;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 12;
+  height: 20px;
+  border: 0;
+  width: 150px;
+  margin-top: 5px;
+  padding: 4px;
+}
+
+.devise-submit {
+  background-color: #FF358B;
+  width: 200px;
+  height: 50px;
+  border: 0;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 24px;
+}
+
+.devise-actions {
+  margin-top: 30px;
+}
+
+#user-avatar {
+  color: white;  
+  font-family: 'PT Sans', sans-serif;
+}
+
+.devise-form {
+  text-align: left;
 }
 

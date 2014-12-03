@@ -1,27 +1,44 @@
-<section class='playlist-container'>
-  <aside class='image-container'>
-    <%= image_tag @playlist.image.url(:medium) %>
-    <br>Created on <%= @playlist.created_at.strftime("%B %-d, %Y") %>
-    <br>Made by: <%= @playlist.user.username %>
-  </aside>
-  <article class='playlist-content'>
-    <header class='playlist-title-bar'>
-      <h1 class='playlist-name'><%= @playlist.name %></h1>
-      <h4 class='playlist-links'>
-        <a href='#' id="play-all">Queue up playlist</a>
-        <%= link_to 'Delete Playlist', playlist_path(:id => @playlist), method: :delete %>
-      </h4>
-    </header>
-    <ol type="1" class="playlist-tracks">
-      <% @playlist.tracks.each do |track| %>
-        <li class="track-item" data-id="<%=track.video_id%>" data-title="<%=track.title%>">
-          <p class='track-title-and-duration'><%= track.title %> (<%= Time.parse(track.duration.gsub('PT', 'PT0H')).strftime("%M:%S") %>)</p>
-          <p class='track-links'><a href='#' class='add-playlist-track-to-queue'>Play</a>
-            <%= link_to 'Delete', playlist_path(:id => @playlist, :title => track.title), method: :patch %>
-          </p>
-        </li>
-      <% end %>
-    </ol>
-  </article>
+<article class="pink-ribbon">
+
+</article>
+
+<section class="playlists-main">
+  <section class="playlists-main-inner">
+    <section class='playlists-left'>
+      <aside class='image-container'>
+        <%= image_tag @playlist.image.url(:medium) %>
+      </aside>
+      <article id="playlist-info">
+        <p class="playlists-text">Created on <%= @playlist.created_at.strftime("%B %-d, %Y") %></p>
+        <p class="playlists-text">Made by: <%= @playlist.user.username %></p>
+      </article>
+     </section>
+     <section class="playlists-right">
+      <article class='playlist-content'>
+        <header class='playlist-title-bar'>
+          <h1 class='playlist-name'><%= @playlist.name %></h1>
+          <article class='playlist-links'>
+            <a href='#' id="play-all"><img src="/images/play.png" class="playlist-icon"/></a>
+            <%= link_to image_tag("/images/cross.png", :alt => 'delete-playlist-icon', :class => 'playlist-icon'), playlist_path(:id => @playlist), method: :delete %>
+          </article>
+        </header>
+        <article class="playlist-tracks">
+          <ol type="1" >
+            <% @playlist.tracks.each do |track| %>
+              <article class="playlist-track-container">
+                <article class='track-links'>
+                  <a href='#' class='add-playlist-track-to-queue'><img src="/images/play.png" class="playlist-track-icon"/></a>
+                  <%= link_to image_tag("/images/cross.png", :alt => 'delete-track-icon', :class => 'playlist-track-icon'), playlist_path(:id => @playlist, :title => track.title), method: :patch %>
+                </article>
+                <li class="track-item" data-id="<%=track.video_id%>" data-title="<%=track.title%>">
+                  <p class='track-title-and-duration'><%= track.title %> (<%= Time.parse(track.duration.gsub('PT', 'PT0H')).strftime("%M:%S") %>)</p>
+                </li>
+              </article>
+            <% end %>
+          </ol>
+        </article>
+      </article>
+    </section>
+  </section>
 </section>
 

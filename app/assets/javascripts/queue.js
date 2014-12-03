@@ -14,6 +14,7 @@ jQuery(document).ready(function ($) {
 
   $('#results').on('click', '.add-to-queue', function(event){
     event.preventDefault();
+    console.log('ADD TO QUEUE')
     $queue.append('<article class="queue-item" data-id="' + $(this).data('id') + '">' + '<div class="queue-item-title">' + $(this).data('title')+ '</div><div class="queue-item-icons"><img class="star-icon" src="/images/star.png"><img class="delete-from-queue" src="/images/cross.png"></div></article>')
     $queue.trigger('trackAdded')
   });
@@ -29,7 +30,7 @@ jQuery(document).ready(function ($) {
 
     var youtubeVideoId = $("#queue article:nth-child(1)").data('id')
 
-    window.location = '/player?videoId='+youtubeVideoId
+    window.location = '/?videoId='+youtubeVideoId
   });
 
   $('#next-in-queue').on('click', function(event) {

@@ -2,8 +2,6 @@
       <% if user_signed_in? %>
             <%= image_tag current_user.avatar.url(:medium), :id => 'user-avatar' %>
             <h1 id="username"><%= current_user.username %><%= link_to image_tag('/images/edit.png', :id => 'slidebar-edit-icon'), edit_user_registration_path(current_user) %></h1>
-      <% else %>
-      Hello
       <% end %>
       <div id='sidebar-button-area'>
       <% if user_signed_in? %>

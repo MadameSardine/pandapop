@@ -1,16 +1,16 @@
 #queue-bar {
-  position: fixed;
-  top: 130px;
+  position: absolute;
+  top: 56px;
   right: 0;
   width: 500px;
-  height: 713px;
+  height: 705px;
   background-color: #474747;
   display: block;
   overflow: scroll;
 }
 
 #queue-header {
-  position: fixed;
+  position: absolute;
   font-family: 'PT Sans', sans-serif;
   font-size: 30px;
   display: block;
@@ -22,33 +22,82 @@
   text-align: left;
   background-color: #474747;
   border-bottom: 2px gray solid;
+  z-index: 1000;
 }
 
 #queue-header h1 {
   display: block;
   height: 100%;
-  width: 10%;
+  width: 160px;
   float: left;
 }
 
 #queue-nav {
   display: block;
   height: 25px;
-  width: 20%;
+  width: 320px;
   float: left;
+  margin-left: 4px;
+  height: 100%;
+}
+
+.queue-button {
+  display: block;
+  position: relative;
+  height: 30px;
+  width: 90px;
+  float: left;
+  margin-right: 15px;
+  margin-top: 0px;
+  border: none;
+  border-radius: 20px;
+  outline: 0;
+  box-shadow: none;
+  background-color: black;
+  padding-right: 14px;
+}
+
+.queue-button h3 {
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: 'PT Sans', sans-serif;
+  color: #fff;
+  margin-left: 4px;
+  margin-top: 6px;
+}
+
+.queue-button:hover {
+  background-color: #01B0F0;
+}
+
+.queue-button-icon {
+  position : relative;
+  display: block;
+  float: left;
+  margin-left: 6px;
+  height: 26px;
+  width: auto;
+  padding: 0px;
+}
+
+#clear-queue h3 {
+  position: relative;
+  margin-left: 20px;
+  margin-top: -0.5px;
 }
 
 #queue {
   position: relative;
   margin-top: 50px;
   padding-top: 10px;
-  z-index: -1;
-/*  overflow: scroll;*/
 }
 
 article.queue-item {
   display: block;
-  font-size: 20px;
+  font-size: 16px;
   color: white;
   margin: 8px;
   background-color: #5f5f5f;
@@ -58,7 +107,6 @@ article.queue-item {
   min-height: 40px;
   height: auto;
   padding: 10px;
-
 }
 
 .queue-item-title {
@@ -67,7 +115,6 @@ article.queue-item {
   width: 78%;
   float: left;
 }
-
 
 .queue-item-icons {
   display: block;
@@ -91,5 +138,6 @@ article.queue-item {
 .star-icon {
   margin-top: 3px;
 }
+
 
 
