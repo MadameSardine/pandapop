@@ -51,4 +51,8 @@ class PlaylistsController < ApplicationController
     redirect_to user_playlist_path(current_user, params[:id])
   end
 
+  # def edit
+  #   @playlist = Playlist.find(params[:id])
+  # end 
+
 end

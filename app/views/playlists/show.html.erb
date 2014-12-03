@@ -32,7 +32,8 @@
                 </article>
                 <li class="track-item" data-id="<%=track.video_id%>" data-title="<%=track.title%>">
 
-                  <p class='track-title-and-duration'><% if track.title %><%= track.title %><% end %><% if track.duration != "" %> (<%= Time.parse(track.duration.gsub('PT', 'PT0H')).strftime("%M:%S") %>)<% end %></p>
+                  <p class='track-title-and-duration'><%= track.title %></p>
+
                 </li>
               </article>
             <% end %>

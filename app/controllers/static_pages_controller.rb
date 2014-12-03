@@ -13,7 +13,7 @@ class StaticPagesController < ApplicationController
     end
     @track = Track.new
     if params[:videoId] == nil
-      @url = 'http://youtube.com/embed/videoId=hDZbA17QqXU?autoplay=1&vq=hd1080'
+      @url = 'http://youtube.com/embed/videoId=hDZbA17QqXU'
     else
       @url = 'http://youtube.com/embed/' + params[:videoId] + '?autoplay=1' #to start on load
       @current_track = HTTParty.get("https://www.googleapis.com/youtube/v3/videos?id=#{params[:videoId]}&vq=hd1080&key=#{@key}&part=snippet").parsed_response
