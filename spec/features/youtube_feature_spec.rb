@@ -3,10 +3,10 @@ require 'rails_helper'
 describe 'youtube searches' do
 
   def preload_playlists
-    @playlist1 = Playlist.create(name: "Makers Jamz")
-    @playlist2 = Playlist.create(name: "Friday Night")
-    @playlist3 = Playlist.create(name: "Katy Perry Jamz")
-    @playlist4 = Playlist.create(name: "Taylor Swift Jamz")
+    Playlist.create(name: "Makers Jamz")
+    Playlist.create(name: "Friday Night")
+    Playlist.create(name: "Katy Perry Jamz")
+    Playlist.create(name: "Taylor Swift Jamz")
   end
 
   before do
