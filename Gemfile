@@ -32,4 +32,5 @@ group :test, :development do
   gem 'poltergeist'
   gem 'selenium-webdriver'
   gem 'hirb'
+  gem 'byebug'
 end
