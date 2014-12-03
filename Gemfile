@@ -34,6 +34,5 @@ group :test, :development do
   gem 'selenium-webdriver'
   gem 'hirb'
   gem 'byebug'
-=======
   gem "factory_girl_rails"
 end
