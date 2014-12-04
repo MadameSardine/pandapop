@@ -19,20 +19,22 @@
       </article>
 
       <article class='result-icons'>
-        <a href='#' class='add-to-queue' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}'>
+        <a href='#' class='add-to-queue' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}' data-duration='{{ result.items[0].contentDetails.duration}}'>
           <img src='/images/plus.png' class='plus-icon'/>
         </a>
-        <a href='#' class='add-to-playlist' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}' ng-click='show = !show'>
+        <a href='#' class='add-to-playlist' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}' data-duration='{{ result.items[0].contentDetails.duration}}' ng-click='show = !show'>
           <img src='/images/plus.png' class='plus-icon'/>
         </a>
       </article>
 
       <article class='playlists-popup'>
-        <% current_user.playlists.each do |playlist| %>
-        <div class='playlist-popup-item' data-playlistId='<%= playlist.id %>'>
-          <%= playlist.name %>
-        </div>
-        <% end %>
+        <%if user_signed_in? %>
+          <% current_user.playlists.each do |playlist| %>
+          <div class='playlist-popup-item' data-playlistId='<%= playlist.id %>'>
+            <%= playlist.name %>
+          </div>
+          <% end %>
+        <%end%>
       </article>
 
     </article>

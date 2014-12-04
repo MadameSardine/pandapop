@@ -6,6 +6,7 @@ jQuery(document).ready( function ($) {
 			var starredPlaylist = $(document).find('#starred-playlists-bar').data().starredplaylist;
 			var videoTitle = $this.closest("article").find('.queue-item-title').text()
 			var videoId = $this.closest("article.queue-item").data().id;
+			var duration = $this.closest("article.queue-item").data().duration;
 			// $this.attr("src", "/images/star-filled.png")
 		//if the image is not already filled, then post the track to the starred tracks playlist and fill the star in
 			if($(this).attr("src") == "/images/star.png"){
@@ -17,7 +18,8 @@ jQuery(document).ready( function ($) {
 		      track: { 
 		        playlists: starredPlaylist,
 		        title: videoTitle,
-		        video_id: videoId
+		        video_id: videoId,
+		        duration: duration
 		      }
 		    },
 		    success: function(data) {
