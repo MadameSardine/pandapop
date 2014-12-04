@@ -14,12 +14,26 @@ describe 'playlist management', js: true do
 
   context 'User is not logged in' do
 
+    before do
+      @panda = User.create(email: 'panda123@test.com', username: 'panda123', first_name: 'panda', last_name: 'pop', password: 'pandapop123', password_confirmation: 'pandapop123')
+      @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
+    end
+
     it 'should not see a link to playlists' do
       visit '/'
       find('#nav-bar-slide-out').click
       expect(page).not_to have_link "my playlists"
     end
 
+    it "should not be able to access another user's playlists page" do
+      visit user_playlists_path(@panda)
+      expect(current_path).to eq new_user_session_path
+  end
+
+    it 'should not be able to access a playlist page' do
+      visit playlist_path(@taylorjamz)
+      expect(current_path).to eq new_user_session_path
+    end
   end
 
   context 'User is logged in' do
@@ -31,6 +45,8 @@ describe 'playlist management', js: true do
       @beyonce = Playlist.create(user: @panda, name: "Best of Beyonce")
       @shakeitoff = Track.create(title: "Shake it off", duration: 'PT4M23S')
       @taylorjamz.tracks << @shakeitoff
+      @koala = User.create(email: 'koala123@test.com', username: 'koala123', first_name: 'koala', last_name: 'pop', password: 'koalapop123', password_confirmation: 'koalapop123')
+      @koalaplaylist = Playlist.create(user: @koala, name: "koala's best of")
     end
 
     context 'playlist viewing' do
@@ -48,19 +64,31 @@ describe 'playlist management', js: true do
         expect(page).to have_content 'Best of Beyonce'
       end
 
+      it "can see another user's playlists" do
+        visit user_playlists_path(@koala)
+        expect(current_path).to eq user_playlists_path(@koala)
+        expect(page).to have_content "koala123's playlists"
+      end
+
+      it 'a user can access the playlist page of another user' do
+        visit playlist_path(@koalaplaylist)
+        expect(current_path).to eq playlist_path(@koalaplaylist)
+        expect(page).to have_content "koala's best of"
+      end
+
       it 'a user can go to a playlist page' do
         visit user_playlists_path(@panda)
         click_link 'Taylor Swift Jamz'
-        expect(current_path).to eq user_playlist_path(@panda, @taylorjamz)
+        expect(current_path).to eq playlist_path(@taylorjamz)
       end
 
       it 'a user can see the tracks in the playlist' do
-        visit user_playlist_path(@panda, @taylorjamz)
+        visit playlist_path(@taylorjamz)
         expect(page).to have_content("Shake it off")
       end
 
       it 'a playlist uploaded without an image should have the default missing image displayed on the home page' do
-        visit user_playlist_path(@panda, @taylorjamz)
+        visit playlist_path(@taylorjamz)
         expect(page).to have_selector("img[src$='missing.png']")
       end
 
@@ -102,18 +130,18 @@ describe 'playlist management', js: true do
       end
 
       it 'a user can see a delete a track link' do
-        visit user_playlist_path(@panda, @taylorjamz)
+        visit playlist_path(@taylorjamz)
         expect(page).to have_selector('.delete-track-icon')
       end
 
       it 'a user can delete a track from a playlist' do
-        visit user_playlist_path(@panda, @taylorjamz)
+        visit playlist_path(@taylorjamz)
         click_link 'delete-track-icon'
         expect(page).to have_content('Track successfully removed from playlist')
       end
 
       it 'a user can delete a playlist' do
-        visit user_playlist_path(@panda, @taylorjamz)
+        visit playlist_path(@taylorjamz)
         click_link 'delete-playlist-icon'
         expect(current_path).to eq '/'
         expect(page).to have_content('Playlist has been successfully deleted')

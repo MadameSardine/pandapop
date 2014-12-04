@@ -8,22 +8,52 @@ describe 'follow playlists' do
     @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
   end
 
-  context 'User is not logged in' do
-    xit 'should not be able to follow a playlist' do
+  context "user koala is logged in and visits panda's playlists pages" do
+
+    before do
+      login_as @koala
+    end
+
+    it "user koala should see link to follow a playlist from panda's playlists page" do
+      visit user_playlists_path(@panda)
+      expect(page).to have_link 'follow'
+    end
+
+    xit "user koala can follow a playlist from panda's playlists page" do
+      visit user_playlists_path(@panda)
+      click_link('follow', match: :first)
+      expect(page).to have_content 'You are now following Taylor Swift Jamz'
+    end
+
+     it "user koala should see link to follow a playlist from panda's taylojamz playlist page" do
+      visit playlist_path(@taylorjamz)
+      expect(page).to have_link 'follow'
+    end
+
+     xit "user koala can follow a playlist ffrom panda's taylojamz playlist page" do
+      visit playlist_path(@taylorjamz)
+      click_link 'follow'
+      expect(page).to have_content 'You are now following Taylor Swift Jamz'
     end
 
   end
 
-  context 'User is logged in' do
+  context "user panda is logged in and visit its own playlists page" do
 
     before do
       login_as @panda
     end
 
-    xit 'should see link to follow a playlist' do
+    it "should not be able to follow his own playlists from its playlists page" do
+      visit user_playlists_path(@panda)
+      expect(page).not_to have_link 'follow'
+    end
+
+     it "should not be able to follow his own playlist from its taylorjamz playlist page" do
+      visit playlist_path(@taylorjamz)
+      expect(page).not_to have_link 'follow'
     end
 
   end
-
 
 end

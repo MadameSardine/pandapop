@@ -263,6 +263,7 @@ body {
   padding-bottom: 8px;
   position: absolute;
   float: left;
+  display: inline-block;
 }
 
 #all-search-results {
@@ -367,15 +368,6 @@ body {
   padding: 4px;
 }
 
-#arrows-container {
-  display: block;
-  bottom: 0px;
-  width: 100%;
-  height: 10px;
-  position: absolute;
-  z-index: 2000;
-}
-
 #left-arrow-icon, #right-arrow-icon {
   height: 28px;
   width: 28px;
@@ -383,8 +375,9 @@ body {
 }
 
 .nav-arrow {
-  position: relative;
-  top: 120px;
+  display: inline-block;
+  position: absolute;
+  float: left;
   height: 30px;
   width: 30px;
   border: 2px solid #FF348B;
@@ -613,7 +606,6 @@ h2 {
   width: 35%;
   height: 100%;
   float:left; /* add this */
-  border: 1px solid red;
   background-color: #353535;
   margin-right: 10px;
   margin-left: 10px;
@@ -622,15 +614,79 @@ h2 {
 .inner-grid-right {
   width: 62%;
   height: 100%;
-  border: 1px solid green;
   float: left;
   background-color: #212121;
   margin-right: 10px;
 }
 
-
-p.friend-search-container {
+.playlist-button {
+  width: 100%;
+  text-align: left;
+  border-bottom: 2px gray solid;
+  font-family: 'PT Sans', sans-serif;
   color: white;
-  font-size: 32px;
-  padding: 10px;
+  font-size: 1.3em;
+  padding-top: 0.8em;
+  padding-bottom: 1.2em;
 }
+
+.playlist-button:hover {
+  background-color: #545454;
+  border-left: 7px #ff358b solid;
+  width: 99%;
+}
+
+.playlist-button img {
+  height: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#new-playlist-button {
+  width: 100%;
+  height: 50px;
+  text-align: left;
+  border-bottom: 2px gray solid;
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  font-size: 1.3em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+}
+
+#track-title {
+  width: 100%;
+  height: 55px;
+  border-bottom: 2px gray solid;
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  font-size: 1.3em;
+  text-align: left;
+}
+
+#track-title img {
+  float: left;
+}
+
+#track-title > img:nth-of-type(2){
+  float: right;
+  padding-right: 10px;
+}
+
+#track-title > p:first-of-type {
+  /*color: blue;*/
+  width: 60%;
+  float: left;
+  padding-left: 15px;
+  padding-top: 18px;
+  padding-bottom: 12px;
+}
+
+#track-title > p:nth-of-type(2) {
+  /*color: red;*/
+  width: auto;
+  float: left;
+  padding-top: 18px;
+  padding-bottom: 12px;
+}
+

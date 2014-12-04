@@ -13,13 +13,13 @@ describe 'queue management' do
   def search_for_simple_plan
     fill_in 'search-content', with: 'simple plan'
     click_button 'search'
-    sleep 3
+    sleep 10
   end
 
   def search_for_taylor_swift
     fill_in 'search-content', with: 'taylor swift'
     click_button 'search'
-    sleep 3
+    sleep 10
   end
 
   context 'when landing on the home page' do
@@ -80,6 +80,7 @@ describe 'queue management' do
     it 'should be able to go to the next song in a queue, removing the previously played track', js: true  do
       find('#clear-queue').click
       search_for_simple_plan
+      sleep 3
       find('.add-to-queue', match: :first).click
       expect(page).to have_selector('.queue-item', count: 1)
       search_for_taylor_swift
@@ -99,7 +100,7 @@ describe 'queue management' do
 
     before do
       login_as @panda
-      visit user_playlist_path(@panda, @taylorjamz)
+      visit playlist_path(@taylorjamz)
     end
 
     it 'a user can see a link to queue all tracks from a playlist' do

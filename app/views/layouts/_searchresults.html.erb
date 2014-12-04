@@ -1,14 +1,14 @@
-<div id='arrows-container'>
-    <a href='#' id='scroll-left-button' class='nav-arrow'><img src='/images/left-arrow.png' id='left-arrow-icon'></a>
-    <a href='#' id='scroll-right-button' class='nav-arrow'><img src='/images/right-arrow.png' id='right-arrow-icon'></a>
-</div>
+
 
 <section id="results">
 
   <article id="search-results-header">
-    <h1>Search results for {{ query }}</h1>
+    <h1>Search results for {{ query }}
+    <a href='#' id='scroll-left-button' class='nav-arrow'><img src='/images/left-arrow.png' id='left-arrow-icon'></a>
+    <a href='#' id='scroll-right-button' class='nav-arrow'><img src='/images/right-arrow.png' id='right-arrow-icon'></a>
+    </h1>
   </article>
-  
+
   <article id='all-search-results'>
 
     <article class="search-result-container" ng-repeat='result in results'>
@@ -28,10 +28,12 @@
       </article>
 
       <article class='playlists-popup'>
-        <% current_user.playlists.each do |playlist| %>
-        <div class='playlist-popup-item' data-playlistId='<%= playlist.id %>'>
-          <%= playlist.name %>
-        </div>
+        <% if current_user %>
+          <% current_user.playlists.each do |playlist| %>
+          <div class='playlist-popup-item' data-playlistId='<%= playlist.id %>'>
+            <%= playlist.name %>
+          </div>
+          <% end %>
         <% end %>
       </article>
 

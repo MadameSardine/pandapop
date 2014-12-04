@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
 
-  before_action :authenticate_user!, :except => [:show]
+  before_action :authenticate_user!
 
   def index
     if User.where(:id => params[:user_id]).blank?
@@ -8,6 +8,8 @@ class PlaylistsController < ApplicationController
       redirect_to root_path
     else
       @user = User.find(params[:user_id])
+      @starredplaylist = @user.playlists.where(name: 'Starred tracks')
+      @playlists = @user.playlists.map{|playlist| playlist if playlist.name != "Starred tracks"}.compact
     end
   end
 
@@ -36,7 +38,14 @@ class PlaylistsController < ApplicationController
       flash[:notice] = "We can't find this playlist in our database"
       redirect_to root_path
     else
-    @playlist = Playlist.find(params[:id])
+      @playlist = Playlist.find(params[:id])
+      # @tracks = @playlist.tracks
+
+      if request.xhr? 
+        render json: @playlist.to_json(:include => [:tracks, :user])
+      else
+        render html: @playlist
+      end
     end
   end
 
@@ -53,7 +62,7 @@ class PlaylistsController < ApplicationController
     @track = @playlist.tracks.find_by(:title => (params[:title]))
     @playlist.tracks.delete(@track)
     flash[:notice] = "Track successfully removed from playlist"
-    redirect_to user_playlist_path(current_user, params[:id])
+    redirect_to playlist_path(params[:id])
   end
 
   # def edit

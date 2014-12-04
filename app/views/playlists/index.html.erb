@@ -6,18 +6,32 @@
 
 <section class="inner-grid">
   <section class="inner-grid-left">
-    <% @user.playlists.each do |playlist| %>
-      <li><%= link_to playlist.name, user_playlist_path(@user, playlist) %></li>
+    <div id="new-playlist-button"><img src="/images/plus.png" class="plus-icon"/><%= link_to 'New playlist', new_user_playlist_path(@user) %></div>
+    <div class="playlist-button" data-playlistid="<%= @starredplaylist[0].id %>"><img src="/images/star-filled.png"/><%= @starredplaylist[0].name %></div>
+    <% @playlists.each do |playlist| %>
+      <div class="playlist-button" data-playlistid="<%= playlist.id %>"><img src="/images/microphone.png"/><%= playlist.name %></div>
+        <% if current_user != playlist.user %>
+      <%= link_to 'follow', playlist_follows_path(playlist), class: 'playlist_follow_link' %>
+        <% end %>
     <% end %>
   </section>
 
   <section class="inner-grid-right">
-    <% if current_user == @user %>
-      <%= link_to 'Add a song to a playlist', new_track_path %>
-      <%= link_to 'New playlist', new_user_playlist_path(@user) %>
-    <% end %>
+  
+  	<article id="track-title">
+  		<img src="/images/plus.png" class="plus-icon"/>
+  		<p>Example track title</p>
+  		<p>Example duration</p>
+  		<img src="/images/cross.png" class="plus-icon"/>
+  	</article>
+
   </section>
 
 </section>
 </article>
+
+
+<template id="trackTemplate">
+
+</template>
 <%= render "static_pages/queue"%>
