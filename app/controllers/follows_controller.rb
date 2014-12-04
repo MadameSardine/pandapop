@@ -16,6 +16,6 @@ class FollowsController < ApplicationController
     @follow.followerId = current_user.id
     @follow.save
     flash[:notice] = "You are now following #{@playlist.name}"
-    redirect_to playlist_path(@playlist)
+    redirect_to user_playlists_path(@playlist.user)
   end
 end
