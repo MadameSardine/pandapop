@@ -8,6 +8,8 @@ class PlaylistsController < ApplicationController
       redirect_to root_path
     else
       @user = User.find(params[:user_id])
+      @starredplaylist = @user.playlists.where(name: 'Starred tracks')
+      @playlists = @user.playlists.map{|playlist| playlist if playlist.name != "Starred tracks"}.compact
     end
   end
 
@@ -36,7 +38,13 @@ class PlaylistsController < ApplicationController
       flash[:notice] = "We can't find this playlist in our database"
       redirect_to root_path
     else
-    @playlist = Playlist.find(params[:id])
+      @playlist = Playlist.find(params[:id])
+      # @tracks = @playlist.tracks
+      if request.xhr? 
+        render json: @playlist.to_json(:include => [:tracks])
+      else
+        render :nothing => true
+      end
     end
   end
 
