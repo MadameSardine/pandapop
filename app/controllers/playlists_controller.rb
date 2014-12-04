@@ -38,7 +38,13 @@ class PlaylistsController < ApplicationController
       flash[:notice] = "We can't find this playlist in our database"
       redirect_to root_path
     else
-    @playlist = Playlist.find(params[:id])
+      @playlist = Playlist.find(params[:id])
+      # @tracks = @playlist.tracks
+      if request.xhr? 
+        render json: @playlist.to_json(:include => [:tracks])
+      else
+        render :nothing => true
+      end
     end
   end
 
