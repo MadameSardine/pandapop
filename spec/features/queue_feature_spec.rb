@@ -99,7 +99,7 @@ describe 'queue management' do
 
     before do
       login_as @panda
-      visit user_playlist_path(@panda, @taylorjamz)
+      visit playlist_path(@taylorjamz)
     end
 
     it 'a user can see a link to queue all tracks from a playlist' do

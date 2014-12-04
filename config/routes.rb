@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   root to: 'static_pages#index'
 
-  resources :users do
-    resources :playlists
+  resources :users, shallow: true  do
+    resources :playlists do
+    resources :follows
+    end
   end
   resources :tracks
 

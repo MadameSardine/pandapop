@@ -53,7 +53,7 @@ class PlaylistsController < ApplicationController
     @track = @playlist.tracks.find_by(:title => (params[:title]))
     @playlist.tracks.delete(@track)
     flash[:notice] = "Track successfully removed from playlist"
-    redirect_to user_playlist_path(current_user, params[:id])
+    redirect_to playlist_path(params[:id])
   end
 
   # def edit
