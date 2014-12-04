@@ -22,9 +22,11 @@
         <a href='#' class='add-to-queue' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}' data-duration='{{ result.items[0].contentDetails.duration}}'>
           <img src='/images/plus.png' class='plus-icon'/>
         </a>
-        <a href='#' class='add-to-playlist' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}' data-duration='{{ result.items[0].contentDetails.duration}}' ng-click='show = !show'>
-          <img src='/images/3dots.png' class='plus-icon'/>
-        </a>
+        <% if current_user %>
+          <a href='#' class='add-to-playlist' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}' data-duration='{{ result.items[0].contentDetails.duration}}' ng-click='show = !show'>
+            <img src='/images/3dots.png' class='plus-icon'/>
+          </a>
+        <% end %>
       </article>
 
       <article class='playlists-popup'>

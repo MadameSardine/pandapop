@@ -42,7 +42,8 @@ jQuery(document).ready(function ($) {
 		$('#playlist-tracks-container').empty();
 
 		$this = $(this);
-		playlistId = $this.data("playlistid");
+		var playlistId = $this.data("playlistid");
+		console.log('this is playlist id',playlistId)
 
 
 		var request = $.ajax({
@@ -63,8 +64,6 @@ jQuery(document).ready(function ($) {
 			console.log(fullName);
 			var numberOfTracks = json.tracks.length
 			console.log(numberOfTracks)
-			var exampleTrackTitle = json.tracks[1].title
-			console.log(exampleTrackTitle)
 			var trackTitle = [];
 			var trackDuration = [];
 			var context = []
@@ -90,5 +89,5 @@ jQuery(document).ready(function ($) {
 		});
 
 	});
-	
+
 });
