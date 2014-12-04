@@ -654,3 +654,43 @@ h2 {
   padding-top: 0.8em;
   padding-bottom: 0.8em;
 }
+
+#track-title {
+  width: 100%;
+  height: 55px;
+  border-bottom: 2px gray solid;
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  font-size: 1.3em;
+  text-align: left;
+}
+
+#track-title img {
+  float: left;
+}
+
+#track-title > img:nth-of-type(2){
+  float: right;
+  padding-right: 10px;
+}
+
+#track-title > p:first-of-type {
+  /*color: blue;*/
+  width: 60%;
+  float: left;
+  padding-left: 15px;
+  padding-top: 18px;
+  padding-bottom: 12px;
+}
+
+#track-title > p:nth-of-type(2) {
+  /*color: red;*/
+  width: auto;
+  float: left;
+  padding-top: 18px;
+  padding-bottom: 12px;
+}
+
+
+
+

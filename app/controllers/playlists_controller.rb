@@ -40,8 +40,9 @@ class PlaylistsController < ApplicationController
     else
       @playlist = Playlist.find(params[:id])
       # @tracks = @playlist.tracks
-      if request.xhr?
-        render json: @playlist.to_json(:include => [:tracks])
+
+      if request.xhr? 
+        render json: @playlist.to_json(:include => [:tracks, :user])
       else
         render html: @playlist
       end
