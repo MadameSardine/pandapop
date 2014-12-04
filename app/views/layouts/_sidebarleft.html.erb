@@ -6,7 +6,7 @@
       <div id='sidebar-button-area'>
       <% if user_signed_in? %>
             <div class='sidebar-button' id='top-button'><%= link_to 'my playlists', user_playlists_path(current_user) %></div>
-            <div class='sidebar-button'>followers</div>
+            <div class='sidebar-button' id='followers'><%= link_to 'followers', followers_user_path(current_user) %></div>
             <div class='sidebar-button'>starred</div>
             <div class='sidebar-button'>groups</div>
             <div class='sidebar-button'><%= link_to "sign out", destroy_user_session_path, method: :delete %></div>
