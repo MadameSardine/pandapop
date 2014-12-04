@@ -2,26 +2,22 @@
 <h1 class="playlists-header"><%= @user.username %>'s playlists</h1>
 </article>
 
-<section class="playlists-main">
-  <section class="playlists-main-inner">
-    <section class='playlists-left'>
-      <article class='playlists-list'>
-      <% @user.playlists.each do |playlist| %>
-        <ul>
-          <li class='playlist-item'><%= link_to playlist.name, user_playlist_path(@user, playlist) %></li>
-        </ul>
-      <% end %>
-      </article>
-    </section>
-    <% if current_user == @user %>
-      <section class='playlists-right'>
-        <article class="playlist-management-links">
-          <h2><%= link_to 'Add a song to a playlist', new_track_path %></h2>
-          <h2><%= link_to 'New playlist', new_user_playlist_path(@user) %></h2>
-        </article>
-      </section>
+<article id="iframe-container">
+
+<section class="inner-grid">
+  <section class="inner-grid-left">
+    <% @user.playlists.each do |playlist| %>
+      <li><%= link_to playlist.name, user_playlist_path(@user, playlist) %></li>
     <% end %>
   </section>
-</section>
 
+  <section class="inner-grid-right">
+    <% if current_user == @user %>
+      <%= link_to 'Add a song to a playlist', new_track_path %>
+      <%= link_to 'New playlist', new_user_playlist_path(@user) %>
+    <% end %>
+  </section>
+
+</section>
+</article>
 <%= render "static_pages/queue"%>
