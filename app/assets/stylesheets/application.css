@@ -589,3 +589,36 @@ h2 {
 .playlist-popup-item:hover {
   background-color: gray;
 }
+
+/*=======================INNER GRID=========================*/
+
+.inner-grid {
+  width: 99%;
+  height: 685px;
+  background-color: #474747;
+  margin-top: 6px;
+  margin-left: 0.5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.inner-grid-left {
+  width: 35%;
+  height: 100%;
+  float:left; /* add this */
+  border: 1px solid red;
+  background-color: #353535;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.inner-grid-right {
+  width: 62%;
+  height: 100%;
+  border: 1px solid green;
+  float: left;
+  background-color: #212121;
+  margin-right: 10px;
+}
+
+
