@@ -1,15 +1,30 @@
 <% @user ||= current_user %>
 
-<a href="<%= following_user_path(@user) %>">
-  <p id="following" class="stat">
-    <p><%= @user.followed_users.count %> following</p>
-    <p>You're following <%= @user.followed_users[0].username %></p>
-  </p>
-</a>
+<section id='followers-tab'>
+  <header id='followers-tab-header'>Followers</header>
+  <h1>My followers (<%= @user.followers.count %>)</h1>
+    <a href="<%= followers_user_path(@user) %>">
+      <p id="followers" class="stat">
+        <p><%= pluralize(@user.followers.count, "follower") %></p>
+        <% @user.followers.each do |follower| %>
+        <p><%= follower.username %></p>
+        <%= image_tag follower.avatar.url(:medium) %>
+        <% end %>
+      </p>
+    </a>
+</section>
 
-<a href="<%= followers_user_path(@user) %>">
-  <p id="followers" class="stat">
-    <p><%= pluralize(@user.followers.count, "follower") %></p>
-    <p><%= @user.followers[0].username %> is following you</p>
-  </p>
-</a>
+<section id='following-tab'>
+  <header id='following-tab-header'>Following</header>
+
+  <a href="<%= following_user_path(@user) %>">
+    <p id="following" class="stat">
+      <p><%= @user.followed_users.count %> following</p>
+      <p>You're following <%= @user.followed_users[0].username %></p>
+    </p>
+  </a>
+
+</section>
+
+
+

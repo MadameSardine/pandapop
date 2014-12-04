@@ -22,9 +22,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300", :thumb => "100x100" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-
   def self.authenticate_with_salt(id, cookie_salt)
-
   end
 
   def following?(followed)
@@ -37,6 +35,18 @@ class User < ActiveRecord::Base
 
   def unfollow!(followed)
     friendships.find_by_followed_id(followed).destroy
+  end
+
+  def self.search(search)
+    if search
+      where('username LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+
+  def self.search(query)
+    where("firstname like ?", "%#{query}")
   end
 
 end

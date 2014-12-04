@@ -30,4 +30,7 @@ class StaticPagesController < ApplicationController
 									:items => @items}
 	end
 
+  def about
+  end
+
 end

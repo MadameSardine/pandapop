@@ -1,10 +1,32 @@
-<table class="profile" summary="Profile information">
-  <tr>
-    <td class="main">
+<article class="pink-ribbon">
+  <h1 class="playlists-header"><%= @user.username %>'s playlists</h1>
+</article>
+
+<article id="iframe-container">
+
+  <section class="inner-grid">
+    
+    <section class="inner-grid-left">
       <%= render 'follow_form' if signed_in? %>
-    </td>
-    <td class="sidebar round">
-      <%= render 'shared/stats' %>
-    </td>
-  </tr>
-</table>
+      <%= form_tag users_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag 'Find friends', :name => nil %>
+      <% end %>
+
+      <section class="friend-results">
+
+      </section>
+        <%= link_to "#{@user.username}" %> 
+      </section>
+
+
+
+    <section class="inner-grid-right">
+        <%= render 'shared/stats' %>
+    </section>
+
+  </section>
+
+</article>
+
+<%= render "static_pages/queue"%>

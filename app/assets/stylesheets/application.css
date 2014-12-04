@@ -629,3 +629,8 @@ h2 {
 }
 
 
+p.friend-search-container {
+  color: white;
+  font-size: 32px;
+  padding: 10px;
+}

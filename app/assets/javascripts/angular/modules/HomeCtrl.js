@@ -8,8 +8,17 @@ pandapop.controller('SearchController', ['$scope', 'Youtube', function SearchCon
       }
     });
   };
-
 }]);
+
+pandapop.controller('FriendSearchController', ['$scope', 'Friends', function FriendSearchController($scope, Friends){
+  $scope.findFriends = function findFriends(){
+    Friends.searchFriends($scope.friendQuery, function(error, data){
+      if (!error) {
+        $scope.users = data;
+      }
+    });
+  };
+}])
 
 pandapop.filter('formatDate', function(){
   return function(dateSTR) {
@@ -36,3 +45,24 @@ pandapop.factory('Youtube', function Youtube($http){
     }
   };
 });
+
+pandapop.factory('Friends', function Friends($http){
+  return {
+    searchFriends: function searchFriends(friendQuery, callback) {
+      $http.get('/users')
+      .success(function(data) {
+        console.log(data)
+      })
+    }
+  }
+});
+
+phonecatServices.factory('Friends', ['$http',
+  function($http){
+    return $http('/users', {}, {
+      query: {method:'GET', params: {phoneId: 'phones'}, isArray:true }
+    });
+  }
+]);
+
+
