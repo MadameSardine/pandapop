@@ -27,19 +27,11 @@
         </a>
       </article>
 
-      <article class='playlists-popup' ng-show='show'>
+      <article class='playlists-popup'>
         <% current_user.playlists.each do |playlist| %>
         <div class='playlist-popup-item' data-playlistId='<%= playlist.id %>'>
           <%= playlist.name %>
         </div>
-        <% end %>
-      </article>
-
-      <article class='playlists-popup' ng-show='show'>
-        <% current_user.playlists.each do |playlist| %>
-        <span id='playlist-popup-item' data-playlist_id='<%= playlist.id %>'>
-          <%= playlist.name %>
-        </span>
         <% end %>
       </article>
 

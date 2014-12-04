@@ -1,5 +1,17 @@
 jQuery(document).ready( function ($) {
 
+ 	$('#results').on('click', '.add-to-playlist', function(event){
+    event.preventDefault();
+    console.log('ADD TO PLAYLIST POPUP');
+
+    $playlistPopup = $(this).parents('.search-result-container').find('.playlists-popup');
+    // $playlistPopup.css('left', event.pageX); //WHY NOT WORKING
+    // $playlistPopup.css('top', event.pageY);
+    $playlistPopup.css('display','block'); 
+    $playlistPopup.css("position", "absolute");
+    // $playlistPopup.css( {display: "block", position:"absolute", top:event.pageY, left: event.pageX})
+  });
+
 	$(document).on('click', ".playlist-popup-item", function(){
 
 		var $this = $(this);
@@ -21,6 +33,9 @@ jQuery(document).ready( function ($) {
 			},
 			success: function(data) {
 				console.log(data);
+				$this.css('background-color', "gray")
+				$this.text('Added to playlist')
+				$('.playlists-popup').fadeOut(1500)
 				// alert("Track has been successfully added to playlist")
 			}
 		})
