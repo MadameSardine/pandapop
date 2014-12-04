@@ -8,19 +8,13 @@ describe 'follow playlists' do
     @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
   end
 
-  context 'User is not logged in' do
-    xit 'should not be able to follow a playlist' do
-    end
-
-  end
-
   context 'User is logged in' do
 
     before do
       login_as @panda
     end
 
-    xit 'should see link to follow a playlist' do
+    it 'should see link to follow a playlist' do
     end
 
   end

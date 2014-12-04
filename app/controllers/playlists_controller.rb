@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
 
-  before_action :authenticate_user!, :except => [:show]
+  before_action :authenticate_user!
 
   def index
     if User.where(:id => params[:user_id]).blank?
