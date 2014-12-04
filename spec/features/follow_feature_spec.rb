@@ -19,9 +19,21 @@ describe 'follow playlists' do
       expect(page).to have_link 'follow'
     end
 
+    xit "user koala can follow a playlist from panda's playlists page" do
+      visit user_playlists_path(@panda)
+      click_link('follow', match: :first)
+      expect(page).to have_content 'You are now following Taylor Swift Jamz'
+    end
+
      it "user koala should see link to follow a playlist from panda's taylojamz playlist page" do
       visit playlist_path(@taylorjamz)
       expect(page).to have_link 'follow'
+    end
+
+     xit "user koala can follow a playlist ffrom panda's taylojamz playlist page" do
+      visit playlist_path(@taylorjamz)
+      click_link 'follow'
+      expect(page).to have_content 'You are now following Taylor Swift Jamz'
     end
 
   end
