@@ -409,111 +409,6 @@ body {
   float: right;
 }
 
-/*=======================PLAYLISTS======================*/
-
-.panda-logo {
-  width: 80px;
-  height: auto;
-}
-
-#pandapop-playlists {
-  width: 80%;
-  margin-right: auto;
-  margin-left: auto;
-  white-space: nowrap;
-  overflow-x: scroll;
-}
-
-#playlists-welcome {
-  font-size: 2em;
-}
-
-article.pandapop-playlist-item {
-  width: 150px;
-  display: inline-block;
-  border: 1px black solid;
-  padding: 5px;
-  margin: 15px;
-  font-size: 1em;
-  text-align: center;
-}
-
-article.pandapop-playlist-item a {
-  text-decoration: none;
-}
-
-#user-avatar {
-  width: 200px;
-  height: 200px;
-  display: block;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 50%;
-  border:5px solid gray;
-}
-
-.sidebar-button {
-  width: 100%;
-  text-align: center;
-  border-bottom: 2px gray solid;
-  font-family: 'PT Sans', sans-serif;
-  color: white;
-  font-size: 1.3em;
-  padding-top: 0.8em;
-  padding-bottom: 0.8em;
-}
-
-#top-button {
-  border-top: 2px gray solid;
-}
-
-#slidebar-edit-icon {
-  height: 15px;
-  width: 15px;
-  padding-left: 4px;
-}
-
-.sidebar-button:hover {
-  background-color: #545454;
-  border-left: 7px #ff358b solid;
-}
-
-#sidebar-button-area {
-  margin-top: 30px;
-}
-
-h1 {
-  font-family: 'PT Sans', sans-serif;
-}
-
-h1#username {
-  font-size: 1.6em;
-  color: #ff358b;
-  text-align: center;
-  margin-top: 0.5em;
-}
-
-#slidebar-edit-icon {
-  height: 15px;
-  width: 15px;
-  display: inline;
-}
-
-h2 {
-  font-family: 'PT Sans', sans-serif;
-}
-
-#panda-mascot {
-  width: 60px;
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
 
 /*=======================LANDING PAGE=========================*/
 
@@ -565,6 +460,4 @@ h2 {
   z-index: 1000;
   top: 70%;
 }
-
-
 
