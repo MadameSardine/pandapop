@@ -7,13 +7,11 @@ class TracksController < ApplicationController
     if @playlist.user_id == current_user.id
       @track = Track.create(track_params)
       @playlist.tracks << @track
-      redirect_to root_path, notice: 'Track successfully added to playlist'
-      #i have no idea what im doing
-      # respond_to do |format|
-      #   format.html {puts hello}
-      #   format.json {render json: @track}
-      # end
-      # render json: @track
+      if request.xhr? 
+        render json: @track
+      else
+        redirect_to playlist_path(@playlist), notice: 'Track successfully added to playlist'
+      end
     else
       redirect_to root_path, notice: 'This is not your playlist'
     end

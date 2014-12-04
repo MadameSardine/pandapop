@@ -1,14 +1,15 @@
 <% @user ||= current_user %>
 
-        <a href="<%= following_user_path(@user) %>">
-          <p id="following" class="stat">
-            <p><%= @user.followed_users.count %> following</p>
-            <p>You're following <%= @user.followed_users[0].username %></p>
-          </p>
-        </a>
-        <a href="<%= followers_user_path(@user) %>">
-          <p id="followers" class="stat">
-            <p><%= pluralize(@user.followers.count, "follower") %></p>
-            <p><%= @user.followers[0].username %> is following you</p>
-          </p>
-        </a>
+<a href="<%= following_user_path(@user) %>">
+  <p id="following" class="stat">
+    <p><%= @user.followed_users.count %> following</p>
+    <p>You're following <%= @user.followed_users[0].username %></p>
+  </p>
+</a>
+
+<a href="<%= followers_user_path(@user) %>">
+  <p id="followers" class="stat">
+    <p><%= pluralize(@user.followers.count, "follower") %></p>
+    <p><%= @user.followers[0].username %> is following you</p>
+  </p>
+</a>

@@ -3,15 +3,22 @@
 </article>
 
 <section class="playlists-main">
-  <article id="new-playlist-form">
-    <h2 id='playlist-instructions'>
-      Please give your new playlist a title and optional image!
-    </h2>
-    <%= form_for [@user, @playlist], html: {multipart: true} do |f| %>
-        <%= f.label :name %>
-        <%= f.text_area :name %>
-        <%= f.label :image %>
-        <%= f.file_field :image %>
-        <%= f.submit 'Create playlist' %>
-    <% end %>
+  <section class="playlists-main-inner">
+    <section class='playlists-left'>
+      <article id="new-playlist-form-container">
+        <h2 id='playlist-instructions'>
+          Please give your new playlist <br> a title and optional image!
+        </h2>
+        <%= form_for [@user, @playlist], html: {multipart: true} do |f| %>
+            <%= f.label :name, :class => 'playlist_form_element' %>
+            <%= f.text_area :name, :class => 'playlist_form_element' %><br>
+            <%= f.label :image, :class => 'playlist_form_element' %>
+            <%= f.file_field :image, :class => 'playlist_form_element' %><br>
+            <%= f.submit 'Create playlist', :id => 'new_playlist_submit_button', :class => 'playlist_form_element'%>
+        <% end %>
+      </article>
+    </section>
+  <section class='playlists-right'>
+  put an image? or suggestions?
+  </section>
 </section>

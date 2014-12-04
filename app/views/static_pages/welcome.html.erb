@@ -1,29 +1,44 @@
-<h1 id='welcome-message'>Find the best YouTube karaoke songs with PandaPop</h1>
+<!-- <h1 id='welcome-message'>Find the best YouTube karaoke songs with PandaPop</h1> -->
+<article id="player-title" class="pink-ribbon">
+<h1>Now playing: <span id="current-player-title"><%= @current_track_title %></span></h1>
+</article>
 
-<section id='pandapop-playlists'>
-<h2 id='playlists-welcome'>Our favorite playlists</h2>
-  <% if @playlists[3] %>
-    <article class='pandapop-playlist-item'>
-      <%= link_to @playlists[3].name, playlist_path(@playlists[3]) %>
-      <br><%= image_tag @playlists[3].image.url(:thumb) %>
+<aside id="queue-bar-container">
+  <div id="queue-bar">
+    <% if user_signed_in? %>
+      <div id="starred-playlists-bar" data-starredplaylist="<%=current_user.playlists.where(name: 'Starred tracks')[0].id %>"></div>
+      <% end %>
+    <header id="queue-header">
+      <h1>Play queue</h1>
+      <nav id="queue-nav">
+        <section id="queue-buttons">
+          <button id="play-queue" class="queue-button"><img src="/images/arrow.png" class="queue-button-icon"><h3>PLAY</h3></button>
+          <button id="next-in-queue" class="queue-button"><img src="/images/next.png" class="queue-button-icon"><h3>NEXT</h3></button>
+          <button id="clear-queue" class="queue-button"><h3>CLEAR</h3></button>
+        </section>
+      </nav>
+    </header>
+    <section id="queue"></section>
+  </div>
+</aside>
+
+<article id="iframe-container">
+  <section id='readymade-playlists-container'>
+    <article id='playlist-top-left' class='readymade-item-container'>
+      <h1 class='readymade-header'>Today's Top Hits</h1>
+      <img src='/images/taylorswift.jpg' class='readymade-image'/>
     </article>
-  <% end %>
-  <% if @playlists[2] %>
-    <article class='pandapop-playlist-item'>
-      <%= link_to @playlists[2].name, playlist_path(@playlists[2]) %>
-      <br><%= image_tag @playlists[2].image.url(:thumb) %>
+    <article id='playlist-top-right' class='readymade-item-container'>
+      <h1 class='readymade-header'>80's Jams</h1>
+      <img src='/images/michaeljackson.png' class='readymade-image'/>
     </article>
-  <% end %>
-  <% if @playlists[1] %>
-    <article class='pandapop-playlist-item'>
-      <%= link_to @playlists[1].name, playlist_path(@playlists[1]) %>
-      <br><%= image_tag @playlists[1].image.url(:thumb) %>
+    <article id='playlist-bottom-left' class='readymade-item-container'>
+      <h1 class='readymade-header'>Disney Songs</h1>
+      <img src='/images/disney.jpg' class='readymade-image'/>
     </article>
-  <% end %>
-  <% if @playlists[0] %>
-    <article class='pandapop-playlist-item'>
-      <%= link_to @playlists[0].name, playlist_path(@playlists[0]) %>
-      <br><%= image_tag @playlists[0].image.url(:thumb) %>
+    <article id='playlist-bottom-right' class='readymade-item-container'>
+      <h1 class='readymade-header'>Makers Favorites</h1>
+      <img src='/images/makers.jpg' class='readymade-image'/>
     </article>
-  <% end %>
-</section>
+  </section>
+</article>

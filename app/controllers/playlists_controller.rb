@@ -32,7 +32,12 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    if Playlist.where(:id => params[:id]).blank?
+      flash[:notice] = "We can't find this playlist in our database"
+      redirect_to root_path
+    else
     @playlist = Playlist.find(params[:id])
+    end
   end
 
   def destroy
@@ -53,6 +58,6 @@ class PlaylistsController < ApplicationController
 
   # def edit
   #   @playlist = Playlist.find(params[:id])
-  # end 
+  # end
 
 end
