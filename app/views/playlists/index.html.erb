@@ -8,7 +8,12 @@
       <article class='playlists-list'>
       <% @user.playlists.each do |playlist| %>
         <ul>
-          <li class='playlist-item'><%= link_to playlist.name, playlist_path(playlist) %></li>
+          <li class='playlist-item'>
+            <%= link_to playlist.name, playlist_path(playlist) %>
+            <% if current_user != playlist.user %>
+              <%= link_to 'follow', playlist_follows_path(playlist), class: 'playlist_follow_link' %>
+            <% end %>
+          </li>
         </ul>
       <% end %>
       </article>
