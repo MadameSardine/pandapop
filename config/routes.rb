@@ -5,8 +5,12 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :playlists
+    member do
+      get :following, :followers
   end
+end
   resources :tracks
+  resources :friendships
 
   get '/player' => 'static_pages#player'
   post "/tracks/create" => "tracks#create"
