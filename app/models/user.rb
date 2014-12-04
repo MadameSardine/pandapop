@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :playlists
   has_many :friendships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :friendships, source: :followed
+  has_many :following_playlists, through: :follows
 
   has_many :reverse_friendships, foreign_key: "followed_id", class_name: "Friendship", dependent: :destroy
   has_many :followers, through: :reverse_friendships, source: :follower

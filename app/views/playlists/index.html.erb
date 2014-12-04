@@ -10,6 +10,9 @@
     <div class="playlist-button" data-playlistid="<%= @starredplaylist[0].id %>"><img src="/images/star-filled.png"/><%= @starredplaylist[0].name %></div>
     <% @playlists.each do |playlist| %>
       <div class="playlist-button" data-playlistid="<%= playlist.id %>"><img src="/images/microphone.png"/><%= playlist.name %></div>
+        <% if current_user != playlist.user %>
+      <%= link_to 'follow', playlist_follows_path(playlist), class: 'playlist_follow_link' %>
+        <% end %>
     <% end %>
   </section>
 

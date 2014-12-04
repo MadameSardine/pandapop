@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
 
-  before_action :authenticate_user!, :except => [:show]
+  before_action :authenticate_user!
 
   def index
     if User.where(:id => params[:user_id]).blank?
@@ -40,10 +40,10 @@ class PlaylistsController < ApplicationController
     else
       @playlist = Playlist.find(params[:id])
       # @tracks = @playlist.tracks
-      if request.xhr? 
+      if request.xhr?
         render json: @playlist.to_json(:include => [:tracks])
       else
-        render :nothing => true
+        render html: @playlist
       end
     end
   end
@@ -61,7 +61,7 @@ class PlaylistsController < ApplicationController
     @track = @playlist.tracks.find_by(:title => (params[:title]))
     @playlist.tracks.delete(@track)
     flash[:notice] = "Track successfully removed from playlist"
-    redirect_to user_playlist_path(current_user, params[:id])
+    redirect_to playlist_path(params[:id])
   end
 
   # def edit

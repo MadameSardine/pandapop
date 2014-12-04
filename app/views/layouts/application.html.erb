@@ -18,9 +18,9 @@
       <%= render "layouts/searchresults" %>
       
       <main id="grid-main">
-      <%= js add_gritter(flash[:notice]) %>
-      <%= js add_gritter(flash[:error]) %>
-      <%= js add_gritter(flash[:alert]) %>
+      <%= js add_gritter(flash[:notice], :time => 4000) %>
+      <%= js add_gritter(flash[:error], :time => 4000) %>
+      <%= js add_gritter(flash[:alert], :time => 4000) %>
 
         <%= yield %>
       </main>

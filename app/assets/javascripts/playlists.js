@@ -9,9 +9,12 @@ jQuery(document).ready(function ($) {
 	$('#play-all').on('click', function(event){
 		event.preventDefault();
 
-		$("li").each(function() {
-			$queue.append('<article class="queue-item" data-id="' + $(this).data('id') + '">' + $(this).data('title')+'</article>')	
-		});		
+	var $this	= $('.playlist-tracks')
+
+		$this.children().find(".track-item").each(function() {
+				console.log($(this.data));
+			$queue.append('<article class="queue-item" data-id="' + $(this).data('id') + '">' + $(this).data('title')+'</article>')
+		});
 
 		localStorage.setItem('queue-list', $queue.html());
 
@@ -20,10 +23,10 @@ jQuery(document).ready(function ($) {
 	$('.add-playlist-track-to-queue').on('click', function(event) {
 		event.preventDefault();
 
-		$queue.append('<article class="queue-item" data-id="' + $(this).closest('li').data('id') + '">' + $(this).closest('li').data('title')+'</article>')	
+		$queue.append('<article class="queue-item" data-id="' + $(this).closest('li').data('id') + '">' + $(this).closest('li').data('title')+'</article>')
 
 		localStorage.setItem('queue-list', $queue.html());
-		
+
 	});
  // when you click play all
  // append each track item in the playlist to the queue
