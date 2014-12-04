@@ -2,13 +2,8 @@ require 'rails_helper'
 
 describe 'User' do
 
-  before do 
+  before do
     preload_playlists
-  end
-
-  it 'user will be redirected to home page if no video is selected' do
-    visit '/player'
-    expect(current_path).to eq root_path
   end
 
   it 'user sees a link to go to home page' do
@@ -36,29 +31,16 @@ describe 'User' do
       expect(page).to have_link 'Sign in'
     end
 
-    it 'should be able to sign up' do
-      sign_up_as_panda
-      expect(page).to have_content 'Welcome!'
-    end
-
     it 'should not see a sign out link' do
       visit '/'
       find('#nav-bar-slide-out').click
       expect(page).not_to have_link 'Sign out'
     end
 
-    it 'should see a list of recommended playlists before entering search query' do 
+    xit 'should see a list of recommended playlists before entering search query' do
       visit '/'
       expect(page).to have_selector('#pandapop-playlists')
       expect(page).to have_content('Our favorite playlists')
-    end
-
-    it 'should no longer see recommended playlists after entering search query' do 
-      visit '/'
-      fill_in 'search-content', with: 'taylor swift'
-      click_button 'search'
-      expect(page).not_to have_selector('#pandapop-playlists')
-      expect(page).not_to have_content('Our favorite playlists')
     end
 
   end
@@ -68,7 +50,7 @@ describe 'User' do
     it 'should see a sign out link' do
       sign_up_as_panda
       find('#nav-bar-slide-out').click
-      expect(page).to have_link 'Sign out'
+      expect(page).to have_link 'sign out'
     end
 
     it 'should not see a sign in or sign up link' do

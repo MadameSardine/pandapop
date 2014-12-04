@@ -1,10 +1,16 @@
 class PlaylistsController < ApplicationController
 
-  before_action :authenticate_user!, :except => [:show]
+  before_action :authenticate_user!
 
   def index
-    @user = current_user
-    @playlists = Playlist.all
+    if User.where(:id => params[:user_id]).blank?
+      flash[:notice] = "We can't find this user in our database"
+      redirect_to root_path
+    else
+      @user = User.find(params[:user_id])
+      @starredplaylist = @user.playlists.where(name: 'Starred tracks')
+      @playlists = @user.playlists.map{|playlist| playlist if playlist.name != "Starred tracks"}.compact
+    end
   end
 
   def new
@@ -17,11 +23,10 @@ class PlaylistsController < ApplicationController
     @playlist.user = current_user
     if @playlist.save
       flash[:notice] = "Playlist successfully created"
-      redirect_to playlists_path
     else
       flash[:notice] = "Playlist was not successfully created"
-      redirect_to playlists_path
     end
+    redirect_to user_playlists_path(current_user)
   end
 
   def playlist_params
@@ -29,7 +34,19 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist = Playlist.find(params[:id])
+    if Playlist.where(:id => params[:id]).blank?
+      flash[:notice] = "We can't find this playlist in our database"
+      redirect_to root_path
+    else
+      @playlist = Playlist.find(params[:id])
+      # @tracks = @playlist.tracks
+
+      if request.xhr? 
+        render json: @playlist.to_json(:include => [:tracks, :user])
+      else
+        render html: @playlist
+      end
+    end
   end
 
   def destroy
@@ -50,6 +67,6 @@ class PlaylistsController < ApplicationController
 
   # def edit
   #   @playlist = Playlist.find(params[:id])
-  # end 
+  # end
 
 end

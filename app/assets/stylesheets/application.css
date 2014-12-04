@@ -170,8 +170,6 @@ body {
 }
 
 
-
-
 /*=================GRID MAIN================================*/
 
 #grid-main {
@@ -265,6 +263,7 @@ body {
   padding-bottom: 8px;
   position: absolute;
   float: left;
+  display: inline-block;
 }
 
 #all-search-results {
@@ -292,17 +291,16 @@ body {
 
 .title {
   font-family: 'PT Sans', sans-serif;
-  background-color: rgb(53, 53, 53);
   display: block;
-  width: 310px;
-  opacity: 0.8;
+  width: 90%;
   text-align: left;
   z-index:100;
   position:absolute;
   left: 0px;
   top: 16px;
   padding: 6px;
-  font-size: 24px;
+  margin-left: 5%;
+  font-size: 20px;
   white-space: normal;
 }
 
@@ -311,25 +309,37 @@ body {
   float: left;
 }
 
-.thumbnail img {
+.thumbnail {
   position: absolute;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   height: auto;
-  opacity: 0.2;
+  opacity: 0.4;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
+
+.thumbnail:hover {
+  opacity: 0.8;
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
 }
 
 .result-icons, .thumbnail-play-icon {
   position: absolute;
-  background-color: rgb(53, 53, 53);
-  right: 0px;
-  bottom: 22px;
+  right: 10px;
+  bottom: 40px;
   z-index:100;
   display: block;
   padding-right: 8px;
   padding-bottom: 8px;
-  opacity: 0.8;
 }
 
 .play-icon, .plus-icon{
@@ -358,7 +368,41 @@ body {
   padding: 4px;
 }
 
-/*=======================PLAYLISTS======================*/
+#left-arrow-icon, #right-arrow-icon {
+  height: 28px;
+  width: 28px;
+  margin: 1px;
+}
+
+.nav-arrow {
+  display: inline-block;
+  position: absolute;
+  float: left;
+  height: 30px;
+  width: 30px;
+  border: 2px solid #FF348B;
+  border-radius: 50%;
+  background-color: #FF348B;
+  padding: 4px;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.nav-arrow:hover {
+  border: 2px white solid;
+}
+
+#scroll-left-button {
+  margin-left: 15px;
+  float: left;
+}
+
+#scroll-right-button {
+  margin-right: 15px;
+  float: right;
+}
+
+/*=======================SLIDEBAR======================*/
 
 .panda-logo {
   width: 80px;
@@ -462,70 +506,198 @@ h2 {
   margin-right: auto;
 }
 
-/*=======================DEVISE PAGES======================*/
+/*=======================LANDING PAGE=========================*/
 
-label, .devise-h1, .devise-h2, .devise-h3, .devise-p, .devise-i {
-  font-family: 'PT Sans', sans-serif;
-  color: white;
-  margin-left: 0;
+#readymade-playlists-container {
+  position: relative;
+  margin-top: 0.5%;
+  margin-left: 0.5%;
+  padding: 0.5%;
+  width: 98%;
+  height: 695px;
+  background-color: #474747;
 }
 
-.devise-h2 {
-  font-size: 2em;
-  padding: 15px;
+.readymade-item-container {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: 49.25%;
+  height: 49.25%;
+  background-color: #70503D;
+  margin-top: 0.25%;
+  margin-bottom: 0.25%;
 }
 
-#devise-edit-page {
-  width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.devise-field {
-  margin-top: 20px;
-  text-align: left;
-}
-
-.devise-input {
-  font-family: 'PT Sans', sans-serif;
-  font-size: 16px;
-  height: 30px;
+.readymade-image {
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 4px;
+  height: 100%;
+  z-index: 500;
 }
 
-#devise-cancel {
-  background-color: black;
+.readymade-image:hover {
+  opacity: 1.0;
+}
+
+.readymade-header {
+  position: relative;
+  font-size: 30px;
+  font-weight: bold;
   color: white;
   font-family: 'PT Sans', sans-serif;
-  font-size: 12;
-  height: 20px;
-  border: 0;
-  width: 150px;
-  margin-top: 5px;
-  padding: 4px;
+  padding: 15px;
+  width: auto;
+  background-color: rgba(0,0,0,0.7);
+  height: auto;
+  z-index: 1000;
+  top: 70%;
 }
 
-.devise-submit {
-  background-color: #FF358B;
-  width: 200px;
+/*=======================ADD TO PLAYLIST POPUP=========================*/
+
+
+.playlists-popup {
+  display:none;
+/*  height:200px;
+  width:200px;*/
+  padding-top: 0px;
+  max-height: 179px;
+  overflow: scroll;
+  /*background-color: #353535;*/
+  position: absolute;
+  float: left;
+  z-index: 10000;
+}
+
+.playlist-popup-item {
+  background-color: #5f5f5f;
+/*  margin-top: 1px;
+  margin-bottom: 1px;*/
+  width: 310px;
+  height: 30px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 20px;
+  padding: 5px;
+  z-index: 90000;
+  border-bottom: 2px solid gray;
+}
+
+.playlist-popup-item:hover {
+  background-color: gray;
+}
+
+/*=======================INNER GRID=========================*/
+
+.inner-grid {
+  width: 99%;
+  height: 685px;
+  background-color: #474747;
+  margin-top: 6px;
+  margin-left: 0.5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.inner-grid-left {
+  width: 35%;
+  height: 100%;
+  float:left; /* add this */
+  background-color: #353535;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.inner-grid-right {
+  width: 62%;
+  height: 100%;
+  float: left;
+  background-color: #212121;
+  margin-right: 10px;
+}
+
+
+.playlist-button {
+  width: 100%;
+  text-align: left;
+  border-bottom: 2px gray solid;
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  font-size: 1.3em;
+  padding-top: 0.8em;
+  padding-bottom: 1.2em;
+}
+
+.playlist-button:hover {
+  background-color: #545454;
+  border-left: 7px #ff358b solid;
+  width: 99%;
+}
+
+.playlist-button img {
+  height: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#new-playlist-button {
+  width: 100%;
   height: 50px;
-  border: 0;
+  text-align: left;
+  border-bottom: 2px gray solid;
+  font-family: 'PT Sans', sans-serif;
   color: white;
+  font-size: 1.3em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+}
+
+.playlist-button .playlist_follow_link {
+  color: rgb(255, 52, 139) ;
+  float: right;
+  margin-right: 20px;
+  margin-top: 14px;
+}
+
+#track-title {
+  width: 100%;
+  height: 55px;
+  border-bottom: 2px gray solid;
   font-family: 'PT Sans', sans-serif;
-  font-size: 24px;
-}
-
-.devise-actions {
-  margin-top: 30px;
-}
-
-#user-avatar {
-  color: white;  
-  font-family: 'PT Sans', sans-serif;
-}
-
-.devise-form {
+  color: white;
+  font-size: 1.3em;
   text-align: left;
 }
+
+#track-title img {
+  float: left;
+}
+
+#track-title > img:nth-of-type(2){
+  float: right;
+  padding-right: 10px;
+}
+
+#track-title > p:first-of-type {
+  /*color: blue;*/
+  width: 60%;
+  float: left;
+  padding-left: 15px;
+  padding-top: 18px;
+  padding-bottom: 12px;
+}
+
+#track-title > p:nth-of-type(2) {
+  /*color: red;*/
+  width: auto;
+  float: left;
+  padding-top: 18px;
+  padding-bottom: 12px;
+}
+
+
+
 

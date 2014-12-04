@@ -1,9 +1,11 @@
+
+
 <section id="results">
 
   <article id="search-results-header">
     <h1>Search results for {{ query }}
-      <a href='#' id='scroll-left-button'>←</a>
-      <a href='#' id='scroll-right-button'>→</a>
+    <a href='#' id='scroll-left-button' class='nav-arrow'><img src='/images/left-arrow.png' id='left-arrow-icon'></a>
+    <a href='#' id='scroll-right-button' class='nav-arrow'><img src='/images/right-arrow.png' id='right-arrow-icon'></a>
     </h1>
   </article>
 
@@ -14,13 +16,27 @@
       <article class='title-and-thumbnail' data-video_id='{{ result.items[0].id }}'>
         <p class='title'>{{ result.items[0].snippet.title }} ({{ result.items[0].contentDetails.duration | formatDate }})</p>
         <img ng-src='{{ result.items[0].snippet.thumbnails.medium.url }}' class='thumbnail' />
-        <img src='/images/arrow.png' class='thumbnail-play-icon' />
       </article>
 
       <article class='result-icons'>
-        <a href='#' class='add-to-queue' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}'>
+        <a href='#' class='add-to-queue' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}' data-duration='{{ result.items[0].contentDetails.duration}}'>
           <img src='/images/plus.png' class='plus-icon'/>
         </a>
+        <% if current_user %>
+          <a href='#' class='add-to-playlist' data-id='{{ result.items[0].id }}' data-title='{{ result.items[0].snippet.title }}' data-duration='{{ result.items[0].contentDetails.duration}}' ng-click='show = !show'>
+            <img src='/images/3dots.png' class='plus-icon'/>
+          </a>
+        <% end %>
+      </article>
+
+      <article class='playlists-popup'>
+        <% if current_user %>
+          <% current_user.playlists.each do |playlist| %>
+            <div class='playlist-popup-item' data-playlistId='<%= playlist.id %>'>
+              <%= playlist.name %>
+            </div>
+          <% end %>
+        <% end %>
       </article>
 
     </article>

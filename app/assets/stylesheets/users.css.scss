@@ -1,3 +1,75 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pink-ribbon h2 {
+  font-size: 30px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+a {
+  color: #fff;
+  text-decoration: non;
+}
+
+label, .devise-h1, .devise-h2, .devise-h3, .devise-p, .devise-i {
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  margin-left: 0;
+}
+
+
+#devise-edit-page {
+  width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.devise-field {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.devise-input {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  height: 30px;
+  width: 100%;
+  padding: 4px;
+}
+
+#devise-cancel {
+  background-color: black;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 12;
+  height: 20px;
+  border: 0;
+  width: 150px;
+  margin-top: 5px;
+  padding: 4px;
+}
+
+.devise-submit {
+  background-color: #FF358B;
+  width: 200px;
+  height: 50px;
+  border: 0;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 24px;
+}
+
+.devise-actions {
+  margin-top: 30px;
+}
+
+#user-avatar {
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.devise-form {
+  text-align: left;
+}
