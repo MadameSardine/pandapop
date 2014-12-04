@@ -36,19 +36,10 @@ jQuery(document).ready(function ($) {
 
 	$(document).on('click', ".playlist-button", function() {
 
+		$('#playlist-tracks-container').empty();
+
 		$this = $(this);
 		playlistId = $this.data("playlistid");
-
-		// $.ajax({
-		//     type: "GET",
-		//     url: "/playlists/"+playlistId,
-		//     success: function(playlist) {
-		//     	console.log(playlist)
-		//     	console.log(playlist.tracks)
-		//     },
-		//     error: function(data) {
-		//     }
-		// });
 
 
 		var request = $.ajax({
@@ -75,6 +66,8 @@ jQuery(document).ready(function ($) {
 			var trackDuration = [];
 			var context = []
 
+
+
 			for (i = 0; i < numberOfTracks; i++) {
 				trackTitle[i] = json.tracks[i].title
 				trackDuration[i] = json.tracks[i].duration
@@ -88,29 +81,8 @@ jQuery(document).ready(function ($) {
 					trackduration: trackDuration[i]
 					};
 				console.log(context[i])
-				$('.inner-grid-right').append(template(context[i]));
+				$('#playlist-tracks-container').append(template(context[i]));
 			};
-
-
-
-			// var name = json[0]["name"]
-			// var peep_length = (json[1]).length
-			// var peep_content = []
-			// var context = []
-			// for (i = 0; i< peep_length; i++){
-			// 	peep_content[i] = json[1][i]["content"]
-			// 	var source = $('#peepTemplate').html();
-			// 	var template = Handlebars.compile(source);
-			// 	context[i] = {
-			// 			name: name,
-			// 			username: profile_name,
-			// 			peepContent: peep_content[i]
-			// 			};
-			// 	console.log(context[i])
-			// 	$('#user_peeps').append(template(context[i]));
-			// 	$('#user_peeps article').last().addClass('peep_list');
-			// 		}
-			// $('#profile_name').val('');
 
 		});
 
