@@ -6,15 +6,16 @@
 
 <section class="inner-grid">
   <section class="inner-grid-left">
-    <% @user.playlists.each do |playlist| %>
-      <li><%= link_to playlist.name, user_playlist_path(@user, playlist) %></li>
+    <div id="new-playlist-button"><img src="/images/plus.png" class="plus-icon"/><%= link_to 'New playlist', new_user_playlist_path(@user) %></div>
+    <div class="playlist-button"><img src="/images/star-filled.png"/><%= @starredplaylist[0].name %></div>
+    <% @playlists.each do |playlist| %>
+      <div class="playlist-button"><img src="/images/microphone.png"/><%= link_to playlist.name, user_playlist_path(@user, playlist) %></div>
     <% end %>
   </section>
 
   <section class="inner-grid-right">
     <% if current_user == @user %>
       <%= link_to 'Add a song to a playlist', new_track_path %>
-      <%= link_to 'New playlist', new_user_playlist_path(@user) %>
     <% end %>
   </section>
 

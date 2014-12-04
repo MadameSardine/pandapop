@@ -8,6 +8,8 @@ class PlaylistsController < ApplicationController
       redirect_to root_path
     else
       @user = User.find(params[:user_id])
+      @starredplaylist = @user.playlists.where(name: 'Starred tracks')
+      @playlists = @user.playlists.map{|playlist| playlist if playlist.name != "Starred tracks"}.compact
     end
   end
 
