@@ -741,7 +741,7 @@ h2 {
   height: 320px;
   background-color: #9B9B9B;
   position: absolute;
-  top: 0
+  top: 0;
   left: 0;
   transition:         opacity 0.4s ease-in-out;
   -webkit-transition: opacity 0.4s ease-in-out;
