@@ -737,14 +737,14 @@ h2 {
   width: auto;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3%;
+  margin-top: 2%;
 }
 
 .about-us-container {
   position: relative;
   display: inline-block;
-  height: 400px;
-  width: 600px;
+  height: 300px;
+  width: 450px;
   margin-top: 0.25%;
   margin-bottom: 0.25%;
 }
@@ -760,8 +760,8 @@ h2 {
 
 .bio-container {
   padding: 40px;
-  width: 520px;
-  height: 320px;
+  width: 440px;
+  height: 290px;
   background-color: #9B9B9B;
   position: absolute;
   top: 0;
@@ -772,6 +772,7 @@ h2 {
   -o-transition:      opacity 0.4s ease-in-out;
   opacity: 0;
   z-index: 5000;
+  padding: 5px;
 }
 
 .bio-container:hover {
@@ -779,7 +780,7 @@ h2 {
 }
 
 .bio-container p {
-  font-size: 24px;
+  font-size: 18px;
   font-family: 'PT Sans', sans-serif;
   color: white;
   margin-top: 10px;
