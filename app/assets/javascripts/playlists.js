@@ -12,7 +12,7 @@ jQuery(document).ready(function ($) {
 	var $playlist	= $('#playlist-tracks-container')
 
 		$playlist.children("#track-title").each(function() {
-			$queue.append('<article class="queue-item" data-id="' + $(this).data('videoid') + '">' + $(this).find('.track-title-value').text() +'</article>')
+			$queue.append('<article class="queue-item" data-id="' + $(this).data('videoid') + '">' + $(this).find('.track-title-value').text()+ '</div><div class="queue-item-icons"><img class="star-icon" src="/images/star.png"><img class="delete-from-queue" src="/images/cross.png"></div></article>')
 		});
 
 		localStorage.setItem('queue-list', $queue.html());
