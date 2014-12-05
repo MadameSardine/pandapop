@@ -250,3 +250,19 @@
 #play-all:hover {
   background-color: gray;
 }
+
+#new-playlist-button{
+  padding-left: 10px;
+}
+
+#new-playlist-button img{
+  margin-right: 15px;
+}
+
+
+#new-playlist-button a{
+  position: absolute;
+  padding-top: 18px;
+}
+
+
