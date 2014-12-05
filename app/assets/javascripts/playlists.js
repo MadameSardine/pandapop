@@ -6,14 +6,13 @@ jQuery(document).ready(function ($) {
 
 	var $queue = $('#queue');
 
-	$('#play-all').on('click', function(event){
-		event.preventDefault();
+	$('#play-all').on('click', function(){
+		// event.preventDefault();
 
-	var $this	= $('.playlist-tracks')
+	var $playlist	= $('#playlist-tracks-container')
 
-		$this.children().find(".track-item").each(function() {
-				console.log($(this.data));
-			$queue.append('<article class="queue-item" data-id="' + $(this).data('id') + '">' + $(this).data('title')+'</article>')
+		$playlist.children("#track-title").each(function() {
+			$queue.append('<article class="queue-item" data-id="' + $(this).data('videoid') + '">' + $(this).find('.track-title-value').text() +'</article>')
 		});
 
 		localStorage.setItem('queue-list', $queue.html());
@@ -66,6 +65,7 @@ jQuery(document).ready(function ($) {
 			console.log(numberOfTracks)
 			var trackTitle = [];
 			var trackDuration = [];
+			var videoId = []
 			var context = []
 
 
@@ -73,6 +73,7 @@ jQuery(document).ready(function ($) {
 			for (i = 0; i < numberOfTracks; i++) {
 				trackTitle[i] = json.tracks[i].title
 				trackDuration[i] = json.tracks[i].duration
+				videoId[i] = json.tracks[i].video_id
 				var source = $('#trackTemplate').html();
 				var template = Handlebars.compile(source);
 				context[i] = {
@@ -80,7 +81,8 @@ jQuery(document).ready(function ($) {
 					dateplaylistcreated: datePlaylistCreated,
 					fullname: fullName,
 					tracktitle: trackTitle[i],
-					trackduration: trackDuration[i]
+					trackduration: trackDuration[i],
+					videoid: videoId[i]
 					};
 				console.log(context[i])
 				$('#playlist-tracks-container').append(template(context[i]));
