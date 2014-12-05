@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //
-// Bower stuffz
 //
 //= require angular
 //
@@ -19,6 +18,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require angular/modules/HomeCtrl
 //= require_tree .
 
   (function($) {
