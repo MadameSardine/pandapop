@@ -1,9 +1,6 @@
-
-
-
 /*===========PLAYLISTS LAYOUT====================*/
 
-/*.playlists-main {
+.playlists-main {
   position: relative;
   margin-top: 20px;
   color: #fff;
@@ -32,16 +29,16 @@
 }
 
 .playlists-header {
-  text-align: center;
+  text-align: left;
   margin-left: 20px;
   padding-top: 10px;
   white-space: nowrap;
 }
-*/
+
 
 /*============PLAYLISTS SPECIFICS=================*/
 
-/*.playlist-item {
+.playlist-item {
   margin-bottom: 8px;
 }
 
@@ -171,7 +168,7 @@
   width: auto;
   float: left;
   margin-right: 8px;
-}*/
+}
 
 
 /*=============NEW PLAYLIST FORM===================*/

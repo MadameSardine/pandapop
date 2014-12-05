@@ -120,13 +120,15 @@ body {
 }
 
 #pandapop-title {
-   font-family: 'PT Sans', sans-serif;
-   display: block;
-   font-size: 40px;
-   float: left;
-   margin-left: 20px;
-   margin-top: 20px;
-   z-index: 10000;
+  font-family: 'Exo 2', sans-serif;   
+  display: block;
+  font-size: 40px;
+  font-weight: 900;
+  font-style: italic;
+  float: left;
+  margin-left: 20px;
+  margin-top: 10px;
+  z-index: 10000;
 }
 
 #home-icon {
@@ -269,6 +271,7 @@ body {
   display: block;
   width: 100%;
   height: 50px;
+  padding-bottom: 4px;
   border-bottom: 4px solid rgb(255, 52, 139);
   position: absolute;
 }
@@ -313,7 +316,7 @@ body {
   width: 90%;
   text-align: left;
   z-index:100;
-  position:absolute;
+  position: absolute;
   left: 0px;
   top: 16px;
   padding: 6px;
@@ -387,21 +390,19 @@ body {
 }
 
 #left-arrow-icon, #right-arrow-icon {
-  height: 28px;
-  width: 28px;
+  height: 23px;
+  width: 23px;
   margin: 1px;
 }
 
 .nav-arrow {
   display: inline-block;
-  position: absolute;
-  float: left;
-  height: 30px;
-  width: 30px;
+  height: 23px;
+  width: 23px;
   border: 2px solid #FF348B;
   border-radius: 50%;
   background-color: #FF348B;
-  padding: 4px;
+  padding: 3px;
   cursor: pointer;
   z-index: 2000;
 }
@@ -411,13 +412,9 @@ body {
 }
 
 #scroll-left-button {
-  margin-left: 15px;
-  float: left;
 }
 
 #scroll-right-button {
-  margin-right: 15px;
-  float: right;
 }
 
 /*=======================SLIDEBAR======================*/
@@ -525,6 +522,16 @@ h2 {
   margin-right: auto;
 }
 
+.about-link {
+  width: 80px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 20px;
+  color: white;
+}
+
 /*=======================LANDING PAGE=========================*/
 
 #readymade-playlists-container {
@@ -553,6 +560,7 @@ h2 {
   width: 100%;
   height: 100%;
   z-index: 500;
+
 }
 
 .readymade-image:hover {
@@ -712,3 +720,135 @@ h2 {
   padding-bottom: 12px;
 }
 
+/*=======================ABOUT US========================*/
+
+#about-elements-container {
+  position: relative;
+  height: auto;
+  min-width: 1250px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+}
+
+.about-us-container {
+  position: relative;
+  display: inline-block;
+  height: 400px;
+  width: 600px;
+  margin-top: 0.25%;
+  margin-bottom: 0.25%;
+}
+
+.about-us-image {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.bio-container {
+  padding: 40px;
+  width: 520px;
+  height: 320px;
+  background-color: #9B9B9B;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition:         opacity 0.4s ease-in-out;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -moz-transition:    opacity 0.4s ease-in-out;
+  -o-transition:      opacity 0.4s ease-in-out;
+  opacity: 0;
+  z-index: 5000;
+}
+
+.bio-container:hover {
+  opacity: 1.0;
+}
+
+.bio-container p {
+  font-size: 24px;
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.about-us-header {
+  position: absolute;
+  bottom: 0;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+  padding: 15px;
+  width: auto;
+  background-color: rgba(0,0,0,0.7);
+  height: auto;
+  z-index: 1000;
+}
+
+#about-main {
+  height: 100%;
+  width: 100%;
+  background-color: #353535;
+  margin-bottom: 50px;
+}
+
+#about-us-story {
+  max-width: 1200px;
+  width: auto;
+  position: relative;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  text-align: left;
+}
+
+#about-us-story h1 {
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  font-size: 32px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#about-us-story p {
+  font-family: 'PT Sans', sans-serif;
+  line-height: 30px;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#salt-shaker {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  border-radius: 50%;
+  border: 2px white solid;
+}
+
+.icons-box {
+  text-align: center;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.social-icon {
+  height: 75px;
+  width: 75px;
+  opacity: 0.6;
+}
+
+.social-icon:hover {
+  opacity: 1.0;
+}

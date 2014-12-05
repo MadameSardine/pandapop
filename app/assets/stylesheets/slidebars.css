@@ -31,6 +31,10 @@ html, body, #sb-site, .sb-site-container, .sb-slidebar {
 	        box-sizing: border-box;
 }
 
+#sb-site {
+	background-color: #353535;
+}
+
 html, body {
 	width: 100%;
 	overflow-x: hidden; /* Stops horizontal scrolling. */

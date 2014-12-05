@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app='Pandapop' ng-controller='SearchController as searchCtrl'>
   <head>
+    <link href='https://fonts.googleapis.com/css?family=Exo+2:400,900italic,600,300' rel='stylesheet' type='text/css'>
     <title>Pandapop</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
@@ -15,7 +16,7 @@
     <%= render "layouts/sidebarleft"%>
     <div id="sb-site">
       <%= render "layouts/header" %>
-      <%= render "layouts/searchresults" %>
+      <%= render "layouts/searchresults" unless @skipfooter %>
       
       <main id="grid-main">
       <%= js add_gritter(flash[:notice], :time => 4000) %>
