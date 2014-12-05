@@ -245,10 +245,12 @@
   display: block;
   border-radius: 30px;
   color: white;
+  cursor: pointer;
 }
 
 #play-all:hover {
   background-color: gray;
+  cursor: pointer;
 }
 
 #new-playlist-button{
@@ -259,10 +261,11 @@
   margin-right: 15px;
 }
 
-
 #new-playlist-button a{
   position: absolute;
   padding-top: 18px;
 }
 
-
+.playlist-button {
+  cursor: pointer;
+}
