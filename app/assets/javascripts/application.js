@@ -10,11 +10,11 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require gritter
+//= require angular
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require gritter
-//= require angular
 //= require_tree .
 
   (function($) {
