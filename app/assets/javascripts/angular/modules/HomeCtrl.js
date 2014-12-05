@@ -57,12 +57,12 @@ pandapop.factory('Friends', function Friends($http){
   }
 });
 
-phonecatServices.factory('Friends', ['$http',
-  function($http){
-    return $http('/users', {}, {
-      query: {method:'GET', params: {phoneId: 'phones'}, isArray:true }
-    });
-  }
-]);
+// phonecatServices.factory('Friends', ['$http',
+//   function($http){
+//     return $http('/users', {}, {
+//       query: {method:'GET', params: {phoneId: 'phones'}, isArray:true }
+//     });
+//   }
+// ]);
 
 
