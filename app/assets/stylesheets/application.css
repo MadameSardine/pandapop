@@ -39,8 +39,15 @@ a:visited {
 }
 /*test*/
 
+html {
+  background-color: black;
+}
+
 body {
   background-color: rgb(53, 53, 53);
+  display: block;
+  width: 1600px;
+  height: 900px;
 }
 
 
@@ -171,6 +178,9 @@ body {
 
 
 /*=================GRID MAIN================================*/
+#sb-site {
+  background-color: black;
+}
 
 #grid-main {
   display: block;
@@ -179,7 +189,8 @@ body {
   margin-top: 0px;
   text-align: center;
   z-index: 100000;
-  height: 770px;
+  height: 640px;
+  width: 100%;
 }
 
 .pink-ribbon {
@@ -191,6 +202,12 @@ body {
   font-size: 30px;
   display: block;
   overflow: hidden;
+}
+
+.pink-ribbon h1 {
+  margin-left: 20px;
+  padding-top: 10px;
+  white-space: nowrap;
 }
 
 #flash-messages {
@@ -211,14 +228,15 @@ body {
 #iframe-container {
   display: block;
   background-color: rgb(53, 53, 53);
-  width: -moz-calc(100% - 500px);
+  width: 1100px;
+ /* width: -moz-calc(100% - 500px);
   width: -webkit-calc(100% - 500px);
-  width: calc(100% - 500px);
+  width: calc(100% - 500px);*/
   text-align: center;
-  height: 720px;
- /* height: -moz-calc(100% - 200px);
-  height: -webkit-calc(100% - 200px);
-  height: calc(100% - 200px);*/
+  height: 630px;
+ /* height: -moz-calc(100% - 260px);
+  height: -webkit-calc(100% - 260px);
+  height: calc(100% - 260px);*/
 }
 
 #iframe-container iframe{
@@ -239,7 +257,7 @@ body {
   padding: 0px;
   color: #fff;
   position: absolute;
-  margin-top: 760px;
+  margin-top: 680px;
 }
 
 #scroll-left-button, #scroll-right-button {
@@ -270,7 +288,7 @@ body {
   position: absolute;
   width: 4400px;
   margin-top: 54px;
-  height: 220px;
+  height: 200px;
   overflow-x: scroll;
   overflow-y: hidden;
 }
@@ -278,7 +296,7 @@ body {
 .search-result-container {
   position: relative;
   width: 320px;
-  height: 220px;
+  height: 200px;
   display: inline;
   float: left;
   margin-left: 20px;
@@ -404,6 +422,7 @@ body {
 
 /*=======================SLIDEBAR======================*/
 
+
 .panda-logo {
   width: 80px;
   height: auto;
@@ -510,12 +529,10 @@ h2 {
 
 #readymade-playlists-container {
   position: relative;
-  margin-top: 0.5%;
-  margin-left: 0.5%;
-  padding: 0.5%;
-  width: 98%;
-  height: 695px;
-  background-color: #474747;
+  height: 620px;
+  width: 1090px;
+  margin-top: 7px;
+  padding: 0px;
 }
 
 .readymade-item-container {
@@ -525,8 +542,7 @@ h2 {
   width: 49.25%;
   height: 49.25%;
   background-color: #70503D;
-  margin-top: 0.25%;
-  margin-bottom: 0.25%;
+  margin-top: 3px;
 }
 
 .readymade-image {
@@ -594,12 +610,11 @@ h2 {
 
 .inner-grid {
   width: 99%;
-  height: 685px;
+  height: 99%;
   background-color: #474747;
-  margin-top: 6px;
-  margin-left: 0.5%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  margin-top: 0.5%;
+/*  padding-top: 10px;
+  padding-bottom: 10px;*/
 }
 
 .inner-grid-left {
