@@ -18,13 +18,6 @@ module Pandapop
 
     config.assets.paths << Rails.root.join("vendor", "assets", "bower_components").to_s
     config.assets.precompile.shift
-    config.assets.precompile.push(Proc.new do |path|
-        File.extname(path).in? [
-    '.html', '.erb', '.haml',                 # Templates
-    '.png',  '.gif', '.jpg', '.jpeg', '.svg', # Images
-    '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts
-     ]
-    end)
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
