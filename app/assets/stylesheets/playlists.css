@@ -230,3 +230,23 @@
   margin-left: 40%;
 }
 
+#play-all {
+  background-color: rgb(255, 52, 139);
+  font-family: 'PT Sans', sans-serif;
+  font-size: 20px;
+  width: 100px;
+  height: 25px;
+  padding-top: 9px;
+  padding-bottom: 3px;
+  padding-right: 6px;
+  margin-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  border-radius: 30px;
+  color: white;
+}
+
+#play-all:hover {
+  background-color: gray;
+}
