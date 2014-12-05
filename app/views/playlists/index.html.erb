@@ -18,6 +18,11 @@
   </section>
 
   <section class="inner-grid-right">
+    <div id="play-all">Add playlist to queue</div>
+    <article id="track-title">
+      <p class="track-title-value">Title</p>
+      <p>Duration</p>
+    </article>
   	<article id="playlist-tracks-container">
   	</article>
 
@@ -28,7 +33,7 @@
 
 
 <template id="trackTemplate">
-	  <article id="track-title">
+	  <article id="track-title" data-duration="{{trackduration}}" data-videoId="{{videoid}}">
   		<img src="/images/plus.png" class="plus-icon"/>
   		<p class="track-title-value">{{tracktitle}}</p>
   		<p>{{trackduration}}</p>
