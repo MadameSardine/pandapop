@@ -317,18 +317,18 @@ body {
   height: auto;
   opacity: 0.4;
   -webkit-filter: blur(2px);
-  -moz-filter: blur(2px); 
-  -o-filter: blur(2px); 
-  -ms-filter: blur(2px); 
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
   filter: blur(2px);
 }
 
 .thumbnail:hover {
   opacity: 0.8;
   -webkit-filter: blur(1px);
-  -moz-filter: blur(1px); 
-  -o-filter: blur(1px); 
-  -ms-filter: blur(1px); 
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
   filter: blur(1px);
 }
 
@@ -652,6 +652,13 @@ h2 {
   font-size: 1.3em;
   padding-top: 0.8em;
   padding-bottom: 0.8em;
+}
+
+.playlist-button .playlist_follow_link {
+  color: rgb(255, 52, 139) ;
+  float: right;
+  margin-right: 20px;
+  margin-top: 14px;
 }
 
 #track-title {

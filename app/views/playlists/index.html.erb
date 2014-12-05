@@ -9,20 +9,16 @@
     <div id="new-playlist-button"><img src="/images/plus.png" class="plus-icon"/><%= link_to 'New playlist', new_user_playlist_path(@user) %></div>
     <div class="playlist-button" data-playlistid="<%= @starredplaylist[0].id %>"><img src="/images/star-filled.png"/><%= @starredplaylist[0].name %></div>
     <% @playlists.each do |playlist| %>
-      <div class="playlist-button" data-playlistid="<%= playlist.id %>"><img src="/images/microphone.png"/><%= playlist.name %></div>
+      <div class="playlist-button" data-playlistid="<%= playlist.id %>"><img src="/images/microphone.png"/><%= playlist.name %>
         <% if current_user != playlist.user %>
-      <%= link_to 'follow', playlist_follows_path(playlist), class: 'playlist_follow_link' %>
+          <%= link_to 'follow', playlist_follows_path(playlist), class: 'playlist_follow_link' %>
         <% end %>
+      </div>
     <% end %>
   </section>
 
   <section class="inner-grid-right">
-  
-  	<article id="track-title">
-  		<img src="/images/plus.png" class="plus-icon"/>
-  		<p>Example track title</p>
-  		<p>Example duration</p>
-  		<img src="/images/cross.png" class="plus-icon"/>
+  	<article id="playlist-tracks-container">
   	</article>
 
   </section>
@@ -32,6 +28,12 @@
 
 
 <template id="trackTemplate">
-
+	  <article id="track-title">
+  		<img src="/images/plus.png" class="plus-icon"/>
+  		<p>{{tracktitle}}</p>
+  		<p>{{trackduration}}</p>
+  		<img src="/images/cross.png" class="plus-icon"/>
+  	</article>
 </template>
+
 <%= render "static_pages/queue"%>

@@ -18,6 +18,8 @@ jQuery(document).ready( function ($) {
 		var playlistId = $this.data().playlistid;
 		var videoTitle = $this.parent().prev('.result-icons').find('.add-to-playlist').data().title;
 		var videoId = $this.closest('.search-result-container').find('.title-and-thumbnail').data().video_id;
+		var duration = $this.parent().prev('.result-icons').find('.add-to-playlist').data().duration;
+		console.log(duration);
 		var likeCount;
 
 
@@ -28,7 +30,8 @@ jQuery(document).ready( function ($) {
 				track: {
 					playlists: playlistId,
 					title: videoTitle,
-					video_id: videoId
+					video_id: videoId,
+					duration: duration
 				}
 			},
 			success: function(data) {

@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
   $('#results').on('click', '.add-to-queue', function(event){
     event.preventDefault();
     console.log('ADD TO QUEUE')
-    $queue.append('<article class="queue-item" data-id="' + $(this).data('id') + '">' + '<div class="queue-item-title">' + $(this).data('title')+ '</div><div class="queue-item-icons"><img class="star-icon" src="/images/star.png"><img class="delete-from-queue" src="/images/cross.png"></div></article>')
+    $queue.append('<article class="queue-item" data-id="' + $(this).data('id') + '" data-duration="' + $(this).data('duration') + '">' + '<div class="queue-item-title">' + $(this).data('title')+ '</div><div class="queue-item-icons"><img class="star-icon" src="/images/star.png"><img class="delete-from-queue" src="/images/cross.png"></div></article>')
     $queue.trigger('trackAdded')
   });
 
