@@ -817,6 +817,8 @@ h2 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 100px;
+  border-radius: 50%;
+  border: 2px white solid;
 }
 
 .icons-box {
