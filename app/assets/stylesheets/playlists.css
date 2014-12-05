@@ -1,5 +1,5 @@
 /*===========PLAYLISTS LAYOUT====================*/
-
+/*
 .playlists-main {
   position: relative;
   margin-top: 20px;
@@ -34,10 +34,10 @@
   padding-top: 10px;
   white-space: nowrap;
 }
-
+*/
 
 /*============PLAYLISTS SPECIFICS=================*/
-
+/*
 .playlist-item {
   margin-bottom: 8px;
 }
@@ -168,16 +168,17 @@
   width: auto;
   float: left;
   margin-right: 8px;
-}
+}*/
 
 
 /*=============NEW PLAYLIST FORM===================*/
 
-/*#new-playlist-form-container {
+#new-playlist-form-container {
   display: block;
   width: 100%;
   height: 100%;
   text-align: left;
+  color: #fff;
 }
 
 #playlist-instructions {
@@ -228,4 +229,4 @@
   text-align: center;
   margin-left: 40%;
 }
-*/
+

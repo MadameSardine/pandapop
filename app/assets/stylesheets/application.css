@@ -694,6 +694,14 @@ h2 {
   text-align: left;
 }
 
+.track-title-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
 #track-title img {
   float: left;
 }
