@@ -12,14 +12,15 @@
 //
 //
 //
-//= require angular
-//
-//= require gritter
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require angular
+//
+//= require gritter
 //= require angular/modules/HomeCtrl
 //= require_tree .
+//= require_self
 
   (function($) {
     $(document).ready(function() {

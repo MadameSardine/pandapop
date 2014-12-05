@@ -10,7 +10,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'paperclip'
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'bower-rails'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'json'
 gem 'httparty'
@@ -19,7 +18,6 @@ gem 'cancancan'
 gem 'figaro'
 gem 'aws-sdk'
 gem 'jquery-ui-rails'
-gem 'angularjs-rails'
 gem 'pry'
 gem "gritter", "1.1.0"
 
