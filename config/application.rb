@@ -16,7 +16,7 @@ Bundler.require(*Rails.groups)
 module Pandapop
   class Application < Rails::Application
 
-    config.assets.paths << Rails.root.join("vendor","assets","bower_components")
+    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components").to_s
     config.assets.precompile.shift
     config.assets.precompile.push(Proc.new do |path|
         File.extname(path).in? [
