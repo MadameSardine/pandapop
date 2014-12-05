@@ -640,6 +640,7 @@ h2 {
   float: left;
   background-color: #212121;
   margin-right: 10px;
+  overflow-y: scroll;
 }
 
 .playlist-button {
