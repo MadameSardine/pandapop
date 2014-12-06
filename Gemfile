@@ -20,6 +20,7 @@ gem 'aws-sdk'
 gem 'jquery-ui-rails'
 gem 'pry'
 gem "gritter", "1.1.0"
+gem 'hirb'
 
 
 group :test, :development do
@@ -31,7 +32,6 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'poltergeist'
   gem 'selenium-webdriver'
-  gem 'hirb'
   gem 'byebug'
   gem "factory_girl_rails"
 end

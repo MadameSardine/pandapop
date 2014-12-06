@@ -10,16 +10,6 @@ pandapop.controller('SearchController', ['$scope', 'Youtube', function SearchCon
   };
 }]);
 
-pandapop.controller('FriendSearchController', ['$scope', 'Friends', function FriendSearchController($scope, Friends){
-  $scope.findFriends = function findFriends(){
-    Friends.searchFriends($scope.friendQuery, function(error, data){
-      if (!error) {
-        $scope.users = data;
-      }
-    });
-  };
-}])
-
 pandapop.filter('formatDate', function(){
   return function(dateSTR) {
   var string = dateSTR;
@@ -44,15 +34,4 @@ pandapop.factory('Youtube', function Youtube($http){
       });
     }
   };
-});
-
-pandapop.factory('Friends', function Friends($http){
-  return {
-    searchFriends: function searchFriends(friendQuery, callback) {
-      $http.get('/users')
-      .success(function(data) {
-        console.log(data)
-      })
-    }
-  }
 });
