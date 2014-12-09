@@ -39,12 +39,12 @@ class PlaylistsController < ApplicationController
       redirect_to root_path
     else
       @playlist = Playlist.find(params[:id])
-      # @tracks = @playlist.tracks
+      @tracks = @playlist.tracks
 
-      if request.xhr? 
+      if request.xhr?
         render json: @playlist.to_json(:include => [:tracks, :user])
       else
-        render html: @playlist
+        render :show
       end
     end
   end
