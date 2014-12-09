@@ -21,6 +21,7 @@ gem 'jquery-ui-rails'
 gem 'pry'
 gem "gritter", "1.1.0"
 gem 'hirb'
+gem 'newrelic_rpm'
 
 
 group :test, :development do

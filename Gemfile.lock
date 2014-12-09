@@ -111,6 +111,7 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    newrelic_rpm (3.9.8.273)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     oauth2 (1.0.0)
@@ -253,6 +254,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   json
+  newrelic_rpm
   omniauth-facebook
   paperclip
   pg
