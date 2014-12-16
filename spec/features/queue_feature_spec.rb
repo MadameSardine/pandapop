@@ -6,7 +6,7 @@ describe 'queue management' do
    @panda = User.create(email: 'panda123@test.com', username: 'panda123', first_name: 'panda', last_name: 'pop', password: 'pandapop123', password_confirmation: 'pandapop123')
     @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
     @shakeitoff = Track.create(title: "Shake it off", duration: 'PT4M23S')
-      @taylorjamz.tracks << @shakeitoff
+    @taylorjamz.tracks << @shakeitoff
     visit '/'
   end
 
@@ -34,7 +34,9 @@ describe 'queue management' do
   context 'after a user has made a search for simple plan ' do
 
     before do
-      search_for_simple_plan
+      VCR.use_cassette('simple_plan') do
+        search_for_simple_plan
+      end
     end
 
     it 'should be able to add a track to the queue', js: true  do

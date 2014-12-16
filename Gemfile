@@ -27,12 +27,17 @@ gem 'newrelic_rpm'
 group :test, :development do
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'byebug'
+end
+
+group :test do
+  gem "factory_girl_rails"
   gem 'rspec-rails'
   gem 'capybara'
   gem 'warden'
   gem 'database_cleaner'
   gem 'poltergeist'
   gem 'selenium-webdriver'
-  gem 'byebug'
-  gem "factory_girl_rails"
+  gem "vcr"
+  gem 'webmock'
 end

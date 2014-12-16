@@ -2,18 +2,15 @@ class TracksController < ApplicationController
 
   load_and_authorize_resource
 
+  before_filter :check_user?, only: [:create, :destroy]
+
   def create
-    @playlist = Playlist.find(params[:track][:playlists])
-    if @playlist.user_id == current_user.id
-      @track = Track.create(track_params)
-      @playlist.tracks << @track
-      if request.xhr? 
-        render json: @track
-      else
-        redirect_to playlist_path(@playlist), notice: 'Track successfully added to playlist'
-      end
+    @track = Track.create(track_params)
+    playlist.tracks << @track
+    if request.xhr?
+      render json: @track
     else
-      redirect_to root_path, notice: 'This is not your playlist'
+      redirect_to playlist_path(playlist), notice: 'Track successfully added to playlist'
     end
   end
 
@@ -28,14 +25,20 @@ class TracksController < ApplicationController
     render :nothing => true
   end
 
-
-
-
-
   private
 
   def track_params
     params.require(:track).permit(:title, :duration, :video_id)
+  end
+
+  def playlist
+    @playlist ||= Playlist.find(params[:track][:playlists])
+  end
+
+  def check_user?
+    if playlist.user != current_user
+      redirect_to root_path, notice: 'This is not your playlist'
+    end
   end
 
 end

@@ -7,6 +7,7 @@ require 'capybara/rails'
 require 'database_cleaner'
 require 'capybara/poltergeist'
 require 'support/test_helpers'
+require 'vcr'
 Capybara.javascript_driver = :poltergeist
 
 include Warden::Test::Helpers
@@ -30,6 +31,12 @@ Warden.test_mode!
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
+VCR.configure do |c|
+  c.cassette_library_dir = "spec/cassettes"
+  c.hook_into :webmock
+  c.ignore_localhost = true
+end
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
