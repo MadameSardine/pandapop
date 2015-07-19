@@ -41,7 +41,7 @@ describe 'playlist management', js: true do
     before do
       @panda = User.create(email: 'panda123@test.com', username: 'panda123', first_name: 'panda', last_name: 'pop', password: 'pandapop123', password_confirmation: 'pandapop123')
       login_as @panda
-      @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz")
+      @taylorjamz = Playlist.create(user: @panda, name: "Taylor Swift Jamz") # replace with let! statements
       @beyonce = Playlist.create(user: @panda, name: "Best of Beyonce")
       @shakeitoff = Track.create(title: "Shake it off", duration: 'PT4M23S')
       @taylorjamz.tracks << @shakeitoff
