@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 	before_action :authenticate_user!, :except => [:index, :player, :test, :get_songs]
   skip_before_action :verify_authenticity_token
 
-  def index
+  def index # <-- this method is getting well in need of refactoring :-)
     @key = ENV['youtube_api_key']
     @playlists = Playlist.all
     q = params[:'search-content'].to_s.gsub(' ', '+') + '+karaoke'
